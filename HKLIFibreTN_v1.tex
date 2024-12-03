@@ -28,6 +28,7 @@
 \usepackage{setspace}
 \usepackage{chngcntr}
 \usepackage{afterpage}
+\usepackage{CJKutf8}
 \usepackage{bm}
 \usepackage{tocloft}
 \setlength{\cfttabnumwidth}{1.5cm}
@@ -86,16 +87,16 @@
 
 \newpage
 
-\section{Introduction}
+\section{Introduction}\label{sec:intro}
 The Hyper-Kamiokande experiment has a broad physics program, including the aim of making precision measurements of neutrino oscillation parameters. In order to make such precision measurements, a precise understanding of the detector itself is required. To this end an array of different calibration systems are planned, with each playing a crucial role in driving systematic uncertainties down to the percent-level required.
 
 A key component of the calibration program is the light injection (LI) system, which has two primary aims. The first is to measure the optical properties of the water in the tank, and monitor how the measured absorption and scattering parameters evolve with time. The second is to provide light sources with which to calibrate PMT response. In order to illuminate the injectors, lengths of fibre optic cable will be used to carry light from the sources on the top of the tank, all the way to the injectors installed on the PMT support structure.
 
 This technical note focuses on the fibre optic requirements for the LI system, describing the quantities and lengths of cables needed, along with the lab measurements performed to decide on which types of fibre optic cables to use.
 
-\section{HK LI System Overview}
+\section{HK LI System Overview}\label{sec:overview}
 
-The HK LI system will be split into two parts, one for the inner detector (ID) and one for the outer detector (OD). The ID system will consist of 33 injector positions, each housing a diffuser and collimator. Full details of the diffuser and collimator designs and requirements can be found in HK-TN-0042 \cite{bib:tn0042} and HK-TN-0065 \cite{bib:tn0065}, respectively. 28 injector positions will be located in the barrel region, with 7 locations equally spaced in $z$, each having four positions equally spaced in $\theta$. The bottom end-cap will feature four more injector locations, with the injectors all facing upwards in the $+z$ direction. The top end-cap will feature a single location, where a calibration port will be used, rather than fixing to the PMT support structure.{\color{red} confirm if we'll have a top collimator} \cref{fig:IDmap} shows the injector locations described.
+The HK LI system will be split into two parts, one for the inner detector (ID) and one for the outer detector (OD). The ID system will consist of 33 injector positions, each housing a diffuser and collimator. Full details of the diffuser and collimator designs and requirements can be found in HK-TN-0042 \cite{bib:tn0042} and HK-TN-0065 \cite{bib:tn0065}, respectively. 28 injector positions will be located in the barrel region, with 7 locations equally spaced in $z$, each having four positions equally spaced in $\theta$. The bottom end-cap will feature four more injector locations, with the injectors all facing upwards in the $+z$ direction. The top end-cap will feature a single location, where a calibration port will be used, rather than fixing to the PMT support structure. \cref{fig:IDmap} shows the injector locations described.
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}
@@ -188,16 +189,89 @@ The OD system will consist primarily of diffusers, using bare hemispheres couple
 \caption{Injector location map for OD diffuser positions. Locations are approximate and dependent on PMT/WLS plate locations.}\label{fig:ODdiffmap}
 \end{figure}
 
+In order to illuminate the injectors, two separate systems will be employed. The first of these will be a system formed of six picosecond pulsed laser sources, in the wavelength range 337 -- 550 nm. This laser system will be used to illuminate all of the ID injectors, along with the 12 OD collimators. {\color{red} put further details on switches and setup in a different section?}. The OD diffusers on the other hand will be illuminated by an LED pulser system, utilising a series of 365~nm wavelength LEDs. Both of these systems will feature monitoring devices, so that the stability of the light sources can be monitored prior to convolution with detector parameters.
 
-\section{Fibre Length Requirements}
 
 \section{Fibre Lab Measurements}
+
+In order to make an informed decision on the optimal fibres to use for the LI system in HK, a series of measurements were made of the properties of the candidate fibres chosen. This section describes the fibre test stand setup at University of Liverpool, along with the measurements made of the candidate fibres, before discussing the decision on which fibres to use.
+
+For the fibres to be suitable for use in the LI system, there are a series of requirements. These are:
+\begin{itemize}
+\item The fibre should be capable of transporting light of wavelengths in the range 337 -- 550~nm.
+\item The attenuation of the input signal across the full length of fibre should be minimised
+\item The dispersion of the input signal across the full length of fibre should be minimised {\color{red} these really need quantifying, somehow}
+\end{itemize}
+
+For initial testing, six different fibre types were purchased from Thorlabs, each in lengths of 1~m and 35~m. Four of these were step-index fibres; of these, two wide-core fibres (FP200URT and FP400URT) and two narrow-core fibres (FG050UGA and FG105UCA) were chosen. The remaining two candidates were graded-index fibres (GIF50C and GIF50D). The reason for the inclusion of these was to confirm whether a graded-index fibre core is required in order to limit dispersion. The specifications of each fibre type are summarised in 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lllll}
+\hline
+Fibre type & Type   & Core \diameter [$\mu$m] 	& Connector B & Quantity \\ \hline
+FG050UGA   &        &             				&             &          \\
+FG105UCA   &        &             				&             &          \\
+FP200URT   &        &             				&             &          \\
+FP400URT   &        &             				&             &          \\
+GIF50C     &        &             				&             &          \\
+GIF50D     &        &            				&             &         \\ \hline
+\end{tabular}
+\caption{Fibre types used for initial testing in lengths of 1~m and 35~m.}\label{tab:fibres}
+\end{table}
 
 \subsection{Fibre Test Stand}
 
 \subsection{Attenuation Measurements}
 
 \subsection{Dispersion Measurements}
+
+\subsection{Conclusions}
+
+
+\section{Fibre Length Requirements}\label{sec:lengths}
+
+{\color{red} Might move this to the end after stating fibre type decision, then split into ID and OD parts so it flows better. General content will be the same though}
+
+With the large number of injectors being employed for the light injection system, an even larger number of fibre optic cables will be required. This section details the quantity and lengths of cables required to connect the full HK LI system.
+
+The overall design of the HK water tank and PMT support structure is given in \cref{fig:HKtank}. Fibre optics will run through specifically installed fibre ports around the edge of the dome floor into the OD, then down to each injector location.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{HKdiagram.png}
+\caption{Schematic of the HK water tank and PMT support structure. \cite{bib:tn0048}}\label{fig:HKtank}
+\end{figure}
+16 of these fibre ports are distributed roughly evenly around the outer edge of the dome. The full schematic of the dome showing all calibration and fibre ports is given in \cref{fig:ports}. The OD fibre ports in question are those marked with magenta dots and labelled ``odf'' (OD(\begin{CJK*}{UTF8}{min}ファイバー用\end{CJK*})).
+\begin{figure}[h]
+\centering
+\includegraphics[angle=90,width=\textwidth]{portMap}
+\caption{write this}\label{fig:ports}
+\end{figure}
+
+Although this equates to a large range of required lengths, all fibre optic cables will be kept the same length, such that there is no offset in injection timing between injector locations due to the fibre path lengths. As a result, the required length of fibre optic cable is dictated by that needed to reach the injector located at the centre of the bottom end-cap. In order to be most accessible from all fibre ports, the electronics racks for the LI system will be located near the centre of the dome, next to the ID fibre port (labelled ``Bidf'', light pink, in \cref{fig:ports}). This is the calibration port used to deploy an ID diffuser and collimator to the top end-cap, mentioned in \cref{sec:overview}. Rather than run single lengths of fibre optic cable from injectors to the electronics rack, each required length will be split in two, with patch panels to connect the two parts near the OD fibre ports. The reason for doing this is to allow for replacement of fibres in case of breakage. The parts on top of the dome (out of the water) are more at risk of being damaged by people passing by or nearby work being done, no matter how much care is taken around them. If a single fibre running all the way to an injector in the tank were to break, it would be impossible to replace. However if the fibre outside of the tank is separate, the damaged part can be easily replaced, without having to touch the part that extends into the tank.
+
+Assuming the fibre optic cable runs along the outer side of the PMT support structure, and can only run in orthogonal directions along the bottom end-cap, a total length of 116.8~m is required to reach from the middle of the bottom end-cap to one of the OD fibre ports. In reality, the number and position of the OD fibre ports means it is unlikely that a fibre would have to take the longest possible orthogonal path to the centre, and thus this number is treated as the maximum possible length required. In order to allow additional contingency and for the fibre to reach out of the port to a patch panel, this can be rounded to 120~m. {\color{red} is 3m enough?} The fibres of this length used to connect to ID injectors (and OD collimators) will require FC/PC connectors on both ends. For the OD diffusers however, the fibre is to be connected to the diffuser simply by pushing into the housing, so these will require one end to have no connector. The end without the connector will still require cleaving and polishing to minimise reflections at the surface.
+
+The second part of this fibre is that which runs across the top of the tank to the electronics rack. As mentioned previously, the rack will be positioned near the ID fibre port, which is approximately 3~m from the centre of the dome. In order to estimate the required fibre length, it again has to be assumed that the fibre cannot take the shortest radial path to the centre, and rather has to travel orthogonally to navigate obstacles. Using a water tank radius of 33~m, this gives an orthogonal distance of 46.68~m. An addition of 5~m to reach the electronics rack can be added, and the final requirement of 51.68~m rounded to 55~m to again ensure contingency and not require the fibre to be completely taught. In order to connect to both the patch panel and the electronics rack, these fibres will require FC/PC connectors on both ends.
+
+To connect to the ID injectors, an additional patch fibre is also required. ID injectors will be installed on the PMT support structure during construction, while the fibre installation will be carried out after construction of the structure has been completed, by utilising the OD gondola. In order to avoid workers having to reach far out of the gondola, through the support structure, to attach fibres to the injector housing, short patch fibres will be attached to the injectors at the time of their installation. These will span the dead region and be fixed to the outer side of the structure, so that the long fibres can be connected directly to the patch fibres. As part of this a fibre guide will be used, to ensure that the end of the fibre will be pointing vertically upwards for connection, without the fibre being pushed past its bending radius. {\color{red} Work is ongoing to establish the exact design of this fibre guide, but with a dead region depth of 0.6~m it is expected that a patch cable of 1~m length will be sufficient. These again will require FC/PC connectors on both ends.}
+
+The final set of fibres required is the short patch fibres used in the LED pulser system. Each LED pulser board will feature a connector sitting atop the surface mounted LED, with space for two fibres to be inserted. One of these will be directly above the LED to collect as much light as possible, and this will be used for illuminating the OD diffusers. The second will be offset, collecting some of the remaining light to be used as a signal for monitoring purposes. As the monitor system will sit at the electronics rack, much less fibre will be used and therefore less initial light input is required. {\color{red} The design for the the fibre connector is currently ongoing, and will be used to confirm the required length of the patch fibres within the pulser board crates.} As the connector for the LED pulser board will hold the fibres simply by friction, each of these patch cables will require FC/PC connectors on one end, with the other cleaved and polished.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lllll}
+\hline
+Fibre type & Length & Connector A & Connector B & Quantity \\ \hline
+FG105UCA   &        &             &             &          \\
+FG105UCA   &        &             &             &          \\
+FG105UCA   &        &             &             &          \\
+FP400URT   &        &             &             &          \\
+FP400URT   &        &             &             &          \\
+FP400URT   &        &             &             &         \\ \hline
+\end{tabular}
+\caption{List of all required fibres with necessary lengths, connector configurations and quantities.}\label{tab:fibrelengths}
+\end{table}
 
 \section{Summary}
 
@@ -211,6 +285,10 @@ S. Boyd {\it et al.}, Hyper-Kamiokande Light Injector Diffuser Technical Note (H
 %%collimator TN
 \bibitem{bib:tn0065}
 S. Boyd {\it et al.}, Hyper-Kamiokande Light Injector Collimator Technical Note (HK-TN-0065)
+
+%%tank TN
+\bibitem{bib:tn0048}
+Far Facility Working Group, Water tank and PMT support structure (HK-TN-0048)
 
 \end{thebibliography}
 
