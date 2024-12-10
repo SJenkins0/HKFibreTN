@@ -203,30 +203,82 @@ For the fibres to be suitable for use in the LI system, there are a series of re
 \item The dispersion of the input signal across the full length of fibre should be minimised {\color{red} these really need quantifying, somehow}
 \end{itemize}
 
-For initial testing, six different fibre types were purchased from Thorlabs, each in lengths of 1~m and 35~m. Four of these were step-index fibres; of these, two wide-core fibres (FP200URT and FP400URT) and two narrow-core fibres (FG050UGA and FG105UCA) were chosen. The remaining two candidates were graded-index fibres (GIF50C and GIF50D). The reason for the inclusion of these was to confirm whether a graded-index fibre core is required in order to limit dispersion. The specifications of each fibre type are summarised in 
-
+Six different fibre types from Thorlabs were considered. Four of these were step-index fibres; two wide-core fibres (FP200URT and FP400URT) and two narrow-core fibres (FG050UGA and FG105UCA) were chosen. The remaining two candidates were graded-index fibres (GIF50C and GIF50D). The reason for the inclusion of these was to confirm whether a graded-index fibre core is required in order to limit dispersion. The main specifications of each fibre type are summarised in \cref{tab:fibres}. GIF50C and GIF50D have almost the same specifications, with the only difference being the available bandwidth.
 \begin{table}[h]
 \centering
-\begin{tabular}{lllll}
+\begin{tabular}{llccc}
 \hline
-Fibre type & Type   & Core \diameter [$\mu$m] 	& Connector B & Quantity \\ \hline
-FG050UGA   &        &             				&             &          \\
-FG105UCA   &        &             				&             &          \\
-FP200URT   &        &             				&             &          \\
-FP400URT   &        &             				&             &          \\
-GIF50C     &        &             				&             &          \\
-GIF50D     &        &            				&             &         \\ \hline
+Fibre	   & Type   		  & Core \diameter [$\mu$m] &  NA 	  &  Transmission region [nm]\\ \hline
+FG050UGA   &  Step-index      &           \phantom{0}50  			&  0.22   &   250--1200       \\
+FG105UCA   &  Step-index      &           105  			&  0.22   &   250--1200       \\
+FP200URT   &  Step-index      &           200  			&  0.50   &   300--1200       \\
+FP400URT   &  Step-index      &           400  			&  0.50   &   300--1200      \\
+GIF50C     &  Graded-index    &           \phantom{0}50  			&  0.20	  &   800--1600       \\
+GIF50D     &  Graded-index    &           \phantom{0}50 			&  0.20   &   800--1600      \\ \hline
 \end{tabular}
 \caption{Fibre types used for initial testing in lengths of 1~m and 35~m.}\label{tab:fibres}
 \end{table}
+Preliminary measurements were performed with all six fibre types listed, and these results were used to make an informed choice on which should be investigated more thoroughly.
 
-\subsection{Fibre Test Stand}
+
+\subsection{Fibre Test Stand}\label{sec:meas:sub:stand}
+
+All fibre measurements were performed using the fibre test stand in the Particle Physics Optical Laboratory at the University of Liverpool. Two different types of light sources are available for testing; the first of these is a Picoquant Sepia PDL 828-L laser driver, powering a LDH-D-C-375M laser head, with a peak wavelength of 371~nm. This is a pulsed laser source with a pulse width of $\sim$50~ps, and repetition rate up to 80~MHz. The candidate fibres couple directly to the laser head using an FC/PC connector. The second set of light sources was a series of LEDs, covering wavelengths from 365~nm up to 595~nm. These are run in DC mode, and were used primarily to make attenuation measurements over the range of wavelengths relevant for the LI system. In order to connect the FC/PC connector on a candidate fibre to a surface-mounted LED, custom connectors were 3D printed. {\color{red} does this need expanding?}
+
+Two different detection methods for the fibre transmitted light are available. To measure power output, a Thorlabs PM100USB power meter is used, with an S150C sensor connected. For timing measurements, the fibres are connected to a Hamamatsu H10721-110 PMT, which is read out by a Tektronix MSO56{\color{red} check model no.} oscilloscope. Fibres are coupled to either read-out method via FC/PC connection such that, in the case of the laser, there are no bare beams in the lab. To ensure light tightness and as an additional safety measure, all light sources and detectors are housed within a dark box, with no connections made outside. Larger fibre reels are kept outside due to their size, with a port used to bring the ends inside for connection. An image of the setup is shown in \cref{fig:fibreteststand}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fibreTestStand}
+\caption{Fibre test stand in the optical lab at University of Liverpool.}\label{fig:fibreteststand}
+\end{figure}
+
+\subsection{Initial Selection}
+
+In order to narrow down the choice of fibre optic cable, all six options listed in \cref{tab:fibres} were purchased, in lengths of 1~m and 35~m. Although this is much shorter than the fibres that will be needed for Hyper-K, it allowed for preliminary checks on attenuation and dispersion without purchasing full lengths of each possible fibre.
+
+Due to the early stage at which these measurements were made, the laser module described in \cref{sec:meas:sub:stand} had not yet been set up. Instead, preliminary measurements of both attenuation and dispersion were made using a pulsed 385~nm LED, operated by an early design of the LED pulser board that will be used for the OD system.
+
+To calculate dispersion of the signal across the fibre length, the width of the PMT signal pulse was measured for both lengths of each fibre. 20,000 measurements were made for each set to estimate the uncertainty. Subtracting these values in quadrature obtains the amount of dispersion observed. The pulse widths at both lengths and calculated dispersion values for each fibre are presented in \cref{tab:dispinit}.
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\hline
+Fibre	   & Pulse width at 1~m [ns]  & Pulse width at 35~m [ns] &  Dispersion [ns]		\\ \hline
+FG050UGA   &  $3.486\pm0.111$	      &  $4.207\pm0.305$         &  $2.355\pm0.569$     \\
+FG105UCA   &  $3.734\pm0.075$	      &  $4.841\pm0.205$ 		 &  $3.081\pm0.335$     \\
+FP200URT   &  $3.809\pm0.045$	      &  $5.117\pm0.158$	   	 &  $3.416\pm0.242$     \\
+FP400URT   &  $4.329\pm0.054$	      &  $5.252\pm0.116$ 		 &  $2.974\pm0.219$     \\
+GIF50C     &  $3.453\pm0.103$    	  &  $3.867\pm0.260$ 	     &  $1.741\pm0.613$     \\
+GIF50D     &  $3.407\pm0.101$		  &  $3.899\pm0.213$ 		 &  $1.896\pm0.509$     \\ \hline
+\end{tabular}
+\caption{Pulse width and dispersion measurements for initial fibre measurements, using a 385~nm pulsed LED source.}\label{tab:dispinit}
+\end{table}
+The results shown here are mostly unsurprising. As expected, the two graded-index fibres show the smallest amount of dispersion; this is exactly the reason they were added for consideration. For the first three step-index fibres, the dispersion increases with increased core diameter. However, it can be seen that the FP400URT, which has the largest core diameter, actually has a smaller amount of dispersion than the FP200URT.
+
+The same set-up was also used to make preliminary measurements of attenuation in the fibres. As this was an early version of the fibre test stand, an optical power meter was not used. Instead, the area under the curve of each recorded pulse was used to measure the power. Again, 20,000 measurements for each fibre sample were taken.
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\hline
+Fibre	   & Power at 1~m [nW]  & Power at 35~m [nW] &  Transmittance [\%]	\\ \hline
+FG050UGA   &  $\phantom{0}1.01\pm0.04$     &   $\phantom{0}0.62\pm0.04$    &       \\
+FG105UCA   &  $\phantom{0}4.84\pm0.04$	    &   $\phantom{0}3.29\pm0.04$    &       \\
+FP200URT   &  $16.49\pm0.04$			&  	$\phantom{0}7.52\pm0.04$  	 &       \\
+FP400URT   &  $71.79\pm0.04$    		&   $31.02\pm0.04$	 			&       \\
+GIF50C     &  $\phantom{0}0.94\pm0.04$     &   $\phantom{0}0.29\pm0.04$	 &       \\
+GIF50D     &  $\phantom{0}0.94\pm0.04$     &   $\phantom{0}0.52\pm0.04$    &       \\ \hline
+\end{tabular}
+\end{table}
+
 
 \subsection{Attenuation Measurements}
 
 \subsection{Dispersion Measurements}
 
-\subsection{Conclusions}
+\subsection{Fibre Choice}
+
+\section{Fibre Switching Device}
 
 
 \section{Fibre Length Requirements}\label{sec:lengths}
