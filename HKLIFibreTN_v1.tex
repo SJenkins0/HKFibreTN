@@ -225,7 +225,7 @@ Preliminary measurements were performed with all six fibre types listed, and the
 
 All fibre measurements were performed using the fibre test stand in the Particle Physics Optical Laboratory at the University of Liverpool. Two different types of light sources are available for testing; the first of these is a Picoquant Sepia PDL 828-L laser driver, powering a LDH-D-C-375M laser head, with a peak wavelength of 371~nm. This is a pulsed laser source with a pulse width of $\sim$50~ps, and repetition rate up to 80~MHz. The candidate fibres couple directly to the laser head using an FC/PC connector. The second set of light sources was a series of LEDs, covering wavelengths from 365~nm up to 595~nm. These are run in DC mode, and were used primarily to make attenuation measurements over the range of wavelengths relevant for the LI system. In order to connect the FC/PC connector on a candidate fibre to a surface-mounted LED, custom connectors were 3D printed. {\color{red} does this need expanding?}
 
-Two different detection methods for the fibre transmitted light are available. To measure power output, a Thorlabs PM100USB power meter is used, with an S150C sensor connected. For timing measurements, the fibres are connected to a Hamamatsu H10721-110 PMT, which is read out by a Tektronix MSO56{\color{red} check model no.} oscilloscope. Fibres are coupled to either read-out method via FC/PC connection such that, in the case of the laser, there are no bare beams in the lab. To ensure light tightness and as an additional safety measure, all light sources and detectors are housed within a dark box, with no connections made outside. Larger fibre reels are kept outside due to their size, with a port used to bring the ends inside for connection. An image of the setup is shown in \cref{fig:fibreteststand}.
+Two different detection methods for the fibre transmitted light are available. To measure power output, a Thorlabs PM100USB power meter is used, with an S150C sensor connected. For timing measurements, the fibres are connected to a Hamamatsu H10721-210 PMT, which is read out by a Tektronix MSO56{\color{red} check model no.} oscilloscope. Fibres are coupled to either read-out method via FC/PC connection such that, in the case of the laser, there are no bare beams in the lab. To ensure light tightness and as an additional safety measure, all light sources and detectors are housed within a dark box, with no connections made outside. Larger fibre reels are kept outside due to their size, with a port used to bring the ends inside for connection. An image of the setup is shown in \cref{fig:fibreteststand}.
 
 \begin{figure}[h]
 \centering
@@ -236,6 +236,8 @@ Two different detection methods for the fibre transmitted light are available. T
 \subsection{Initial Selection}
 
 In order to narrow down the choice of fibre optic cable, all six options listed in \cref{tab:fibres} were purchased, in lengths of 1~m and 35~m. Although this is much shorter than the fibres that will be needed for Hyper-K, it allowed for preliminary checks on attenuation and dispersion without purchasing full lengths of each possible fibre.
+
+\subsubsection{Testing}
 
 Due to the early stage at which these measurements were made, the laser module described in \cref{sec:meas:sub:stand} had not yet been set up. Instead, preliminary measurements of both attenuation and dispersion were made using a pulsed 385~nm LED, operated by an early design of the LED pulser board that will be used for the OD system.
 
@@ -256,23 +258,69 @@ GIF50D     &  $3.407\pm0.101$		  &  $3.899\pm0.213$ 		 &  $1.896\pm0.509$     \\
 \end{table}
 The results shown here are mostly unsurprising. As expected, the two graded-index fibres show the smallest amount of dispersion; this is exactly the reason they were added for consideration. For the first three step-index fibres, the dispersion increases with increased core diameter. However, it can be seen that the FP400URT, which has the largest core diameter, actually has a smaller amount of dispersion than the FP200URT.
 
-The same set-up was also used to make preliminary measurements of attenuation in the fibres. As this was an early version of the fibre test stand, an optical power meter was not used. Instead, the area under the curve of each recorded pulse was used to measure the power. Again, 20,000 measurements for each fibre sample were taken.
+The same set-up was also used to make preliminary measurements of attenuation in the fibres. As this was an early version of the fibre test stand, an optical power meter was not used. Instead, the area under the curve of each recorded pulse was used as a proxy, as this is proportional to the total charge collected by the PMT per pulse. Again, 20,000 measurements for each fibre sample were taken, and the results for this are presented in \cref{tab:attinit}
 \begin{table}[h]
 \centering
 \begin{tabular}{lccc}
 \hline
-Fibre	   & Power at 1~m [nW]  & Power at 35~m [nW] &  Transmittance [\%]	\\ \hline
-FG050UGA   &  $\phantom{0}1.01\pm0.04$     &   $\phantom{0}0.62\pm0.04$    &       \\
-FG105UCA   &  $\phantom{0}4.84\pm0.04$	    &   $\phantom{0}3.29\pm0.04$    &       \\
-FP200URT   &  $16.49\pm0.04$			&  	$\phantom{0}7.52\pm0.04$  	 &       \\
-FP400URT   &  $71.79\pm0.04$    		&   $31.02\pm0.04$	 			&       \\
-GIF50C     &  $\phantom{0}0.94\pm0.04$     &   $\phantom{0}0.29\pm0.04$	 &       \\
-GIF50D     &  $\phantom{0}0.94\pm0.04$     &   $\phantom{0}0.52\pm0.04$    &       \\ \hline
+Fibre	   & 1~m [nVs]  & 35~m [nVs] &  Transmittance [\%]	\\ \hline
+FG050UGA   &  $\phantom{0}1.86\pm0.23$     &   $\phantom{0}0.75\pm0.23$     & \phantom{0}$40.3\pm13.3$     \\
+FG105UCA   &  $\phantom{0}7.16\pm0.62$	    &   $\phantom{0}4.17\pm0.28$    & $58.2\pm6.4$     \\
+FP200URT   &  $16.53\pm0.99$				&  	$\phantom{0}9.59\pm0.74$  	& $58.0\pm5.7$     \\
+FP400URT   &  $23.56\pm1.14$    			&   $19.24\pm0.94$	 			& $81.7\pm5.6$     \\
+GIF50C     &  $\phantom{0}4.61\pm0.69$     &   $\phantom{0}4.09\pm0.59$	 	& \phantom{0}$88.7\pm18.4$     \\
+GIF50D     &  $\phantom{0}2.39\pm0.57$     &   $\phantom{0}0.56\pm0.24$     & \phantom{0}$23.4\pm11.5$    \\ \hline
 \end{tabular}
+\caption{Area-under-curve measurements from oscilloscope for 1~m and 35~m fibres, with calculated transmittance values.}\label{tab:attinit}
 \end{table}
+Again, the results shown here are unsurprising for the step-index fibres, with the transmittance increasing with increased core diameter. It can also be seen that the recorded values through the 1~m patch cable increase with increasing core diameter; this shows the difficulty of coupling particularly narrow-core fibres to an LED, which generally have a wide opening-angle for the light profile. The results obtained for the two graded-index fibres are seen to be very different, which is potentially related to the different bandwidths they're designed for, and the fact they're not specified for a wavelength range below 800~nm. The amount of charge collected from a 1~m fibre for either of these types is again small due to them having a 50 $\mu$m core diameter, and suggests that narrow-core fibres are not suitable for the LED pulser system.
+
+\subsubsection{Results}
+
+The results from these initial tests suggest that different fibre types will need to be employed for the laser and LED systems. For the LED system, where coupling the fibre to the LED and maximising light transmission is important, a wide-core fibre should likely be chosen. FP400URT showed the best transmission and input light acceptance, so this is the candidate that was favoured. For the laser system timing is more important; the dispersion measurements suggested that the graded-index GIF50C and GIF50D were the best candidates here.
+
+As this was a preliminary version of the fibre test stand, and measurements were carried out with fibre lengths significantly shorter than what will actually be installed into Hyper-K, the decision was initially taken to purchase three candidate fibres for further testing. These were FP400URT, GIF50C and GIF50D. Based on estimates of the length required, reels of 40~m and 105~m length were purchased for each of these fibre types. However, it was later understood that the feed-throughs for the injectors would use an FG105UCA patch cable. In order to not add extra inefficiencies to the system in trying to couple different fibres to one another, the ideal scenario would be to use this fibre for the laser system. A reel of 105~m for this was also purchased and tested, with results for all four primary candidate fibres described together in the following sections for simplicity.
 
 
 \subsection{Attenuation Measurements}
+
+\subsubsection{Method}\label{sec:fibre:sub:att:sub:method}
+
+The full laser setup for the HK LI system will feature six laser heads, over a range of wavelengths spanning UV to visible. In order to confirm whether attenuation in the candidate fibres is of an acceptable level across multiple wavelengths, LEDs across a series of wavelengths were used for these tests. Those were: 365, 395, 415, 465, 496, 525 and 560~nm. As timing is not relevant to attenuation measurements, and to ensure results were valid by initially getting enough light into the fibres, these LEDs were powered with a DC source.
+
+Measurements were made of the output power from fibres of length 1, 2, 37, 42, 77, 107 and 147~m, where some of these lengths were formed by coupling together multiple fibres of shorter length, and all above 1~m featured 2 1~m patch cables in the setup. As a 40~m length of FG105UCA was not ordered, the measurements for this were done at slightly altered lengths. Power measurements were made using an optical power meter, as described in \cref{sec:meas:sub:stand}. The longer reels of fibre were purchased without tubing, and it was observed during data taking that there was some level of light leakage into the fibres, causing non-zero readings when the LEDs were not powered. To mitigate this, all measurements were performed with the reels of fibre that were too big to fit inside the dark box wrapped in black sheet.
+
+The power observed after transmission through a fibre of length $x$ can be written as
+\begin{eqnarray}
+P = P_0\exp^{-\lambda x},
+\end{eqnarray}
+where $P$ is the observed power after traversing the fibre, $P_0$ is the initial power, and $\lambda$ is the coefficient of attenuation, describing how much attenuation occurs per unit length. Taking the natural logarithm of this,
+\begin{eqnarray}
+\ln P = -\lambda x + \ln P_0,
+\end{eqnarray}
+allows a linear fit to be made to data, where the gradient is the coefficient of attenuation, and the y-intercept the log of the input power. The fitted attenuation coefficient can then be used to calculate attenuation in dB for a given fibre length, where in this case a length of 150~m is used:
+\begin{eqnarray}
+\text{Attenuation (dB/150~m)} = \frac{10}{\ln 10}\times 150 \times \lambda.
+\end{eqnarray}
+
+\subsubsection{Results}
+As a first check of the measurement system, the measurements and calculated attenuation values for FP400URT were compared to those provided in the fibre specifications by Thorlabs. This comparison can be seen in \cref{fig:fp400compar}, and shows generally good agreement between the two. Values of attenuation stay below 10~dB for until just above 400~nm, where the amount of attenuation increases sharply. At the minimum wavelength of 365~nm, attenuation of over 20~dB is observed, and suggests that attenuation values in the UV range will likely be the driving factor for deciding on a fibre type.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{FP400Compar.png}
+\caption{Measured attenuation scaled to 150~m length as a function of wavelength for the FP400URT fibre, compared to specifications from Thorlabs.}\label{fig:fp400compar}
+\end{figure}
+
+The full results for all fibre types are presented in \cref{fig:attenall}, with all values of attenuation again scaled to what would be seen across 150~m of fibre. As was shown for FP400URT, the amount of attenuation observed in the fibres peaks at the lowest wavelength scanned, 365~nm. At this value there is a large range of values observed, with FG105UCA exhibiting the lowest attenuation at under 15~dB. Conversely, the two graded index fibres show much greater attenuation. The spread of values at 395~nm is much reduced, with the two graded-index fibres instead exhibiting lower attenuation here. Above 400~nm, FG105UCA is seen to consistently exhibit higher attenuation than the other fibres, though in all cases is still below 10~dB.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{AttenAll.png}
+\caption{Measured attenuation scaled to 150~m length for all four candidate fibre types, as a function of wavelength.}\label{fig:attenall}
+\end{figure}
+These results suggest that FG105UCA is the optimal fibre type to use, in terms of attenuation. Although it exhibits higher attenuation in the visible range, there is significantly less observed in the UV range, whereas the other fibre options start to peak sharply in attenuation here. As lower wavelengths of light have been previously observed to be more sensitive to changes in water parameters {\color{red} can ref sk gd results here}, prioritising lower attenuation in this region should be preferred.
+
+Performing these tests also provided an opportunity to become familiar with handling the fibres. As was mentioned in \cref{sec:fibre:sub:att:sub:method}, the long reels of fibre that were purchased for these tests were done so without tubing, which is generally added in order to protect the fibres. Along with the issues of light leakage previously mentioned, during testing it was found that the narrow-core fibres were particularly fragile, with two being broken in the process. The FP400URT fibre however was seen to be a lot stronger and light tight. This is attributed to the hard polymer cladding and Tefzel (Teflon-based) coating, as opposed to the clear acrylate used for the graded-index fibres.
 
 \subsection{Dispersion Measurements}
 
