@@ -39,6 +39,8 @@
 
 %%%Add this for version history
 %\setcounter{section}{-1}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
 
 %%spacing on tilde for approximate values
 \let\oldsim\sim 
@@ -237,7 +239,7 @@ Two different detection methods for the fibre transmitted light are available. T
 
 In order to narrow down the choice of fibre optic cable, all six options listed in \cref{tab:fibres} were purchased, in lengths of 1~m and 35~m. Although this is much shorter than the fibres that will be needed for Hyper-K, it allowed for preliminary checks on attenuation and dispersion without purchasing full lengths of each possible fibre.
 
-\subsubsection{Testing}
+\subsubsection{Testing}\label{sec:meas:sub:init:sub:test}
 
 Due to the early stage at which these measurements were made, the laser module described in \cref{sec:meas:sub:stand} had not yet been set up. Instead, preliminary measurements of both attenuation and dispersion were made using a pulsed 385~nm LED, operated by an early design of the LED pulser board that will be used for the OD system.
 
@@ -320,18 +322,59 @@ The full results for all fibre types are presented in \cref{fig:attenall}, with 
 \end{figure}
 These results suggest that FG105UCA is the optimal fibre type to use, in terms of attenuation. Although it exhibits higher attenuation in the visible range, there is significantly less observed in the UV range, whereas the other fibre options start to peak sharply in attenuation here. As lower wavelengths of light have been previously observed to be more sensitive to changes in water parameters {\color{red} can ref sk gd results here}, prioritising lower attenuation in this region should be preferred.
 
-Performing these tests also provided an opportunity to become familiar with handling the fibres. As was mentioned in \cref{sec:fibre:sub:att:sub:method}, the long reels of fibre that were purchased for these tests were done so without tubing, which is generally added in order to protect the fibres. Along with the issues of light leakage previously mentioned, during testing it was found that the narrow-core fibres were particularly fragile, with two being broken in the process. The FP400URT fibre however was seen to be a lot stronger and light tight. This is attributed to the hard polymer cladding and Tefzel (Teflon-based) coating, as opposed to the clear acrylate used for the graded-index fibres.
+Performing these tests also provided an opportunity to become familiar with handling the fibres. As was mentioned in \cref{sec:fibre:sub:att:sub:method}, the long reels of fibre that were purchased for these tests were done so without tubing, which is generally added in order to protect the fibres. Along with the issues of light leakage previously mentioned, during testing it was found that the narrow-core fibres were particularly fragile, with two being broken in the process. The FP400URT fibre however was seen to be a lot stronger and light-tight. This is attributed to its hard polymer cladding and Tefzel (Teflon-based) coating, as opposed to the clear acrylate used for the graded-index fibres and FG105UCA.
 
 \subsection{Dispersion Measurements}
 
+\subsubsection{Method}
+
+Similarly to the attenuation measurements described above, by the time the full lengths of fibre had been ordered in, the full fibre test stand had been commissioned. Importantly, this included setup of the laser system described in \cref{sec:meas:sub:stand}, which was used as the light source for these measurements. Instead of the $\mathcal{O}$(ns) input pulse provided by the pulsed LEDs in \cref{sec:meas:sub:init:sub:test}, the laser delivers a pulse of width $\sim50$ ps, meaning measurements wouldn't be limited by this.
+
+Various lengths of each fibre were connected in turn to the laser head, in the same way as in \cref{sec:fibre:sub:att:sub:method}. However, due to breakage in the attenuation testing GIF50C was not included in these tests. To make timing measurements, the fibres were connected to the PMT, where the signal was visualised on the oscilloscope. Across 20,000 recorded pulses, measurements were made of the pulse width, negative rise time and negative fall time.
+
+In making these measurements, another limitation of the setup became apparent; it was clear from initial measurements that the measured pulse width and rise time were highly dependent on the amount of light detected by the PMT. This was understood to be a limitation caused by the rise time of the PMT; shorter fibres which would deliver more light due to decreased attenuation exhibited longer pulse widths, as the PMT response was not quick enough. In order to get around this, the measurement approach was modified. For each length of fibre tested, the laser intensity was adjusted such that the output pulse would deliver approximately the same peak voltage each time. This should ensure that the rise time of the PMT had no impact on the timing measurements.
+
+Another issue was encountered with this setup. When making measurements with the 1~m patch cable, large tails in the pulses were observed. An example of this for the FP400URT 1~m cable is shown in \cref{fig:fp400urt1m}. Here, negative rise time and negative fall time are labelled as fall time and rise time, respectively.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{FP400URT_1m_1.png}
+\caption{Scope trace and associated measurements for a 1~m FP400URT patch cable, showing the long tail falling tail observed.}\label{fig:fp400urt1m}
+\end{figure}
+It can be seen that the very slowly falling tail results in a negative fall time of $(6.53\pm0.29)$~ns, despite a negative rise time of only $(0.74\pm0.02)$~ns. This results in a measured pulse width longer than those observed for longer fibre lengths, making dispersion incalculable. As the long tails diminish with increased fibre length, it is thought that they're caused by reflections at the fibre coupling faces. In order to not be affected by this, measurements instead focused on the negative rise time of pulses. Unfortunately this still makes dispersion incalculable, but at least gives a way to compare pulse timing for each fibre type.
+
+\subsubsection{Results}\label{sec:fibre:sub:disp:sub:method}
+
+The obtained rise time measurements for the three fibre types tested are given in \cref{fig:disprise}. As expected from the preliminary measurements, the fibre which exhibited the least increase in rise time was the graded-index, GIF50D, which an increase of $0.24\pm0.03$~ns. This is closely followed by FP400URT, which shows an overall increase of $0.34\pm0.03$~ns. A comparably higher increase is then observed for the FG105UCA of $0.60\pm0.05$~ns.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{RiseTimeOct24.png}
+\caption{Pulse rise time measurements for three candidate fibres, across a range of lengths.}\label{fig:disprise}
+\end{figure}
+An interesting observation in these measurements is that the rise time increase is relatively sharp over the first $\sim$50~m, but then plateaus toward the longest distances measured. This suggests that, should fibres be required to be longer than those tested, there should not be a substantial increase in rise time over what has already been observed.
+
+While these measurements give a good estimate of how timing will increase over large lengths for each fibre type, it will be important to confirm exact dispersion measurements for the chosen fibre type. As such, a high frequency readout system is currently in development, so that these measurements can be made at a later time.
+
 \subsection{Fibre Choice}
 
-\section{Fibre Switching Device}
+Unfortunately, the results from both the attenuation and dispersion tests are diametrically opposed; while the graded index fibres performed best in terms of dispersion and pulse rise time increase, they exhibited the greatest amount of attenuation. The opposite is true of FG105UCA, with FP400URT performance in the middle for both tests, meaning there is not a single fibre type that is clearly preferred. Specific aspects and requirements of the two separate LI systems should be taken into account to make this choice.
+
+Firstly, it is important to remember that the decibel scale is a logarithmic scale, meaning that the $\sim$10~dB difference between FG105UCA and FP400URT/GIF50D observed at 365~nm represents an additional $\mathcal{O}$(10) times power loss. Therefore, the differences observed in attenuation are much greater than for the pulse width measurement, and as such the former should be prioritised as a basis for fibre decisions.
+
+Given the overwhelmingly better attenuation results for FG105UCA in the UV range, this should be the optimal choice, even with the larger increase on the pulse width observed. This fibre is chosen to be used for the laser system, where coupling to a narrow-core fibre is not a challenge. However, the power readings for the 1~m patch cables {\color{red} make this plot and add} make it clear that coupling an LED to such a small core diameter fibre is difficult. As such, the choice for the LED system is the FP400URT, which has a four times wider core and the next best attenuation results.
+
+
+
+\section{Fibre Switching Device}\label{sec:switch}
+
+\subsection{Overview}
+As was mentioned in \cref{sec:overview}, the ID LI system and OD collimators will be illuminated by a series of six different lasers. With the addition of a laser diffuser ball {\color{red}ref}, this results in at least 79 channels that the lasers need to be coupled to. To accomplish this, dedicated fibre switching devices are required.
+
+To that end, two potential companies that manufacture fibre switching devices were identified, and test devices in a 1-to-4 (hereafter referred to as 1x4) configuration were purchased for evaluation. From the first company, Agiltron \cite{bib:agiltron}, a single 1x4 device was purchased with FP400URT as the internal fibre. A second company, Weinert Industries \cite{bib:weinert} supplied two 1x4 devices; one of these contained FP400URT fibre, while the other used GIF50C.
+
+\subsection{Cross-talk Measurements}
 
 
 \section{Fibre Length Requirements}\label{sec:lengths}
-
-{\color{red} Might move this to the end after stating fibre type decision, then split into ID and OD parts so it flows better. General content will be the same though}
 
 With the large number of injectors being employed for the light injection system, an even larger number of fibre optic cables will be required. This section details the quantity and lengths of cables required to connect the full HK LI system.
 
@@ -386,6 +429,16 @@ S. Boyd {\it et al.}, Hyper-Kamiokande Light Injector Diffuser Technical Note (H
 \bibitem{bib:tn0065}
 S. Boyd {\it et al.}, Hyper-Kamiokande Light Injector Collimator Technical Note (HK-TN-0065)
 
+
+%%fibre switches
+\bibitem{bib:agiltron}
+Agiltron, \url{https://agiltron.com}
+
+\bibitem{bib:weinert}
+Weinert Industries, \url{https://weinert-industries.com/en/}
+
+
+%%lengths
 %%tank TN
 \bibitem{bib:tn0048}
 Far Facility Working Group, Water tank and PMT support structure (HK-TN-0048)
