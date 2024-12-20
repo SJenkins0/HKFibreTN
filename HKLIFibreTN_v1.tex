@@ -371,6 +371,32 @@ As was mentioned in \cref{sec:overview}, the ID LI system and OD collimators wil
 
 To that end, two potential companies that manufacture fibre switching devices were identified, and test devices in a 1-to-4 (hereafter referred to as 1x4) configuration were purchased for evaluation. From the first company, Agiltron \cite{bib:agiltron}, a single 1x4 device was purchased with FP400URT as the internal fibre. A second company, Weinert Industries \cite{bib:weinert} supplied two 1x4 devices; one of these contained FP400URT fibre, while the other used GIF50C.
 
+All three devices are controlled via USB. While the Weinert devices shipped with software to do this, the Agiltron one did not, and required third-party software in order to operate. Coupled with the lack of documentation and support from Agiltron on how to work the device, this made for a much worse user experience, when compared with the support and documentation received from Weinert. Though this is not something quantifiable, it's 
+
+\subsection{General Comparisons}
+
+To understand the performance of the three switches, power measurements were made comparing the output power from each of the four ports to a reference fibre of the same type. For the reference fibre measurements, two 1~m patch cables were coupled together to make a 2~m cable, with the total cable length of each of the switches being around this length.
+
+Measurements were made using the 371~nm laser as the light source. The power meter was used to make measurements across 20,000 readings, where each of the four fibre outputs on a switch were selected and coupled in turn. Power readings and calculated transmission percentages for the Agiltron FP400URT switch are given in \cref{tab:agifp400}.
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|cc|cc|cc}
+\hline
+\multirow{2}{*}{} & \multicolumn{2}{c|}{Agiltron FP400URT} & \multicolumn{2}{c|}{Weinert FP400URT} & \multicolumn{2}{c}{Weinert GIF50C} \\
+			&	Power ($\mu$W) & \% of ref. & Power ($\mu$W) & \% of ref. & Power ($\mu$W) & \% of ref.\\ \hline
+Reference	& $9.58\pm0.01$	& 100  &	test & test & test & test \\
+Port 1		& $8.93\pm0.01$	& $93.11\pm0.14$ &	&	&	& \\
+Port 2		& $8.67\pm0.01$	& $90.55\pm0.14$ &	&	&	& \\
+Port 3		& $8.71\pm0.01$	& $91.06\pm0.14$ &	&	&	& \\
+Port 4		& $8.66\pm0.01$	& $90.50\pm0.14$ &	&	&	& \\
+\hline
+\end{tabular}
+\caption{Power transmission across the Agiltron FP400URT 1x4 switch, with comparison to a reference cable.}\label{tab:switchpower}
+\end{table}
+
+
 \subsection{Cross-talk Measurements}
 
 
@@ -415,6 +441,12 @@ FP400URT   &        &             &             &         \\ \hline
 \end{tabular}
 \caption{List of all required fibres with necessary lengths, connector configurations and quantities.}\label{tab:fibrelengths}
 \end{table}
+
+
+
+\section{Photon Yield Requirements}
+
+
 
 \section{Summary}
 
