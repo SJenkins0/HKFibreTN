@@ -354,7 +354,7 @@ An interesting observation in these measurements is that the rise time increase 
 
 While these measurements give a good estimate of how timing will increase over large lengths for each fibre type, it will be important to confirm exact dispersion measurements for the chosen fibre type. As such, a high frequency readout system is currently in development, so that these measurements can be made at a later time.
 
-\subsection{Fibre Choice}
+\subsection{Fibre Choice}\label{sec:fibre:sub:choice}
 
 Unfortunately, the results from both the attenuation and dispersion tests are diametrically opposed; while the graded index fibres performed best in terms of dispersion and pulse rise time increase, they exhibited the greatest amount of attenuation. The opposite is true of FG105UCA, with FP400URT performance in the middle for both tests, meaning there is not a single fibre type that is clearly preferred. Specific aspects and requirements of the two separate LI systems should be taken into account to make this choice.
 
@@ -377,27 +377,106 @@ All three devices are controlled via USB. While the Weinert devices shipped with
 
 To understand the performance of the three switches, power measurements were made comparing the output power from each of the four ports to a reference fibre of the same type. For the reference fibre measurements, two 1~m patch cables were coupled together to make a 2~m cable, with the total cable length of each of the switches being around this length.
 
-Measurements were made using the 371~nm laser as the light source. The power meter was used to make measurements across 20,000 readings, where each of the four fibre outputs on a switch were selected and coupled in turn. Power readings and calculated transmission percentages for the Agiltron FP400URT switch are given in \cref{tab:agifp400}.
-
-
+Measurements were made using the 371~nm laser as the light source. The power meter was used to make measurements across 20,000 readings, where each of the four fibre outputs on a switch were selected and coupled in turn. Power readings and calculated transmission percentages for the Agiltron FP400URT switch are given in \cref{tab:switchpower}.
 \begin{table}[h]
 \centering
 \begin{tabular}{l|cc|cc|cc}
 \hline
 \multirow{2}{*}{} & \multicolumn{2}{c|}{Agiltron FP400URT} & \multicolumn{2}{c|}{Weinert FP400URT} & \multicolumn{2}{c}{Weinert GIF50C} \\
 			&	Power ($\mu$W) & \% of ref. & Power ($\mu$W) & \% of ref. & Power ($\mu$W) & \% of ref.\\ \hline
-Reference	& $9.58\pm0.01$	& 100  &	test & test & test & test \\
-Port 1		& $8.93\pm0.01$	& $93.11\pm0.14$ &	&	&	& \\
-Port 2		& $8.67\pm0.01$	& $90.55\pm0.14$ &	&	&	& \\
-Port 3		& $8.71\pm0.01$	& $91.06\pm0.14$ &	&	&	& \\
-Port 4		& $8.66\pm0.01$	& $90.50\pm0.14$ &	&	&	& \\
+Reference	& $9.58\pm0.01$	& 100  			 & $9.67\pm0.01$ & 100 			  & $9.69\pm0.01$ & 100 \\
+Port 1		& $8.93\pm0.01$	& $93.11\pm0.14$ & $7.41\pm0.01$ & $76.64\pm0.13$ & $9.49\pm0.01$ & $98.09\pm0.20$ \\
+Port 2		& $8.67\pm0.01$	& $90.55\pm0.14$ & $7.41\pm0.01$ & $76.64\pm0.13$ & $9.59\pm0.01$ & $98.83\pm0.20$ \\
+Port 3		& $8.71\pm0.01$	& $91.06\pm0.14$ & $7.27\pm0.01$ & $75.18\pm0.13$ & $9.36\pm0.01$ & $96.70\pm0.20$ \\
+Port 4		& $8.66\pm0.01$	& $90.50\pm0.14$ & $7.00\pm0.01$ & $72.39\pm0.13$ & $9.23\pm0.01$ & $95.30\pm0.20$ \\
 \hline
 \end{tabular}
-\caption{Power transmission across the Agiltron FP400URT 1x4 switch, with comparison to a reference cable.}\label{tab:switchpower}
+\caption{Power transmission across the 1x4 switching devices, with comparison to a reference cable of the same type as the device internal fibre.}\label{tab:switchpower}
 \end{table}
+The results obtained show generally good power transmission for all three devices tested, albeit with clearly better transmission for the Agiltron FP400URT and Weinert GIF50C than for the Weinert FP400URT. This may be in part due to the fact the fibre on the Weinert FP400URT is longer than the others (and the 2~m reference), measuring approximately 2.3~m in total. The variation in output power between ports is also generally low across the devices, with a difference of 2.61\% for the Agiltron FP400URT, 4.25\% for the the Weinert FP400URT and 3.53\% for the Weinert GIF50C. These results suggest that the Agiltron device minorly outperforms the Weinert devices in terms of power variation across ports, whilst the Weinert GIF50C was best for transmission.
+
+During ordering, setup and testing of these devices, we experienced very different degrees of helpfulness from the two companies. While this is not a quantifiable metric, it is none the less very important to keep in mind when making a decision for the full fibre system. The Agiltron switch arrived with very little documentation on how to set up and run the device. The correct way of doing this was eventually figured out after several emails to the supplier. Part of the issue with this is that the switch is provided by a third-party distributor, rather than purchased direct from the manufacturer. The Weinert switches on the other hand were able to be purchased directly from Weinert themselves. They arrived with full documentation on running the switches, along with a simple software package for operation. All email communication with them throughout the ordering and testing process has been very helpful, if somewhat slow at times.
+
+The LI system is a critical component of the HK calibration programme, and will need to run for many years. It is crucial that support is available from the manufacturer of significant components such as the fibre optic switch, should anything go wrong during its lifetime. The experience of working with Weinert was significantly better, and this should be kept in mind when choosing which device to select. In particular, should issues arise with hardware in the future, it would be significantly easier to deal directly with the manufacturer, rather than going through a third-party distributor.
 
 
 \subsection{Cross-talk Measurements}
+
+While making the transmittance measurements shown in \cref{tab:switchpower} for the Agiltron device, it was noted that small non-zero readings were being made by the power meter whilst connected to ports that were not currently being illuminated. These persisted after turning off the laser and re-zeroing the power meter, and suggested some crosstalk between fibres. This is of course something that should be avoided, as only one injector should be illuminated within the tank at a time.
+
+In order to confirm this was the case and measure the level of crosstalk for these devices, four power meters were set up, with one connected to each of the four ports on a switch, and all re-zeroed at the same time. A simple python script was used to loop through the four ports 1000 times, before stopping at each port in turn and taking readings for $\sim$10~s. This was repeated for runs of approximately 18 hours per fibre switching device. Data was analysed by stripping out data points from the rapidly varying periods, as well as the first and last point of each sustained period where the device may still have been switching and thus not illuminating the port for the entire time taken for one reading.
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{AgiltronFP400URTPortsOnZoom.pdf}
+\subcaption{}\label{fig:agifp400crosstalkon}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{AgiltronFP400URTPortsOffZoom.pdf}
+\subcaption{}\label{fig:agifp400crosstalkoff}
+\end{subfigure}
+\caption{Power meter readings from all four ports for the Agiltron FP400URT device, zoomed into a shorter period of data to better show structure. Data is shown for when ports are a) illuminated and b) not illuminated.}\label{fig:agifp400crosstalk}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertFP400URTPortsOnZoom.pdf}
+\subcaption{}\label{fig:weinfp400crosstalkon}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertFP400URTPortsOffZoom.pdf}
+\subcaption{}\label{fig:weinfp400crosstalkoff}
+\end{subfigure}
+\caption{Power meter readings from all four ports for the Weinert FP400URT device, zoomed into a shorter period of data to better show structure. Data is shown for when ports are a) illuminated and b) not illuminated.}\label{fig:weinfp400crosstalk}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertGIF50CPortsOnZoom.pdf}
+\subcaption{}\label{fig:weingifcrosstalkon}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertGIF50CPortsOffZoom.pdf}
+\subcaption{}\label{fig:weingifcrosstalkoff}
+\end{subfigure}
+\caption{Power meter readings from all four ports for the Weinert GIF50C device, zoomed into a shorter period of data to better show structure. Data is shown for when ports are a) illuminated and b) not illuminated.}\label{fig:weingifcrosstalk}
+\end{figure}
+
+Data from this test is shown in \cref{fig:agifp400crosstalk,,fig:weinfp400crosstalk,fig:weingifcrosstalk} for the Agiltron FP400URT, Weinert FP400URT and Weinert GIF50C, respectively. Each of these shows data taken by the power meters when the port was a) illuminated and b) not illuminated. These plots show a subset of entries in order to better show the observed structure. \cref{fig:agifp400crosstalkon,fig:weinfp400crosstalkon,fig:weingifcrosstalkon}, which show the readings from illuminated ports, show a similar level of variation to the data presented in \cref{tab:switchpower}. The most interesting result is seen in \cref{fig:agifp400crosstalkoff}, which shows clear changes in the power readings recorded on ports 1 and 2, when these ports are not illuminated. There is also a repeating structure to the data from port 4 suggesting a lower level of crosstalk to that channel. This suggests varying levels of crosstalk between different ports. \cref{fig:weinfp400crosstalkoff,fig:weingifcrosstalkoff} on the other hand, show no measurable cross talk between any of the channels.
+
+To further investigate this, the way the data is plotted was inverted. The four plots in \cref{fig:agifp400crosstalk} show the power recorded on a specific port, each separated by which of the other three ports was turned on at the time.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{AgiltronFP400URTPort1.pdf}
+\subcaption{}\label{fig:agifp400crosstalkport1}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{AgiltronFP400URTPort2.pdf}
+\subcaption{}\label{fig:agifp400crosstalkport2}
+\end{subfigure}
+\\
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{AgiltronFP400URTPort3.pdf}
+\subcaption{}\label{fig:agifp400crosstalkport3}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{AgiltronFP400URTPort4.pdf}
+\subcaption{}\label{fig:agifp400crosstalkport4}
+\end{subfigure}
+\caption{Power recorded on a) port 1, b) port 2, c) port 3 and d) port 4 of the Agiltron FP400URT switch, when one of the other three ports was illuminated.}\label{fig:agifp400crosstalk2}
+\end{figure}
+While the absolute value of the power is not expected to be exactly zero due to global drift caused by temperature changes in the lab over the course of data taking, all four power meters were calibrated at the same time, so should show the same level of power when not illuminated. This is clearly not the case for ports 1 and 2 (\cref{fig:agifp400crosstalkport1,fig:agifp400crosstalkport2}), with the former showing higher power readings when port 2 or port 3 were illuminated, and the latter showing the same when port 3 or port 4 were illuminated. There is also a small offset observed for port 4 in \cref{fig:agifp400crosstalkport4}, when port 3 is being illuminated. Interestingly, no obvious cross talk was observed to port 3, from any of the other ports being illuminated.
+
+As no cross talk was observed for either of the Weinert devices, the corresponding plots are not shown here, but are given in \cref{fig:weinfp400crosstalk2,fig:weingifcrosstalk2} in \cref{app:crosstalk} for completeness.
+
+\subsection{Summary}
+Testing of the three different fibre switching devices finds different devices come out best based on different factors. The Weinert GIF50C device showed best power transmission, with at most 4.7\% loss compared to the reference fibre, while the Weinert FP400URT device showed up to 27.6\% loss. This is with the caveat that the device package was different, and the latter had a greater length of fibre than both the other devices, and the reference fibre used. All devices exhibited under 5\% variation in output power across the four ports, with the Agiltron switch showing the least variation at a difference of 2.61\%.
+
+A clear preference for the Weinert devices comes from the cross talk measurements, which show measurable cross talk between channels on the Agiltron device. While this is at the level of $\mathcal{O}(0.1\%)$, the lack of any measurable cross talk from either of the Weinert devices is clearly preferable. Coupled with the superior support from Weinert which will make setup and potential servicing of the hardware easier, this is the device that is preferred. The internal fibre will of course be chosen to match what is used for the rest of the laser system, so will be Thorlabs FG105UCA or equivalent.
 
 
 \section{Fibre Length Requirements}\label{sec:lengths}
@@ -442,11 +521,49 @@ FP400URT   &        &             &             &         \\ \hline
 \caption{List of all required fibres with necessary lengths, connector configurations and quantities.}\label{tab:fibrelengths}
 \end{table}
 
-
+\clearpage
 
 \section{Photon Yield Requirements}
 
+With a series of points in the system where light can be lost, it is important to verify the number of photons required to be injected into the tank for calibration, and the initial laser power required to achieve this. This section describes the study performed to calculate these required numbers.
 
+A series of simulations were run using the Monte Carlo generation package for Hyper-K, WCSim \cite{bib:wcsim}, using diffusers at each vertical depth level (injector indices 0, 4, 8, 12, 16, 20, 24), along with one on the top end cap (28) and one on the bottom (32). For each injector, sets of simulations were run with injected light at wavelengths of 365~nm, 395~nm, 415~nm, 465~nm, 496~nm, 525~nm and 560~nm. These are the wavelengths used for attenuation measurements in \cref{sec:fibre:sub:att:sub:method} and, although not necessarily the exact wavelengths that will be used in the system, allow for explicit calculation of loss factors due to attenuation without interpolating between measurements. Within each of these sets, a number of simulations were run at differing values of injected photons, initially increasing in steps of 200, before moving to larger steps for the higher wavelengths which required greater numbers. For all simulations, 1000 events are run, using nominal water parameters. The injector is treated as an ideal diffuser, with a 40\degree opening half-angle, and dark noise was disabled.
+
+The aim for general running of the diffusers is 1\% occupancy within the diffuser spot, and so this is used as the target for these studies. For each of the 1000 events in a simulation, the number of hit PMTs within the diffuser spot is calculated and histogrammed. This is fit with a Gaussian distribution, and the mean of that taken to be the number of hit PMTs within the spot. An example of this distribution is shown in \cref{fig:nhits_dif0_365_1000ph_plot}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{nhits_dif0_365_1000ph_plot.pdf}
+\caption{Number of hit PMTs in the spot of diffuser 0, for 1000 injected photons at a wavelength of 365~nm.}\label{fig:nhits_dif0_365_1000ph_plot}
+\end{figure}
+The obtained mean can then be compared to the total number of PMTs within the diffuser spot, to calculate the percentage coverage. This is repeated for all simulations, and compared to the 1\% requirement for all injectors to obtain the minimum number of injected photons required.
+
+The coverage percentages for all nine injectors for the 365~nm wavelength are given in \cref{fig:coverage_365}.
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{coverage_365.pdf}
+\caption{Coverage percentages as a function of diffuser position, for differing numbers of injected photons of 365~nm wavelength. The 1\% level is shown by the red line.}\label{fig:coverage_365}
+\end{figure}
+The shape of these plots can be understood by thinking about the geometry of the detector. Injectors 0 and 24 are the barrel injectors closest to the bottom and top endcaps respectively, so those diffusers illuminate a large part of the respective end caps. The shorter path lengths between these injectors and the endcaps results in a greater amount of the initial photons causing hits, and therefore less required for 1\% coverage. As the injector positions move towards the middle, there is less to no overlap with the end caps, increasing the average path length to PMTs. The final two injectors, those on the top and bottom end caps, have the greatest distance to the opposite side of the tank. There are therefore more PMTs are in the spot, and with the greater distance photons are required to travel, means a greater number of injected photons are needed for 1\% coverage. At this wavelength, 800 injected photons are required to obtain at least 1\% coverage in all injectors. The behaviour described repeats for all wavelengths checked, making the top and bottom injectors the limiting cases for each.
+
+The approximate number of photons required to achieve 1\% spot coverage per wavelength is given in \cref{tab:coverage}. These numbers can then be used to calculate the required laser power per wavelength, accounting for loss due to attenuation in the fibres and other points of inefficiency within the system.
+\begin{table}[h]
+\centering
+\begin{tabular}{cc}
+\hline
+Wavelength (nm) & N photons for 1\% coverage \\ \hline
+365 & 800 \\
+395 & 800 \\
+415 & 1400 \\
+465 & 2400 \\
+496 & 5000 \\
+525 & 19000\\
+560 & 100000 \\ \hline
+\end{tabular}
+\caption{Approximate number of injected photons required for 1\% diffuser spot coverage, per wavelength.}\label{tab:coverage}
+\end{table}
+The attenuation coefficients calculated in \cref{sec:fibre:sub:att:sub:method} for the above wavelengths are used to obtain the attenuation factors for the fibres, assuming the 175~m calculated in \cref{sec:lengths}. The fibre is assumed to be the Thorlabs FG105UCA favoured in \cref{sec:fibre:sub:choice}.
+
+Additional light loss factors are also added into the calculations. An 80\% loss is included for the efficiency of the ID diffuser. {\color{red} Rough value based on conversations with Katharina, this still needs confirming. Update this and calculations when we have a number.} To account for losses in the fibre switch, we use the worst case scenario from the Weinert FP400URT measurements, and assume a 25\% loss at each stage of the switch. As any larger switch is formed by daisy-chaining 1x4 switches, this 25\% loss can be experienced up to 6 times (twice for a 1x6 switch plus four times for a 1x80 switch {\color{red} need to explain this setup somewhere}), resulting in an efficiency of $0.75^6 \simeq 0.18$. As the Weinert GIF50C results showed much greater transmission these numbers are considered conservative, and the final efficiency of the device will depend on the internal fibre used. Finally, a factor of 50\% is included to account for any losses in coupling fibres together across the system.
 
 \section{Summary}
 
@@ -475,6 +592,67 @@ Weinert Industries, \url{https://weinert-industries.com/en/}
 \bibitem{bib:tn0048}
 Far Facility Working Group, Water tank and PMT support structure (HK-TN-0048)
 
+
+%%photon requirements
+\bibitem{bib:wcsim}
+WCSim, \url{https://github.com/WCSim/WCSim}
+
 \end{thebibliography}
+
+\clearpage
+\newpage
+\appendix
+
+\section{Additional Cross Talk Plots}\label{app:crosstalk}
+
+\subsection{Weinert FP400URT}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertFP400URTPort1.pdf}
+\subcaption{}\label{fig:weinfp400crosstalkport1}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertFP400URTPort2.pdf}
+\subcaption{}\label{fig:weinfp400crosstalkport2}
+\end{subfigure}
+\\
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertFP400URTPort3.pdf}
+\subcaption{}\label{fig:weinfp400crosstalkport3}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertFP400URTPort4.pdf}
+\subcaption{}\label{fig:weinfp400crosstalkport4}
+\end{subfigure}
+\caption{Power recorded on a) port 1, b) port 2, c) port 3 and d) port 4 of the Weinert FP400URT switch, when one of the other three ports was illuminated.}\label{fig:weinfp400crosstalk2}
+\end{figure}
+
+\clearpage
+\newpage
+\subsection{Weinert GIF50C}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertGIF50CPort1.pdf}
+\subcaption{}\label{fig:weingifcrosstalkport1}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertGIF50CPort2.pdf}
+\subcaption{}\label{fig:weingifcrosstalkport2}
+\end{subfigure}
+\\
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertGIF50CPort3.pdf}
+\subcaption{}\label{fig:weingifcrosstalkport3}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\linewidth]{WeinertGIF50CPort4.pdf}
+\subcaption{}\label{fig:weingifcrosstalkport4}
+\end{subfigure}
+\caption{Power recorded on a) port 1, b) port 2, c) port 3 and d) port 4 of the Weinert GIF50C switch, when one of the other three ports was illuminated.}\label{fig:weingifcrosstalk2}
+\end{figure}
 
 \end{document}
