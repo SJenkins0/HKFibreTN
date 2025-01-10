@@ -145,7 +145,7 @@ Installing injectors at different heights throughout the detector will allow wat
 
 The OD system will consist primarily of diffusers, using bare hemispheres coupled to fibres, rather than the housed versions used for the ID system. 122 of these OD diffusers will be installed, with the current design featuring 84 equally spaced around the barrel region. This results in 7 rows of 12 diffusers, with rows alternately offset from one another. This configuration is particularly advantageous as it matches the number of rows in the ID system, simplifying the installation of the fibre optic cables. Each end-cap would then feature 19 diffusers, again equally spaced across the surface. A diagram showing this layout is presented in \cref{fig:ODdiffmap}. Finally, 12 collimators will be installed in the OD, in suitable locations to achieve long path lengths such as across the end caps and up the side of the barrel. These collimators will be exactly the same as those installed in the ID.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \begin{tikzpicture}
 \draw[thick] (-4.5, -1.5) rectangle (4.5, 1.5);
@@ -202,10 +202,10 @@ For the fibres to be suitable for use in the LI system, there are a series of re
 \begin{itemize}
 \item The fibre should be capable of transporting light of wavelengths in the range 337 -- 550~nm.
 \item The attenuation of the input signal across the full length of fibre should be minimised
-\item The dispersion of the input signal across the full length of fibre should be minimised {\color{red} these really need quantifying, somehow}
+\item The dispersion of the input signal across the full length of fibre should be minimised
 \end{itemize}
 
-Six different fibre types from Thorlabs were considered. Four of these were step-index fibres; two wide-core fibres (FP200URT and FP400URT) and two narrow-core fibres (FG050UGA and FG105UCA) were chosen. The remaining two candidates were graded-index fibres (GIF50C and GIF50D). The reason for the inclusion of these was to confirm whether a graded-index fibre core is required in order to limit dispersion. The main specifications of each fibre type are summarised in \cref{tab:fibres}. GIF50C and GIF50D have almost the same specifications, with the only difference being the available bandwidth.
+Six different fibre types from Thorlabs were considered. Four of these were step-index fibres; two wide-core fibres (FP200URT \cite{bib:fp200urt} and FP400URT \cite{bib:fp400urt}) and two narrow-core fibres (FG050UGA \cite{bib:fg050uga} and FG105UCA \cite{bib:fg105uca}) were chosen. The remaining two candidates were graded-index fibres (GIF50C \cite{bib:gif50c} and GIF50D \cite{bib:gif50d}). The reason for the inclusion of these was to confirm whether a graded-index fibre core is required in order to limit dispersion. The main specifications of each fibre type are summarised in \cref{tab:fibres}. GIF50C and GIF50D have almost the same specifications, with the only difference being the available bandwidth.
 \begin{table}[h]
 \centering
 \begin{tabular}{llccc}
@@ -225,9 +225,9 @@ Preliminary measurements were performed with all six fibre types listed, and the
 
 \subsection{Fibre Test Stand}\label{sec:meas:sub:stand}
 
-All fibre measurements were performed using the fibre test stand in the Particle Physics Optical Laboratory at the University of Liverpool. Two different types of light sources are available for testing; the first of these is a Picoquant Sepia PDL 828-L laser driver, powering a LDH-D-C-375M laser head, with a peak wavelength of 371~nm. This is a pulsed laser source with a pulse width of $\sim$50~ps, and repetition rate up to 80~MHz. The candidate fibres couple directly to the laser head using an FC/PC connector. The second set of light sources was a series of LEDs, covering wavelengths from 365~nm up to 595~nm. These are run in DC mode, and were used primarily to make attenuation measurements over the range of wavelengths relevant for the LI system. In order to connect the FC/PC connector on a candidate fibre to a surface-mounted LED, custom connectors were 3D printed. {\color{red} does this need expanding?}
+All fibre measurements were performed using the fibre test stand in the Particle Physics Optical Laboratory at the University of Liverpool. Two different types of light sources are available for testing; the first of these is a Picoquant Sepia PDL 828-L laser driver \cite{bib:laserdriver}, powering a LDH-D-C-375M laser head \cite{bib:laserhead}, with a peak wavelength of 371~nm. This is a pulsed laser source with a pulse width of $\sim$50~ps, and repetition rate up to 80~MHz. The candidate fibres couple directly to the laser head using an FC/PC connector. The second set of light sources was a series of LEDs, covering wavelengths from 365~nm up to 595~nm. These are run in DC mode, and were used primarily to make attenuation measurements over the range of wavelengths relevant for the LI system. In order to connect the FC/PC connector on a candidate fibre to a surface-mounted LED, custom connectors were 3D printed. {\color{red} does this need expanding? or we include it in an OD system TN}
 
-Two different detection methods for the fibre transmitted light are available. To measure power output, a Thorlabs PM100USB power meter is used, with an S150C sensor connected. For timing measurements, the fibres are connected to a Hamamatsu H10721-210 PMT, which is read out by a Tektronix MSO56{\color{red} check model no.} oscilloscope. Fibres are coupled to either read-out method via FC/PC connection such that, in the case of the laser, there are no bare beams in the lab. To ensure light tightness and as an additional safety measure, all light sources and detectors are housed within a dark box, with no connections made outside. Larger fibre reels are kept outside due to their size, with a port used to bring the ends inside for connection. An image of the setup is shown in \cref{fig:fibreteststand}.
+Two different detection methods for the fibre transmitted light are available. To measure power output, a Thorlabs PM100USB \cite{bib:opm} power meter is used, with an S150C sensor \cite{bib:opmsensor} connected. For timing measurements, the fibres are connected to a Hamamatsu H10721-210 PMT \cite{bib:hpmt}, which is read out by a Tektronix MSO56{\color{red} check model no. to ref} oscilloscope. Fibres are coupled to either read-out method via FC/PC connection such that, in the case of the laser, there are no bare beams in the lab. To ensure light tightness and as an additional safety measure, all light sources and detectors are housed within a dark box, with no connections made outside. Larger fibre reels are kept outside due to their size, with a port used to bring the ends inside for connection. An image of the setup is shown in \cref{fig:fibreteststand}.
 
 \begin{figure}[h]
 \centering
@@ -260,7 +260,7 @@ GIF50D     &  $3.407\pm0.101$		  &  $3.899\pm0.213$ 		 &  $1.896\pm0.509$     \\
 \end{table}
 The results shown here are mostly unsurprising. As expected, the two graded-index fibres show the smallest amount of dispersion; this is exactly the reason they were added for consideration. For the first three step-index fibres, the dispersion increases with increased core diameter. However, it can be seen that the FP400URT, which has the largest core diameter, actually has a smaller amount of dispersion than the FP200URT.
 
-The same set-up was also used to make preliminary measurements of attenuation in the fibres. As this was an early version of the fibre test stand, an optical power meter was not used. Instead, the area under the curve of each recorded pulse was used as a proxy, as this is proportional to the total charge collected by the PMT per pulse. Again, 20,000 measurements for each fibre sample were taken, and the results for this are presented in \cref{tab:attinit}
+The same set-up was also used to make preliminary measurements of attenuation in the fibres. As this was an early version of the fibre test stand, an optical power meter was not used. Instead, the area under the curve of each recorded pulse was used as a proxy, as this is proportional to the total charge collected by the PMT per pulse. Again, 20,000 measurements for each fibre sample were taken, and the results for this are presented in \cref{tab:attinit}.
 \begin{table}[h]
 \centering
 \begin{tabular}{lccc}
@@ -290,7 +290,7 @@ As this was a preliminary version of the fibre test stand, and measurements were
 
 The full laser setup for the HK LI system will feature six laser heads, over a range of wavelengths spanning UV to visible. In order to confirm whether attenuation in the candidate fibres is of an acceptable level across multiple wavelengths, LEDs across a series of wavelengths were used for these tests. Those were: 365, 395, 415, 465, 496, 525 and 560~nm. As timing is not relevant to attenuation measurements, and to ensure results were valid by initially getting enough light into the fibres, these LEDs were powered with a DC source.
 
-Measurements were made of the output power from fibres of length 1, 2, 37, 42, 77, 107 and 147~m, where some of these lengths were formed by coupling together multiple fibres of shorter length, and all above 1~m featured 2 1~m patch cables in the setup. As a 40~m length of FG105UCA was not ordered, the measurements for this were done at slightly altered lengths. Power measurements were made using an optical power meter, as described in \cref{sec:meas:sub:stand}. The longer reels of fibre were purchased without tubing, and it was observed during data taking that there was some level of light leakage into the fibres, causing non-zero readings when the LEDs were not powered. To mitigate this, all measurements were performed with the reels of fibre that were too big to fit inside the dark box wrapped in black sheet.
+Measurements were made of the output power from fibres of length 1, 2, 37, 42, 77, 107 and 147~m, where some of these lengths were formed by coupling together multiple fibres of shorter length, and all lengths above 1~m featured two 1~m patch cables in the setup. As a 40~m length of FG105UCA was not ordered, the measurements for this were done at slightly altered lengths. Power measurements were made using an optical power meter, as described in \cref{sec:meas:sub:stand}. The longer reels of fibre were purchased without tubing, and it was observed during data taking that there was some level of light leakage into the fibres, causing non-zero readings when the LEDs were not powered. To mitigate this, all measurements were performed with the reels of fibre that were too big to fit inside the dark box wrapped in black sheet.
 
 The power observed after transmission through a fibre of length $x$ can be written as
 \begin{eqnarray}
@@ -306,12 +306,12 @@ allows a linear fit to be made to data, where the gradient is the coefficient of
 \end{eqnarray}
 
 \subsubsection{Results}
-As a first check of the measurement system, the measurements and calculated attenuation values for FP400URT were compared to those provided in the fibre specifications by Thorlabs. This comparison can be seen in \cref{fig:fp400compar}, and shows generally good agreement between the two. Values of attenuation stay below 10~dB for until just above 400~nm, where the amount of attenuation increases sharply. At the minimum wavelength of 365~nm, attenuation of over 20~dB is observed, and suggests that attenuation values in the UV range will likely be the driving factor for deciding on a fibre type.
+As a first check of the measurement system, the measurements and calculated attenuation values for FP400URT were compared to those provided in the fibre specifications by Thorlabs. This comparison can be seen in \cref{fig:fp400compar}, and shows generally good agreement between the two. Values of attenuation stay below 10~dB for until just above 400~nm, where the amount of attenuation increases sharply. At the minimum wavelength of 365~nm, attenuation of over 20~dB is observed, suggesting that attenuation values in the UV range will likely be the driving factor for deciding on a fibre type.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{FP400Compar.png}
-\caption{Measured attenuation scaled to 150~m length as a function of wavelength for the FP400URT fibre, compared to specifications from Thorlabs.}\label{fig:fp400compar}
+\caption{Measured attenuation scaled to 150~m length as a function of wavelength for the FP400URT fibre, compared to specifications from Thorlabs \cite{bib:fp400urt}.}\label{fig:fp400compar}
 \end{figure}
 
 The full results for all fibre types are presented in \cref{fig:attenall}, with all values of attenuation again scaled to what would be seen across 150~m of fibre. As was shown for FP400URT, the amount of attenuation observed in the fibres peaks at the lowest wavelength scanned, 365~nm. At this value there is a large range of values observed, with FG105UCA exhibiting the lowest attenuation at under 15~dB. Conversely, the two graded index fibres show much greater attenuation. The spread of values at 395~nm is much reduced, with the two graded-index fibres instead exhibiting lower attenuation here. Above 400~nm, FG105UCA is seen to consistently exhibit higher attenuation than the other fibres, though in all cases is still below 10~dB.
@@ -320,27 +320,27 @@ The full results for all fibre types are presented in \cref{fig:attenall}, with 
 \includegraphics[width=0.8\textwidth]{AttenAll.png}
 \caption{Measured attenuation scaled to 150~m length for all four candidate fibre types, as a function of wavelength.}\label{fig:attenall}
 \end{figure}
-These results suggest that FG105UCA is the optimal fibre type to use, in terms of attenuation. Although it exhibits higher attenuation in the visible range, there is significantly less observed in the UV range, whereas the other fibre options start to peak sharply in attenuation here. As lower wavelengths of light have been previously observed to be more sensitive to changes in water parameters {\color{red} can ref sk gd results here}, prioritising lower attenuation in this region should be preferred.
+These results suggest that FG105UCA is the optimal fibre type to use, in terms of attenuation. Although it exhibits higher attenuation in the visible range, there is significantly less observed in the UV range, whereas the other fibre options start to peak sharply in attenuation here. As lower wavelengths of light have been previously observed to be more sensitive to changes in water parameters \cite{bib:skgd2}, prioritising lower attenuation in this region should be preferred.
 
-Performing these tests also provided an opportunity to become familiar with handling the fibres. As was mentioned in \cref{sec:fibre:sub:att:sub:method}, the long reels of fibre that were purchased for these tests were done so without tubing, which is generally added in order to protect the fibres. Along with the issues of light leakage previously mentioned, during testing it was found that the narrow-core fibres were particularly fragile, with two being broken in the process. The FP400URT fibre however was seen to be a lot stronger and light-tight. This is attributed to its hard polymer cladding and Tefzel (Teflon-based) coating, as opposed to the clear acrylate used for the graded-index fibres and FG105UCA.
+Performing these tests also provided an opportunity to become familiar with handling the fibres. As was mentioned in \cref{sec:fibre:sub:att:sub:method}, the long reels of fibre that were purchased for these tests were done so without tubing, which is generally added in order to protect the fibres. Along with the issues of light leakage previously discussed, during testing it was found that the narrow-core fibres were particularly fragile, with two being broken in the process. The FP400URT fibre however was seen to be a lot stronger and light-tight. This is attributed to its hard polymer cladding and Tefzel (Teflon-based) coating, as opposed to the clear acrylate used for the graded-index fibres and FG105UCA. This should be kept in mind when the chosen fibres are ordered.
 
 \subsection{Dispersion Measurements}
 
 \subsubsection{Method}
 
-Similarly to the attenuation measurements described above, by the time the full lengths of fibre had been ordered in, the full fibre test stand had been commissioned. Importantly, this included setup of the laser system described in \cref{sec:meas:sub:stand}, which was used as the light source for these measurements. Instead of the $\mathcal{O}$(ns) input pulse provided by the pulsed LEDs in \cref{sec:meas:sub:init:sub:test}, the laser delivers a pulse of width $\sim50$ ps, meaning measurements wouldn't be limited by this.
+Similarly to the attenuation measurements described above, by the time the full lengths of fibre had been ordered in, the full fibre test stand had been commissioned. Importantly, this included setup of the laser system described in \cref{sec:meas:sub:stand}, which was used as the light source for these measurements. Instead of the $\mathcal{O}$(ns) input pulse provided by the pulsed LEDs in \cref{sec:meas:sub:init:sub:test}, the laser delivers a pulse of width $\sim50$ ps, meaning measurements would not be limited by this.
 
 Various lengths of each fibre were connected in turn to the laser head, in the same way as in \cref{sec:fibre:sub:att:sub:method}. However, due to breakage in the attenuation testing GIF50C was not included in these tests. To make timing measurements, the fibres were connected to the PMT, where the signal was visualised on the oscilloscope. Across 20,000 recorded pulses, measurements were made of the pulse width, negative rise time and negative fall time.
 
 In making these measurements, another limitation of the setup became apparent; it was clear from initial measurements that the measured pulse width and rise time were highly dependent on the amount of light detected by the PMT. This was understood to be a limitation caused by the rise time of the PMT; shorter fibres which would deliver more light due to decreased attenuation exhibited longer pulse widths, as the PMT response was not quick enough. In order to get around this, the measurement approach was modified. For each length of fibre tested, the laser intensity was adjusted such that the output pulse would deliver approximately the same peak voltage each time. This should ensure that the rise time of the PMT had no impact on the timing measurements.
 
-Another issue was encountered with this setup. When making measurements with the 1~m patch cable, large tails in the pulses were observed. An example of this for the FP400URT 1~m cable is shown in \cref{fig:fp400urt1m}. Here, negative rise time and negative fall time are labelled as fall time and rise time, respectively.
+Another issue was encountered with this setup. When making measurements with the 1~m patch cable, large tails in the pulses were observed. An example of this for the FP400URT 1~m cable is shown in \cref{fig:fp400urt1m}. Here, negative rise time and negative fall time are labelled as fall time and rise time, respectively, due to the inverted nature of the pulse.
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{FP400URT_1m_1.png}
 \caption{Scope trace and associated measurements for a 1~m FP400URT patch cable, showing the long tail falling tail observed.}\label{fig:fp400urt1m}
 \end{figure}
-It can be seen that the very slowly falling tail results in a negative fall time of $(6.53\pm0.29)$~ns, despite a negative rise time of only $(0.74\pm0.02)$~ns. This results in a measured pulse width longer than those observed for longer fibre lengths, making dispersion incalculable. As the long tails diminish with increased fibre length, it is thought that they're caused by reflections at the fibre coupling faces. In order to not be affected by this, measurements instead focused on the negative rise time of pulses. Unfortunately this still makes dispersion incalculable, but at least gives a way to compare pulse timing for each fibre type.
+It can be seen that the very slowly falling tail results in a negative fall time of $6.53\pm0.29$~ns, despite a negative rise time of only $0.74\pm0.02$~ns. This results in a measured pulse width longer than those observed for longer fibre lengths, making dispersion incalculable. As the long tails diminish with increased fibre length, it is thought that they're caused by reflections at the fibre coupling faces. In order to not be affected by this, measurements instead focused on the negative rise time of pulses. Unfortunately this still makes dispersion incalculable, but at least gives a way to compare pulse timing for each fibre type.
 
 \subsubsection{Results}\label{sec:fibre:sub:disp:sub:method}
 
@@ -358,26 +358,32 @@ While these measurements give a good estimate of how timing will increase over l
 
 Unfortunately, the results from both the attenuation and dispersion tests are diametrically opposed; while the graded index fibres performed best in terms of dispersion and pulse rise time increase, they exhibited the greatest amount of attenuation. The opposite is true of FG105UCA, with FP400URT performance in the middle for both tests, meaning there is not a single fibre type that is clearly preferred. Specific aspects and requirements of the two separate LI systems should be taken into account to make this choice.
 
-Firstly, it is important to remember that the decibel scale is a logarithmic scale, meaning that the $\sim$10~dB difference between FG105UCA and FP400URT/GIF50D observed at 365~nm represents an additional $\mathcal{O}$(10) times power loss. Therefore, the differences observed in attenuation are much greater than for the pulse width measurement, and as such the former should be prioritised as a basis for fibre decisions.
+Firstly, it is important to remember that the decibel scale is logarithmic, meaning that the $\sim$10~dB difference between FG105UCA and FP400URT/GIF50D observed at 365~nm represents an additional $\mathcal{O}$(10) times power loss. Therefore, the differences observed in attenuation are much greater than for the pulse width measurement, and as such the former should be prioritised as a basis for fibre decisions. Secondly, the ID injectors (and OD collimators) already have an internal patch fibre of FG105UCA. To avoid complications with coupling different fibre types together, the rest of the laser system should preferably use this, unless a clear reason not to do so was found.
 
-Given the overwhelmingly better attenuation results for FG105UCA in the UV range, this should be the optimal choice, even with the larger increase on the pulse width observed. This fibre is chosen to be used for the laser system, where coupling to a narrow-core fibre is not a challenge. However, the power readings for the 1~m patch cables {\color{red} make this plot and add} make it clear that coupling an LED to such a small core diameter fibre is difficult. As such, the choice for the LED system is the FP400URT, which has a four times wider core and the next best attenuation results.
+Given the overwhelmingly better attenuation results for FG105UCA in the UV range, this should be the optimal choice, even with the larger increase on the pulse width observed. This fibre is chosen to be used for the laser system, where coupling to a narrow-core fibre is not a challenge. However, the initial results for the 1~m patch cables given in \cref{tab:attinit} make it clear that coupling an LED to such a small core diameter fibre is difficult. As such, the choice for the LED system is the FP400URT, which has a four times wider core and the next best attenuation results.
 
 
 
 \section{Fibre Switching Device}\label{sec:switch}
 
 \subsection{Overview}
-As was mentioned in \cref{sec:overview}, the ID LI system and OD collimators will be illuminated by a series of six different lasers. With the addition of a laser diffuser ball {\color{red}ref}, this results in at least 79 channels that the lasers need to be coupled to. To accomplish this, dedicated fibre switching devices are required.
+As was mentioned in \cref{sec:overview}, the ID LI system and OD collimators will be illuminated by a series of six different lasers. With the addition of a laser diffuser ball, this results in at least 79 channels that the lasers need to be coupled to. To accomplish this, dedicated fibre switching devices are required.
 
-To that end, two potential companies that manufacture fibre switching devices were identified, and test devices in a 1-to-4 (hereafter referred to as 1x4) configuration were purchased for evaluation. From the first company, Agiltron \cite{bib:agiltron}, a single 1x4 device was purchased with FP400URT as the internal fibre. A second company, Weinert Industries \cite{bib:weinert} supplied two 1x4 devices; one of these contained FP400URT fibre, while the other used GIF50C.
+To that end, two potential companies that manufacture fibre switching devices were identified, and test devices in a 1-to-4 (hereafter referred to as 1x4) configuration were purchased for evaluation. From the first company, Agiltron \cite{bib:agiltron}, a single 1x4 device was purchased with FP400URT as the internal fibre. A second company, Weinert Industries \cite{bib:weinert} supplied two 1x4 devices; one of these contained FP400URT fibre, while the other used GIF50C. All three devices are controlled via USB.
 
-All three devices are controlled via USB. While the Weinert devices shipped with software to do this, the Agiltron one did not, and required third-party software in order to operate. Coupled with the lack of documentation and support from Agiltron on how to work the device, this made for a much worse user experience, when compared with the support and documentation received from Weinert. Though this is not something quantifiable, it's 
+A diagram giving an idea of the eventual laser and switch setup that would be used is given in \cref{fig:laserswitches}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{switchConfiguration}
+\caption{Diagram showing the likely setup for laser heads and fibre switchers.}\label{fig:laserswitches}
+\end{figure}
+The six laser heads will be coupled into a single fibre using a 1x6 switch. This fibre can then be passed through neutral density filters if these are required to reduce laser power, as well as a fibre splitter with a 1/99 splitting. This allows 1\% of the laser power to be directed to a nearby monitor PMT, which will monitor laser power before coupling into the long fibres and without entangling water parameters from within the detector. The fibre with the remaining 99\% will go into a 1x80 switch, with the output going into the long fibres that extend down to the injectors.
 
 \subsection{General Comparisons}
 
-To understand the performance of the three switches, power measurements were made comparing the output power from each of the four ports to a reference fibre of the same type. For the reference fibre measurements, two 1~m patch cables were coupled together to make a 2~m cable, with the total cable length of each of the switches being around this length.
+To understand the performance of the three test switches, power measurements were made comparing the output power from each of the four ports to a reference fibre of the same type. For the reference fibre measurements, two 1~m patch cables were coupled together to make a 2~m cable, with the total cable length of each of the switches being around this length.
 
-Measurements were made using the 371~nm laser as the light source. The power meter was used to make measurements across 20,000 readings, where each of the four fibre outputs on a switch were selected and coupled in turn. Power readings and calculated transmission percentages for the Agiltron FP400URT switch are given in \cref{tab:switchpower}.
+Measurements were made using the 371~nm laser as the light source. The power meter was used to make measurements across 20,000 readings, where each of the four fibre outputs on a switch were selected and coupled to in turn. Power readings and calculated transmission percentages for the Agiltron FP400URT switch are given in \cref{tab:switchpower}.
 \begin{table}[h]
 \centering
 \begin{tabular}{l|cc|cc|cc}
@@ -395,9 +401,9 @@ Port 4		& $8.66\pm0.01$	& $90.50\pm0.14$ & $7.00\pm0.01$ & $72.39\pm0.13$ & $9.2
 \end{table}
 The results obtained show generally good power transmission for all three devices tested, albeit with clearly better transmission for the Agiltron FP400URT and Weinert GIF50C than for the Weinert FP400URT. This may be in part due to the fact the fibre on the Weinert FP400URT is longer than the others (and the 2~m reference), measuring approximately 2.3~m in total. The variation in output power between ports is also generally low across the devices, with a difference of 2.61\% for the Agiltron FP400URT, 4.25\% for the the Weinert FP400URT and 3.53\% for the Weinert GIF50C. These results suggest that the Agiltron device minorly outperforms the Weinert devices in terms of power variation across ports, whilst the Weinert GIF50C was best for transmission.
 
-During ordering, setup and testing of these devices, we experienced very different degrees of helpfulness from the two companies. While this is not a quantifiable metric, it is none the less very important to keep in mind when making a decision for the full fibre system. The Agiltron switch arrived with very little documentation on how to set up and run the device. The correct way of doing this was eventually figured out after several emails to the supplier. Part of the issue with this is that the switch is provided by a third-party distributor, rather than purchased direct from the manufacturer. The Weinert switches on the other hand were able to be purchased directly from Weinert themselves. They arrived with full documentation on running the switches, along with a simple software package for operation. All email communication with them throughout the ordering and testing process has been very helpful, if somewhat slow at times.
+During ordering, setup and testing of these devices, we experienced very different degrees of helpfulness from the two companies. While this is not a quantifiable metric, it is none the less very important to keep in mind when making a decision for the full fibre system. The Agiltron switch arrived with no documentation on how to set up and run the device. The correct way of doing this was eventually figured out after several emails to the supplier. Part of the issue with this is that the switch is provided by a third-party distributor, rather than purchased direct from the manufacturer. The Weinert switches on the other hand were able to be purchased directly from Weinert themselves. They arrived with full documentation on running the switches, along with a simple software package for operation. All email communication with them throughout the ordering and testing process has been very helpful, if somewhat slow at times.
 
-The LI system is a critical component of the HK calibration programme, and will need to run for many years. It is crucial that support is available from the manufacturer of significant components such as the fibre optic switch, should anything go wrong during its lifetime. The experience of working with Weinert was significantly better, and this should be kept in mind when choosing which device to select. In particular, should issues arise with hardware in the future, it would be significantly easier to deal directly with the manufacturer, rather than going through a third-party distributor.
+The LI system is a critical component of the HK calibration programme, and will need to run for many years. It is crucial that support is available from the manufacturer of significant components such as the fibre optic switch, should anything go wrong during its lifetime. The experience of working with Weinert was significantly better, and this should be kept in mind when selecting which device to proceed with. In particular, should issues arise with hardware in the future, it would be significantly easier to deal directly with the manufacturer, rather than going through a third-party distributor.
 
 
 \subsection{Cross-talk Measurements}
@@ -406,6 +412,7 @@ While making the transmittance measurements shown in \cref{tab:switchpower} for 
 
 In order to confirm this was the case and measure the level of crosstalk for these devices, four power meters were set up, with one connected to each of the four ports on a switch, and all re-zeroed at the same time. A simple python script was used to loop through the four ports 1000 times, before stopping at each port in turn and taking readings for $\sim$10~s. This was repeated for runs of approximately 18 hours per fibre switching device. Data was analysed by stripping out data points from the rapidly varying periods, as well as the first and last point of each sustained period where the device may still have been switching and thus not illuminating the port for the entire time taken for one reading.
 
+Data from this test is shown in \cref{fig:agifp400crosstalk,,fig:weinfp400crosstalk,fig:weingifcrosstalk} for the Agiltron FP400URT, Weinert FP400URT and Weinert GIF50C switches, respectively. Each of these shows data taken by the power meters when the port was a) illuminated and b) not illuminated. These plots show a subset of the full data-taking runs in order to better show the observed structure. \cref{fig:agifp400crosstalkon,fig:weinfp400crosstalkon,fig:weingifcrosstalkon}, which show the readings from illuminated ports, show a similar level of variation to the data presented in \cref{tab:switchpower}.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}{0.5\textwidth}
@@ -418,7 +425,6 @@ In order to confirm this was the case and measure the level of crosstalk for the
 \end{subfigure}
 \caption{Power meter readings from all four ports for the Agiltron FP400URT device, zoomed into a shorter period of data to better show structure. Data is shown for when ports are a) illuminated and b) not illuminated.}\label{fig:agifp400crosstalk}
 \end{figure}
-
 \begin{figure}[h!]
 \centering
 \begin{subfigure}{0.5\textwidth}
@@ -431,7 +437,6 @@ In order to confirm this was the case and measure the level of crosstalk for the
 \end{subfigure}
 \caption{Power meter readings from all four ports for the Weinert FP400URT device, zoomed into a shorter period of data to better show structure. Data is shown for when ports are a) illuminated and b) not illuminated.}\label{fig:weinfp400crosstalk}
 \end{figure}
-
 \begin{figure}[h!]
 \centering
 \begin{subfigure}{0.5\textwidth}
@@ -444,10 +449,9 @@ In order to confirm this was the case and measure the level of crosstalk for the
 \end{subfigure}
 \caption{Power meter readings from all four ports for the Weinert GIF50C device, zoomed into a shorter period of data to better show structure. Data is shown for when ports are a) illuminated and b) not illuminated.}\label{fig:weingifcrosstalk}
 \end{figure}
+The most interesting result is seen in \cref{fig:agifp400crosstalkoff}, which shows clear changes in the power readings recorded on ports 1 and 2, when these ports are not illuminated. There is also a repeating structure to the data from port 4 suggesting a lower level of crosstalk to that channel. This suggests varying levels of crosstalk between different ports. \cref{fig:weinfp400crosstalkoff,fig:weingifcrosstalkoff} on the other hand show no measurable cross talk between any of the channels.
 
-Data from this test is shown in \cref{fig:agifp400crosstalk,,fig:weinfp400crosstalk,fig:weingifcrosstalk} for the Agiltron FP400URT, Weinert FP400URT and Weinert GIF50C, respectively. Each of these shows data taken by the power meters when the port was a) illuminated and b) not illuminated. These plots show a subset of entries in order to better show the observed structure. \cref{fig:agifp400crosstalkon,fig:weinfp400crosstalkon,fig:weingifcrosstalkon}, which show the readings from illuminated ports, show a similar level of variation to the data presented in \cref{tab:switchpower}. The most interesting result is seen in \cref{fig:agifp400crosstalkoff}, which shows clear changes in the power readings recorded on ports 1 and 2, when these ports are not illuminated. There is also a repeating structure to the data from port 4 suggesting a lower level of crosstalk to that channel. This suggests varying levels of crosstalk between different ports. \cref{fig:weinfp400crosstalkoff,fig:weingifcrosstalkoff} on the other hand, show no measurable cross talk between any of the channels.
-
-To further investigate this, the way the data is plotted was inverted. The four plots in \cref{fig:agifp400crosstalk} show the power recorded on a specific port, each separated by which of the other three ports was turned on at the time.
+To further investigate this, the way the data is plotted was inverted. The four plots in \cref{fig:agifp400crosstalk2} show the power recorded on a specific port, each separated by which of the other three ports was illuminated at the time.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}{0.5\textwidth}
@@ -474,7 +478,7 @@ While the absolute value of the power is not expected to be exactly zero due to 
 As no cross talk was observed for either of the Weinert devices, the corresponding plots are not shown here, but are given in \cref{fig:weinfp400crosstalk2,fig:weingifcrosstalk2} in \cref{app:crosstalk} for completeness.
 
 \subsection{Summary}
-Testing of the three different fibre switching devices finds different devices come out best based on different factors. The Weinert GIF50C device showed best power transmission, with at most 4.7\% loss compared to the reference fibre, while the Weinert FP400URT device showed up to 27.6\% loss. This is with the caveat that the device package was different, and the latter had a greater length of fibre than both the other devices, and the reference fibre used. All devices exhibited under 5\% variation in output power across the four ports, with the Agiltron switch showing the least variation at a difference of 2.61\%.
+Testing of the three different fibre switching devices finds different devices come out best based on different factors. The Weinert GIF50C device showed best power transmission, with at most 4.7\% loss compared to the reference fibre, while the Weinert FP400URT device showed up to 27.6\% loss. This is with the caveat that the device package was different, and the latter had a greater length of fibre than both the other devices and the reference fibre used. All devices exhibited under 5\% variation in output power across the four ports, with the Agiltron switch showing the least variation at a difference of 2.61\%.
 
 A clear preference for the Weinert devices comes from the cross talk measurements, which show measurable cross talk between channels on the Agiltron device. While this is at the level of $\mathcal{O}(0.1\%)$, the lack of any measurable cross talk from either of the Weinert devices is clearly preferable. Coupled with the superior support from Weinert which will make setup and potential servicing of the hardware easier, this is the device that is preferred. The internal fibre will of course be chosen to match what is used for the rest of the laser system, so will be Thorlabs FG105UCA or equivalent.
 
@@ -493,30 +497,34 @@ The overall design of the HK water tank and PMT support structure is given in \c
 \begin{figure}[h]
 \centering
 \includegraphics[angle=90,width=\textwidth]{portMap}
-\caption{write this}\label{fig:ports}
+\caption{Top down view of the HK experimental area on top of the tank, showing locations of various calibration and fibre ports.}\label{fig:ports}
 \end{figure}
 
-Although this equates to a large range of required lengths, all fibre optic cables will be kept the same length, such that there is no offset in injection timing between injector locations due to the fibre path lengths. As a result, the required length of fibre optic cable is dictated by that needed to reach the injector located at the centre of the bottom end-cap. In order to be most accessible from all fibre ports, the electronics racks for the LI system will be located near the centre of the dome, next to the ID fibre port (labelled ``Bidf'', light pink, in \cref{fig:ports}). This is the calibration port used to deploy an ID diffuser and collimator to the top end-cap, mentioned in \cref{sec:overview}. Rather than run single lengths of fibre optic cable from injectors to the electronics rack, each required length will be split in two, with patch panels to connect the two parts near the OD fibre ports. The reason for doing this is to allow for replacement of fibres in case of breakage. The parts on top of the dome (out of the water) are more at risk of being damaged by people passing by or nearby work being done, no matter how much care is taken around them. If a single fibre running all the way to an injector in the tank were to break, it would be impossible to replace. However if the fibre outside of the tank is separate, the damaged part can be easily replaced, without having to touch the part that extends into the tank.
+Although the injector layout described in \cref{sec:overview} equates to a large range of required lengths, all fibre optic cables will be kept the same length, such that there is no offset in injection timing between injector locations due to the fibre path lengths. As a result, the required length of fibre optic cable is dictated by that needed to reach the injector located at the centre of the bottom end-cap. In order to be most accessible from all fibre ports, the electronics racks for the LI system will be located near the centre of the dome, next to the ID fibre port (labelled ``Bidf'', light pink, in \cref{fig:ports}). This is the calibration port used to deploy an ID diffuser and collimator to the top end-cap, mentioned in \cref{sec:overview}. Rather than run single lengths of fibre optic cable from injectors to the electronics rack, each required length will be split in two, with patch panels to connect the two parts near the OD fibre ports. The reason for doing this is to allow for replacement of fibres in case of breakage. The parts on top of the dome (out of the water) are more at risk of being damaged by people passing by or nearby work being done, no matter how much care is taken around them. If a single fibre running all the way to an injector in the tank were to break, it would be impossible to replace. However if the fibre outside of the tank is separate, the damaged part can be easily replaced, without having to touch the part that extends into the tank.
 
 Assuming the fibre optic cable runs along the outer side of the PMT support structure, and can only run in orthogonal directions along the bottom end-cap, a total length of 116.8~m is required to reach from the middle of the bottom end-cap to one of the OD fibre ports. In reality, the number and position of the OD fibre ports means it is unlikely that a fibre would have to take the longest possible orthogonal path to the centre, and thus this number is treated as the maximum possible length required. In order to allow additional contingency and for the fibre to reach out of the port to a patch panel, this can be rounded to 120~m. {\color{red} is 3m enough?} The fibres of this length used to connect to ID injectors (and OD collimators) will require FC/PC connectors on both ends. For the OD diffusers however, the fibre is to be connected to the diffuser simply by pushing into the housing, so these will require one end to have no connector. The end without the connector will still require cleaving and polishing to minimise reflections at the surface.
 
 The second part of this fibre is that which runs across the top of the tank to the electronics rack. As mentioned previously, the rack will be positioned near the ID fibre port, which is approximately 3~m from the centre of the dome. In order to estimate the required fibre length, it again has to be assumed that the fibre cannot take the shortest radial path to the centre, and rather has to travel orthogonally to navigate obstacles. Using a water tank radius of 33~m, this gives an orthogonal distance of 46.68~m. An addition of 5~m to reach the electronics rack can be added, and the final requirement of 51.68~m rounded to 55~m to again ensure contingency and not require the fibre to be completely taught. In order to connect to both the patch panel and the electronics rack, these fibres will require FC/PC connectors on both ends.
 
-To connect to the ID injectors, an additional patch fibre is also required. ID injectors will be installed on the PMT support structure during construction, while the fibre installation will be carried out after construction of the structure has been completed, by utilising the OD gondola. In order to avoid workers having to reach far out of the gondola, through the support structure, to attach fibres to the injector housing, short patch fibres will be attached to the injectors at the time of their installation. These will span the dead region and be fixed to the outer side of the structure, so that the long fibres can be connected directly to the patch fibres. As part of this a fibre guide will be used, to ensure that the end of the fibre will be pointing vertically upwards for connection, without the fibre being pushed past its bending radius. {\color{red} Work is ongoing to establish the exact design of this fibre guide, but with a dead region depth of 0.6~m it is expected that a patch cable of 1~m length will be sufficient. These again will require FC/PC connectors on both ends.}
+To connect to the ID injectors {\color{red}are these needed for the OD collimators?}, an additional patch fibre is also required. ID injectors will be installed on the PMT support structure during construction, while the fibre installation will be carried out after construction of the structure has been completed, by utilising the OD gondola. In order to avoid workers having to reach far out of the gondola, through the support structure, to attach fibres to the injector housing, short patch fibres will be attached to the injectors at the time of their installation. These will span the dead region and be fixed to the outer side of the structure, so that the long fibres can be connected directly to the patch fibres. As part of this a fibre guide will be used, to ensure that the end of the fibre will be pointing vertically upwards for connection, without the fibre being pushed past its bending radius. {\color{red} Work is ongoing to establish the exact design of this fibre guide, but with a dead region depth of 0.6~m it is expected that a patch cable of 1~m length will be sufficient. These again will require FC/PC connectors on both ends.}
 
-The final set of fibres required is the short patch fibres used in the LED pulser system. Each LED pulser board will feature a connector sitting atop the surface mounted LED, with space for two fibres to be inserted. One of these will be directly above the LED to collect as much light as possible, and this will be used for illuminating the OD diffusers. The second will be offset, collecting some of the remaining light to be used as a signal for monitoring purposes. As the monitor system will sit at the electronics rack, much less fibre will be used and therefore less initial light input is required. {\color{red} The design for the the fibre connector is currently ongoing, and will be used to confirm the required length of the patch fibres within the pulser board crates.} As the connector for the LED pulser board will hold the fibres simply by friction, each of these patch cables will require FC/PC connectors on one end, with the other cleaved and polished.
+The series of short patch fibres will also be required for the LED system. Each LED pulser board will feature a connector sitting atop the surface mounted LED, with space for two fibres to be inserted. One of these will be directly above the LED to collect as much light as possible, and this will be used for illuminating the OD diffusers. The second will be offset, collecting some of the remaining light to be used as a signal for monitoring purposes. As the monitor system will sit at the electronics rack, much less fibre will be used and therefore less initial light input is required. {\color{red} The design for the the fibre connector is currently ongoing, and will be used to confirm the required length of the patch fibres within the pulser board crates.} As the connector for the LED pulser board will hold the fibres simply by friction, each of these patch cables will require FC/PC connectors on one end, with the other cleaved and polished.
 
 \begin{table}[h]
 \centering
-\begin{tabular}{lllll}
+\begin{tabular}{lccccc}
 \hline
-Fibre type & Length & Connector A & Connector B & Quantity \\ \hline
-FG105UCA   &        &             &             &          \\
-FG105UCA   &        &             &             &          \\
-FG105UCA   &        &             &             &          \\
-FP400URT   &        &             &             &          \\
-FP400URT   &        &             &             &          \\
-FP400URT   &        &             &             &         \\ \hline
+Fibre type & Length (m) & Connector A & Connector B & Quantity & Use \\ \hline
+FG105UCA   &  120   &   FC/PC     &  FC/PC      &    80  & Laser underwater cable  \\
+FG105UCA   &   55   &   FC/PC     &  FC/PC      &    80  & Laser above water cable    \\
+FG105UCA   &    1   &   FC/PC     &  FC/PC      &    66{\color{red}(?)} &  Dead region patch cable \\
+FG105UCA   &  0.3   &   FC/PC     &  FC/PC      &   4  & Switch system patch cables \\
+FP400URT   &  120   &   FC/PC     &  Bare       & 122  & LED underwater cable   \\
+FP400URT   &   55   &   FC/PC     &  FC/PC      & 122   & LED above water cable   \\
+FP400URT   &    1   &   FC/PC     &  Bare       & 122   & Patch cables to monitor PMTs  \\ 
+FP400URT   &  0.211   &   FC/PC    &  Bare       & 122   & LED rack internal patch cable 1  \\ 
+FP400URT   &   0.184   &   FC/PC     &  Bare       & 122  & LED rack internal patch cable 2  \\ 
+\hline
 \end{tabular}
 \caption{List of all required fibres with necessary lengths, connector configurations and quantities.}\label{tab:fibrelengths}
 \end{table}
@@ -565,6 +573,21 @@ The attenuation coefficients calculated in \cref{sec:fibre:sub:att:sub:method} f
 
 Additional light loss factors are also added into the calculations. An 80\% loss is included for the efficiency of the ID diffuser. {\color{red} Rough value based on conversations with Katharina, this still needs confirming. Update this and calculations when we have a number.} To account for losses in the fibre switch, we use the worst case scenario from the Weinert FP400URT measurements, and assume a 25\% loss at each stage of the switch. As any larger switch is formed by daisy-chaining 1x4 switches, this 25\% loss can be experienced up to 6 times (twice for a 1x6 switch plus four times for a 1x80 switch {\color{red} need to explain this setup somewhere}), resulting in an efficiency of $0.75^6 \simeq 0.18$. As the Weinert GIF50C results showed much greater transmission these numbers are considered conservative, and the final efficiency of the device will depend on the internal fibre used. Finally, a factor of 50\% is included to account for any losses in coupling fibres together across the system.
 
+Applying these scaling factors to the requirements in \cref{tab:coverage} yields the required number of photons per pulse from the laser, which goes up to at most $4.5\times10^7$ at 560~nm. This can easily be translated to the required energy per pulse, which is given in \cref{fig:laserenergy}.
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{pulseEnergyReqHigh.pdf}
+\caption{Laser pulse energy as a function of wavelength required to achieve 1\% diffuser spot coverage.}\label{fig:laserenergy}
+\end{figure}
+Finally, assuming a 1~kHz pulse frequency for occasional intensive calibration runs, the average power required of the lasers at each wavelength is given in \cref{fig:laserpower}.
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{avgPowerReqHigh.pdf}
+\caption{Laser average power as a function of wavelength required to achieve 1\% diffuser spot coverage, for 1~kHz running.}\label{fig:laserpower}
+\end{figure}
+
+
+
 \section{Summary}
 
 \newpage
@@ -577,6 +600,43 @@ S. Boyd {\it et al.}, Hyper-Kamiokande Light Injector Diffuser Technical Note (H
 %%collimator TN
 \bibitem{bib:tn0065}
 S. Boyd {\it et al.}, Hyper-Kamiokande Light Injector Collimator Technical Note (HK-TN-0065)
+
+%%fibres
+\bibitem{bib:fp200urt}
+Thorlabs Inc., FP200URT Specifications, 6th February 2024, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/FP200URT-SpecSheet.pdf}
+
+\bibitem{bib:fp400urt}
+Thorlabs Inc., FP400URT Specifications, 6th December 2022, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/FP400URT-SpecSheet.pdf}
+
+\bibitem{bib:fg050uga}
+Thorlabs Inc., FG050UGA Specifications, 22nd April 2024, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/FG050UGA-SpecSheet.pdf}
+
+\bibitem{bib:fg105uca}
+Thorlabs Inc., FG105UCA Specifications, 22nd April 2024, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/FG105UCA-SpecSheet.pdf}
+
+\bibitem{bib:gif50c}
+Thorlabs Inc., GIF50C Specifications, 6th February 2024, \url{hhttps://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/GIF50C-SpecSheet.pdf}
+
+\bibitem{bib:gif50d}
+Thorlabs Inc., GIF50D Specifications, 6th February 2024, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/GIF50D-SpecSheet.pdf}
+
+\bibitem{bib:laserdriver}
+PicoQuant GmbH, Sepia PDL 828 Multichannel Picosecond Diode Laser Driver, September 2021, \url{https://www.picoquant.com/images/uploads/downloads/7920-sepia_pdl828.pdf}
+
+\bibitem{bib:laserhead}
+PicoQuant GmbH, LDH Series Picosecond Laser Diode Heads for PDL 800-D/PDL 828, January 2024, \url{https://www.picoquant.com/images/uploads/downloads/datasheet_ldh_series.pdf}
+
+\bibitem{bib:opm}
+Thorlabs Inc., Optical Power Meter PM100USB Operation Manual v1.7, 28th March 2023, \url{https://www.thorlabs.com/drawings/358f9a4c347897ec-F6D46DF6-F3B1-0FC2-1D78C79FC5065F04/PM100USB-Manual.pdf}
+
+\bibitem{bib:opmsensor}
+Thorlabs Inc., Fiber Power Head with Silicon Detector S150C, 4th February 2016, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/S150C-SpecSheet.pdf}
+
+\bibitem{bib:hpmt}
+Hamamatsu Photonics K.K., Photomultiplier Tube Modules H10720/H10721 Series, September 2024, \url{https://www.hamamatsu.com/content/dam/hamamatsu-photonics/sites/documents/99_SALES_LIBRARY/etd/H10720_H10721_TPMO1062E.pdf}
+
+\bibitem{bib:skgd2}
+K. Abe {\it et al.}, Second gadolinium loading to Super-Kamiokande, NIM A 1065 (2024), \url{https://doi.org/10.1016/j.nima.2024.169480}
 
 
 %%fibre switches
