@@ -80,7 +80,7 @@
 
 \begin{document}
 
-\title{\huge{HK-TN-???: HK LI Fibre Specifications}}
+\title{\huge{HK-TN-91: HK LI Fibre Specifications}}
 \author{S. J. Jenkins, B. Bogdan, N. Foster, N. K. McCauley}
 
 \maketitle
@@ -191,7 +191,7 @@ The OD system will consist primarily of diffusers, using bare hemispheres couple
 \caption{Injector location map for OD diffuser positions. Locations are approximate and dependent on PMT/WLS plate locations.}\label{fig:ODdiffmap}
 \end{figure}
 
-In order to illuminate the injectors, two separate systems will be employed. The first of these will be a system formed of six picosecond pulsed laser sources, in the wavelength range 337 -- 550 nm. This laser system will be used to illuminate all of the ID injectors, along with the 12 OD collimators. {\color{red} put further details on switches and setup in a different section?}. The OD diffusers on the other hand will be illuminated by an LED pulser system, utilising a series of 365~nm wavelength LEDs. Both of these systems will feature monitoring devices, so that the stability of the light sources can be monitored prior to convolution with detector parameters.
+In order to illuminate the injectors, two separate systems will be employed. The first of these will be a system formed of six picosecond pulsed laser sources, in the wavelength range 337 -- 550 nm. This laser system will be used to illuminate all of the ID injectors, along with the 12 OD collimators. The OD diffusers on the other hand will be illuminated by an LED pulser system, utilising a series of 365~nm wavelength LEDs. Both of these systems will feature monitoring devices, so that the stability of the light sources can be monitored prior to convolution with detector parameters.
 
 
 \section{Fibre Lab Measurements}
@@ -227,7 +227,7 @@ Preliminary measurements were performed with all six fibre types listed, and the
 
 All fibre measurements were performed using the fibre test stand in the Particle Physics Optical Laboratory at the University of Liverpool. Two different types of light sources are available for testing; the first of these is a Picoquant Sepia PDL 828-L laser driver \cite{bib:laserdriver}, powering a LDH-D-C-375M laser head \cite{bib:laserhead}, with a peak wavelength of 371~nm. This is a pulsed laser source with a pulse width of $\sim$50~ps, and repetition rate up to 80~MHz. The candidate fibres couple directly to the laser head using an FC/PC connector. The second set of light sources was a series of LEDs, covering wavelengths from 365~nm up to 595~nm. These are run in DC mode, and were used primarily to make attenuation measurements over the range of wavelengths relevant for the LI system. In order to connect the FC/PC connector on a candidate fibre to a surface-mounted LED, custom connectors were 3D printed. {\color{red} does this need expanding? or we include it in an OD system TN}
 
-Two different detection methods for the fibre transmitted light are available. To measure power output, a Thorlabs PM100USB \cite{bib:opm} power meter is used, with an S150C sensor \cite{bib:opmsensor} connected. For timing measurements, the fibres are connected to a Hamamatsu H10721-210 PMT \cite{bib:hpmt}, which is read out by a Tektronix MSO56{\color{red} check model no. to ref} oscilloscope. Fibres are coupled to either read-out method via FC/PC connection such that, in the case of the laser, there are no bare beams in the lab. To ensure light tightness and as an additional safety measure, all light sources and detectors are housed within a dark box, with no connections made outside. Larger fibre reels are kept outside due to their size, with a port used to bring the ends inside for connection. An image of the setup is shown in \cref{fig:fibreteststand}.
+Two different detection methods for the fibre transmitted light are available. To measure power output, a Thorlabs PM100USB \cite{bib:opm} power meter is used, with an S150C sensor \cite{bib:opmsensor} connected. For timing measurements, the fibres are connected to a Hamamatsu H10721-210 PMT \cite{bib:hpmt}, which is read out by a Tektronix MSO54 oscilloscope \cite{bib:scope}. Fibres are coupled to either read-out method via FC/PC connection such that, in the case of the laser, there are no bare beams in the lab. To ensure light tightness and as an additional safety measure, all light sources and detectors are housed within a dark box, with no connections made outside. Larger fibre reels are kept outside due to their size, with a port used to bring the ends inside for connection. An image of the setup is shown in \cref{fig:fibreteststand}.
 
 \begin{figure}[h]
 \centering
@@ -506,12 +506,17 @@ Assuming the fibre optic cable runs along the outer side of the PMT support stru
 
 The second part of this fibre is that which runs across the top of the tank to the electronics rack. As mentioned previously, the rack will be positioned near the ID fibre port, which is approximately 3~m from the centre of the dome. In order to estimate the required fibre length, it again has to be assumed that the fibre cannot take the shortest radial path to the centre, and rather has to travel orthogonally to navigate obstacles. Using a water tank radius of 33~m, this gives an orthogonal distance of 46.68~m. An addition of 5~m to reach the electronics rack can be added, and the final requirement of 51.68~m rounded to 55~m to again ensure contingency and not require the fibre to be completely taught. In order to connect to both the patch panel and the electronics rack, these fibres will require FC/PC connectors on both ends.
 
-To connect to the ID injectors {\color{red}are these needed for the OD collimators?}, an additional patch fibre is also required. ID injectors will be installed on the PMT support structure during construction, while the fibre installation will be carried out after construction of the structure has been completed, by utilising the OD gondola. In order to avoid workers having to reach far out of the gondola, through the support structure, to attach fibres to the injector housing, short patch fibres will be attached to the injectors at the time of their installation. These will span the dead region and be fixed to the outer side of the structure, so that the long fibres can be connected directly to the patch fibres. As part of this a fibre guide will be used, to ensure that the end of the fibre will be pointing vertically upwards for connection, without the fibre being pushed past its bending radius. {\color{red} Work is ongoing to establish the exact design of this fibre guide, but with a dead region depth of 0.6~m it is expected that a patch cable of 1~m length will be sufficient. These again will require FC/PC connectors on both ends.}
+To connect to the ID injectors {\color{red}are these needed for the OD collimators?}, an additional patch fibre is also required. ID injectors will be installed on the PMT support structure during construction, while the fibre installation will be carried out after construction of the structure has been completed, by utilising the OD gondola. In order to avoid workers having to reach far out of the gondola, through the support structure, to attach fibres to the injector housing, short patch fibres will be attached to the injectors at the time of their installation. These will span the dead region and be fixed to the outer side of the structure, so that the long fibres can be connected directly to the patch fibres. As part of this a fibre guide will be used, to ensure that the end of the fibre will be pointing vertically upwards for connection, without the fibre being pushed past its bending radius. {\color{red} Work is ongoing to establish the exact design of this fibre guide, but with a dead region depth of 0.6~m it is expected that a patch cable of 1~m length will be sufficient. These again will require FC/PC connectors on both ends.} Finally, four additional patch cables will be required for connections between the two fibre switchers. The lengths of these are estimated at 30~cm. Exact specifications of chosen fibre splitters and neutral density filters will dictate the connections needed, but as a standard connector type FC/PC is assumed for now.
 
-The series of short patch fibres will also be required for the LED system. Each LED pulser board will feature a connector sitting atop the surface mounted LED, with space for two fibres to be inserted. One of these will be directly above the LED to collect as much light as possible, and this will be used for illuminating the OD diffusers. The second will be offset, collecting some of the remaining light to be used as a signal for monitoring purposes. As the monitor system will sit at the electronics rack, much less fibre will be used and therefore less initial light input is required. {\color{red} The design for the the fibre connector is currently ongoing, and will be used to confirm the required length of the patch fibres within the pulser board crates.} As the connector for the LED pulser board will hold the fibres simply by friction, each of these patch cables will require FC/PC connectors on one end, with the other cleaved and polished.
+A series of short patch fibres will also be required for the LED system. Each LED pulser board will feature a connector sitting atop the surface mounted LED, with space for two fibres to be inserted. One of these will be directly above the LED to collect as much light as possible, and this will be used for illuminating the OD diffusers. The second will be offset, collecting some of the remaining light to be used as a signal for monitoring purposes. As the monitor system will sit at the electronics rack, much less fibre will be used and therefore less initial light input is required. {\color{red} The design for the the fibre connector is currently ongoing, and will be used to confirm the required length of the patch fibres within the pulser board crates.} Initial measurements of the required lengths, which are different due to the topology of the connector, give $21.1\pm1.4$~cm and $18.4\pm0.6$~cm, where the uncertainties here are the measured tolerances on the length. Any shorter than this and the cable will not reach. If the cables are longer, they would be required to bend at a greater angle than their specified bending radius, which will cause degradation over the lifetime of the system. As the connector for the LED pulser board will hold the fibres simply by friction, each of these patch cables will require FC/PC connectors on one end, with the other cleaved and polished.
+
+The final set of patch cables for the LED pulser system is that used to connect to the monitor PMTs. The internal patch cable from the LED connector will go into a patch panel on the front of the electronics rack. These patch cables will carry light from that patch panel to a system of several monitor PMTs in the same electronics rack. These will be 1~m long, with an FC/PC connector on the patch panel end, and polished bare fibre at the PMT-facing end.
+
+\cref{tab:fibrelengths} summaries all the required fibres, detailing the chosen type, length, connectors and quantities needed.
 
 \begin{table}[h]
 \centering
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lccccc}
 \hline
 Fibre type & Length (m) & Connector A & Connector B & Quantity & Use \\ \hline
@@ -522,11 +527,11 @@ FG105UCA   &  0.3   &   FC/PC     &  FC/PC      &   4  & Switch system patch cab
 FP400URT   &  120   &   FC/PC     &  Bare       & 122  & LED underwater cable   \\
 FP400URT   &   55   &   FC/PC     &  FC/PC      & 122   & LED above water cable   \\
 FP400URT   &    1   &   FC/PC     &  Bare       & 122   & Patch cables to monitor PMTs  \\ 
-FP400URT   &  0.211   &   FC/PC    &  Bare       & 122   & LED rack internal patch cable 1  \\ 
-FP400URT   &   0.184   &   FC/PC     &  Bare       & 122  & LED rack internal patch cable 2  \\ 
+FP400URT   &  0.211   &   FC/PC    &  Bare       & 122   & LED rack patch cable 1  \\ 
+FP400URT   &   0.184   &   FC/PC     &  Bare       & 122  & LED rack patch cable 2  \\ 
 \hline
 \end{tabular}
-\caption{List of all required fibres with necessary lengths, connector configurations and quantities.}\label{tab:fibrelengths}
+\caption{List of all required fibres with necessary lengths, connector configurations, quantities and uses.}\label{tab:fibrelengths}
 \end{table}
 
 \clearpage
@@ -571,7 +576,7 @@ Wavelength (nm) & N photons for 1\% coverage \\ \hline
 \end{table}
 The attenuation coefficients calculated in \cref{sec:fibre:sub:att:sub:method} for the above wavelengths are used to obtain the attenuation factors for the fibres, assuming the 175~m calculated in \cref{sec:lengths}. The fibre is assumed to be the Thorlabs FG105UCA favoured in \cref{sec:fibre:sub:choice}.
 
-Additional light loss factors are also added into the calculations. An 80\% loss is included for the efficiency of the ID diffuser. {\color{red} Rough value based on conversations with Katharina, this still needs confirming. Update this and calculations when we have a number.} To account for losses in the fibre switch, we use the worst case scenario from the Weinert FP400URT measurements, and assume a 25\% loss at each stage of the switch. As any larger switch is formed by daisy-chaining 1x4 switches, this 25\% loss can be experienced up to 6 times (twice for a 1x6 switch plus four times for a 1x80 switch {\color{red} need to explain this setup somewhere}), resulting in an efficiency of $0.75^6 \simeq 0.18$. As the Weinert GIF50C results showed much greater transmission these numbers are considered conservative, and the final efficiency of the device will depend on the internal fibre used. Finally, a factor of 50\% is included to account for any losses in coupling fibres together across the system.
+Additional light loss factors are also added into the calculations. An 80\% loss is included for the efficiency of the ID diffuser. {\color{red} Rough value based on conversations with Katharina, this still needs confirming. Update this and calculations when we have a number.} To account for losses in the fibre switch, we use the worst case scenario from the Weinert FP400URT measurements, and assume a 25\% loss at each stage of the switch. As any larger switch is formed by daisy-chaining 1x4 switches, this 25\% loss can be experienced up to 6 times (twice for a 1x6 switch plus four times for a 1x80 switch), resulting in an efficiency of $0.75^6 \simeq 0.18$. As the Weinert GIF50C results showed much greater transmission these numbers are considered conservative, and the final efficiency of the device will depend on the internal fibre used. Finally, a factor of 50\% is included to account for any losses in coupling fibres together across the system.
 
 Applying these scaling factors to the requirements in \cref{tab:coverage} yields the required number of photons per pulse from the laser, which goes up to at most $4.5\times10^7$ at 560~nm. This can easily be translated to the required energy per pulse, which is given in \cref{fig:laserenergy}.
 \begin{figure}
@@ -589,6 +594,11 @@ Finally, assuming a 1~kHz pulse frequency for occasional intensive calibration r
 
 
 \section{Summary}
+This technical note describes the tests performed on candidate fibre optic cables, which are used to justify the choices made for optimal fibres to use for the ID and OD systems. For the ID system, along with the OD collimators, Thorlabs FG105UCA is chosen. This fibre showed the least attenuation of the four types tested, in the UV wavelength range which is of most interest, and also matches the fibre type that has already been chosen as the internal feed-through for the optics themselves. This reduces losses that would otherwise be obtained when coupling fibres of different types together. This is the reason for choosing this fibre, despite the fact it exhibits a greater increase in pulse rise time than the other candidates. A high frequency read-out system is currently in development in order to make complete measurements of the dispersion from the full lengths of this fibre, as this is still an important property to understand.
+
+For the OD diffuser system, the fibre if choice is instead Thorlabs FP400URT. While this showed increased attenuation at lower wavelengths when compared to FG105UCA, the advantage of the former fibre type is the diameter being four times greater. This makes coupling an LED to the fibre considerably easier, and ensures a greater amount of light is directed into the fibre in the first place.
+
+A series of measurements of 1x4 fibre switching devices have also been presented, manufactured by two different companies. The results for power transmission found the Weinert device with GIF50C internal fibre to be the best, while for power variation the Agiltron FP400URT device performed slightly better than the others. However, when making power measurements, none-zero power measurements were observed on channels of the Agiltron device that were not being illuminated. Dedicated measurements of this showed cross talk between several different channels on the Agiltron device, whereas no measurable cross talk was found for either of the Weinert devices. Coupled with the fact the support from Weinert was vastly superior, which will be incredibly important for maintaining the device over the lifetime of the experiment, the favoured company is Weinert. The internal fibre will be the same as that used for the ID laser system, and as such should be FG105UCA, as discussed already.
 
 \newpage
 \begin{thebibliography}{99}
@@ -634,6 +644,9 @@ Thorlabs Inc., Fiber Power Head with Silicon Detector S150C, 4th February 2016, 
 
 \bibitem{bib:hpmt}
 Hamamatsu Photonics K.K., Photomultiplier Tube Modules H10720/H10721 Series, September 2024, \url{https://www.hamamatsu.com/content/dam/hamamatsu-photonics/sites/documents/99_SALES_LIBRARY/etd/H10720_H10721_TPMO1062E.pdf}
+
+\bibitem{bib:scope}
+Tektronix Inc., 5 Series MSO Mixed Signal Oscilloscope Datasheet, \url{https://www.tek.com/en/datasheet/5-series-mso}
 
 \bibitem{bib:skgd2}
 K. Abe {\it et al.}, Second gadolinium loading to Super-Kamiokande, NIM A 1065 (2024), \url{https://doi.org/10.1016/j.nima.2024.169480}
