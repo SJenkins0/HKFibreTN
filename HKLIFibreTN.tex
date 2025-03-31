@@ -564,7 +564,7 @@ The coverage percentages for all nine injectors for the 365~nm wavelength are gi
 \includegraphics[width=0.8\textwidth]{coverage_365.pdf}
 \caption{Coverage percentages as a function of diffuser position, for differing numbers of injected photons of 365~nm wavelength. The 1\% level is shown by the red line.}\label{fig:coverage_365}
 \end{figure}
-The shape of these plots can be understood by thinking about the geometry of the detector. Injectors 0 and 24 are the barrel injectors closest to the bottom and top endcaps respectively, so those diffusers illuminate a large part of the respective end caps. The shorter path lengths between these injectors and the endcaps results in a greater amount of the initial photons causing hits, and therefore less required for 1\% coverage. As the injector positions move towards the middle, there is less to no overlap with the end caps, increasing the average path length to PMTs. The final two injectors, those on the top and bottom end caps, have the greatest distance to the opposite side of the tank. There are therefore more PMTs are in the spot, and with the greater distance photons are required to travel, means a greater number of injected photons are needed for 1\% coverage. At this wavelength, 800 injected photons are required to obtain at least 1\% coverage in all injectors. The behaviour described repeats for all wavelengths checked, making the top and bottom injectors the limiting cases for each.
+The shape of these plots can be understood by thinking about the geometry of the detector. Injectors 0 and 24 are the barrel injectors closest to the bottom and top endcaps respectively, so those diffusers illuminate a large part of the respective end caps. The shorter path lengths between these injectors and the endcaps results in a greater amount of the initial photons causing hits, and therefore less required for 1\% coverage. As the injector positions move towards the middle, there is less to no overlap with the end caps, increasing the average path length to PMTs. The final two injectors, those on the top and bottom end caps, have the greatest distance to the opposite side of the tank. There are therefore more PMTs are in the spot, and with the greater distance photons are required to travel, means a greater number of injected photons are needed for 1\% coverage. At this wavelength, 1400 injected photons are required to obtain at least 1\% coverage in all injectors. The behaviour described repeats for all wavelengths checked, making the top and bottom injectors the limiting cases for each.
 
 The approximate number of photons required to achieve 1\% spot coverage per wavelength is given in \cref{tab:coverage}. These numbers can then be used to calculate the required laser power per wavelength, accounting for loss due to attenuation in the fibres and other points of inefficiency within the system.
 \begin{table}[h]
@@ -585,16 +585,16 @@ The attenuation coefficients calculated in \cref{sec:fibre:sub:att:sub:method} f
 
 Additional light loss factors are also added into the calculations. A 90\% loss is included to account for the efficiency of the ID diffuser. To account for losses in the fibre switch, we use the worst case scenario from the Weinert FP400URT measurements, and assume a 25\% loss at each stage of the switch. As any larger switch is formed by daisy-chaining 1x4 switches, this 25\% loss can be experienced up to 6 times (twice for a 1x8 switch plus four times for a 1x80 switch), resulting in an efficiency of $0.75^6 \simeq 0.18$. As the Weinert GIF50C results showed much greater transmission these numbers are considered conservative, and the final efficiency of the device will depend on the internal fibre used. Finally, a factor of 50\% is included to account for any losses in coupling fibres together across the system.
 
-Applying these scaling factors to the requirements in \cref{tab:coverage} yields the required number of photons per pulse from the laser, which goes up to at most $4.5\times10^7$ at 560~nm. This can easily be translated to the required energy per pulse, which is given in \cref{fig:laserenergy}.
+Applying these scaling factors to the requirements in \cref{tab:coverage} yields the required number of photons per pulse from the laser, which goes up to at most $2.4\times10^5$ at 525~nm. This can easily be translated to the required energy per pulse, which is given in \cref{fig:laserenergy}.
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{pulseEnergyReqHigh.pdf}
+\includegraphics[width=0.7\textwidth]{pulseEnergyReq.pdf}
 \caption{Laser pulse energy as a function of wavelength required to achieve 1\% diffuser spot coverage.}\label{fig:laserenergy}
 \end{figure}
 Finally, assuming a 1~kHz pulse frequency for occasional intensive calibration runs, the average power required of the lasers at each wavelength is given in \cref{fig:laserpower}.
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{avgPowerReqHigh.pdf}
+\includegraphics[width=0.7\textwidth]{avgPowerReq.pdf}
 \caption{Laser average power as a function of wavelength required to achieve 1\% diffuser spot coverage, for 1~kHz running.}\label{fig:laserpower}
 \end{figure}
 
