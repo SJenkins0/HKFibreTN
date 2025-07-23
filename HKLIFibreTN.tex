@@ -35,6 +35,7 @@
 \setlength{\cftfignumwidth}{1.5cm}
 
 \renewcommand*\thetable{\Roman{table}}
+\linenumbers
 
 
 %%%Add this for version history
@@ -81,7 +82,7 @@
 \begin{document}
 
 \title{\huge{HK-TN-91: HK LI Fibre Specifications}}
-\author{S. J. Jenkins, B. Bogdan, N. Foster, N. K. McCauley}
+\author{S.J. Jenkins, B. Bogdan, N. Foster, U. Limbu, N. McCauley}
 
 \maketitle
 
@@ -94,6 +95,8 @@
 \item v1 - First release of TN, circulated to HK UK calibration group for comments.
 \item v2 - Updated to reflect comments received from HK UK calibration group. Also updated photon yield requirements due to identified bug in WCSim simulation. This is the first version made available to the collaboration.
 \item v3 - Fibre length requirements altered after deciding on specific injector cell locations. No longer requiring all fibres to be the same length. Full description of injector cell locations and fibre lengths given, as well as updating the laser system diagram to provide attenuators individually for laser heads.
+\item v3.1 - Minor revision to make it clearer that different lengths of fibre in the barrel is the primary approach.
+\item v3.2 - Minor revision after first review committee meeting. Added a section on reception testing/QA/QC. Changed section on furcation tubing to reflect choice to tube all fibres, this was outdated. Also fixed links to Thorlabs products (spec sheets seem to generate limited-time URLs, now directing to the product page from which the spec sheets are linked). 
 \end{itemize}
 
 \clearpage
@@ -333,7 +336,7 @@ allows a linear fit to be made to data, where the gradient is the coefficient of
 \text{Attenuation (dB/150~m)} = \frac{10}{\ln 10}\times 150 \times \lambda.
 \end{eqnarray}
 
-\subsubsection{Results}
+\subsubsection{Results}\label{sec:fibre:sub:att:sub:results}
 As a first check of the measurement system, the calculated attenuation values for the FP400URT fibre were compared to those provided in the fibre specifications by Thorlabs. This comparison can be seen in \cref{fig:fp400compar}, and shows generally good agreement between the two. Values of attenuation stay below 10~dB until just above 400~nm, where the amount of attenuation increases sharply. At the minimum wavelength of 365~nm, attenuation of over 20~dB is observed, suggesting that attenuation values in the UV range will likely be the driving factor for deciding on a fibre type.
 
 \begin{figure}[h]
@@ -350,7 +353,7 @@ The full results for all fibre types are presented in \cref{fig:attenall}, with 
 \end{figure}
 These results suggest that FG105UCA is the optimal fibre type to use, in terms of attenuation. Although it exhibits higher attenuation in the visible range, there is significantly less observed in the UV range, whereas the other fibre options start to peak sharply in attenuation here. As lower wavelengths of light have been previously observed to be more sensitive to changes in water parameters \cite{bib:skgd2}, prioritising lower attenuation in this region should be preferred.
 
-Performing these tests also provided an opportunity to become familiar with handling the fibres. As was mentioned in \cref{sec:fibre:sub:att:sub:method}, the long reels of fibre that were purchased for these tests were done so without tubing, which is generally added in order to protect the fibres. Along with the issues of light leakage previously discussed, during testing it was found that the narrow-core fibres were particularly fragile, with two being broken in the process. The FP400URT fibre however was seen to be far more robust and light-tight. This is attributed to its hard polymer cladding and Tefzel (Teflon-based) coating, as opposed to the clear acrylate used for the graded-index and FG105UCA fibres. Orders of fibre types other than FP400URT will require tubing when ordered for the safety of the system.
+Performing these tests also provided an opportunity to become familiar with handling the fibres. As was mentioned in \cref{sec:fibre:sub:att:sub:method}, the long reels of fibre that were purchased for these tests were done so without tubing, which is generally added in order to protect the fibres. Along with the issues of light leakage previously discussed, during testing it was found that the narrow-core fibres were particularly fragile, with two being broken in the process. The FP400URT fibre however was seen to be far more robust and light-tight. This is attributed to its hard polymer cladding and Tefzel (Teflon-based) coating, as opposed to the clear acrylate used for the graded-index and FG105UCA fibres. Despite this, for safety and light-tightness both types of fibres will use furcation tubing. The majority of fibres will be tubed using the Thorlabs FT030-BK black tubing \cite{bib:ft030bk}. This is the same tubing using on the fibres in the UK Light Injection (UKLI) system in Super-K, so it is known to be compatible with both ultra-pure and gadiated water. Short patch fibres used inside the LED pulser crate (described further in \cref{sec:lengths:sub:len:sub:patch}) will use different colours, associated with the different total fibre lengths that each pulser is connected to.
 
 \subsection{Dispersion Measurements}
 
@@ -513,6 +516,42 @@ Using the fibre test stand with the laser setup, the relative time delay between
 \end{figure}
 This verifies that the speed of light can easily be measured with this setup, and that including connectors has no obvious impact on the expected results. Naturally, as the speed of light in any medium is wavelength dependent, this will need calculating for every wavelength of light used in the LI system.
 
+\section{Destructive Testing}\label{sec:destruction}
+Another important aspect of the fibres to test is their durability. While every care should be taken with the fibres to ensure damage does not occur, they will be installed in a working environment, and accidents can happen.  With a large number of fibres of varying length, visually noticing damage to a fibre is very unlikely. As such, it is important to understand what kinds of stress a fibre can realistically be exposed to and what can be tolerated, along with how to quickly check if damage has occurred.
+
+As these tests need to be carried out in a working environment, using the same set-up as in the fibre optic test stand (\cref{sec:meas:sub:stand}) is not viable. Instead, commercially available, hand-held testing devices were investigated, and three units of the TREND Networks FiberMASTER MM testing kit \cite{bib:TREND} were purchased. This is a hand-held, battery operated light source and power meter, with varied wavelengths between 850--1550~nm. Although this is not the operating wavelength of the LI system, it still allows for quick checks of through-put power, and any damage to the fibres will still be obvious in changed readings.
+
+A series of tests were carried out to assess the resilience of FP400URT and FG105UCA 1~m patch fibres to crushing, bending and cutting, plus scraping of the connector ends. The results for these are briefly summarised here. {\bf can go into more detail if desired, but Unik has a lot of info that needs condensing into this section}
+
+\subsection{Crushing}
+The first set of tests carried out consisted of applying a series of increased weights to the fibres. This started with simply applying bodyweight ($\sim80$~kg) through stepping on the fibres, the most likely scenario for them to experience stress. No visible damage or change in power output was observed in this case.
+
+To increase the force experienced, a trolley was used to apply a series of weights from 100--160~kg through a single wheel. At the maximum weight of 160~kg, a 24\% reduction in output power was observed, but this returned to normal once the weight was removed. Visual inspection of the fibre revealed some yellowing caused by stress to the fibre, but no other signs of permanent damage were observed. To push this further, the fibre was then driven over by a small car ($sim$330~kg per wheel), while connected to the hand-held test kit. Static compression was seen to reduce the power output by 60\%, but again only while the weight remained on the fibre, returning back to nominal after being removed. As a final test, the fibre was also exposed to shearing forces, by turning the car's wheels whilst stationary on the fibre. This caused a sharp drop in power of 86\% and clear structural damage, as the power output did not recover after removing the weight.
+
+\subsection{Bending}
+These tests explored how the fibres responded to manual bending and twisting, particularly beyond the specified bending radius. Fibres were observed to tolerate mild bends without degradation, however when forming angles below 90\degree\ significant signs of degradation occurred, particularly if bent in locations of previous wear. For the FG105UCA, a sharp bend in its midpoint caused a power reduction of 35--55\%, and ultimately breakage when folded back on itself. Results were similar with the FP400URT. Though only exploratory, these tests highlighted the importance of maintaining the quoted bending radius and the care that should be taken when deploying fibres.
+
+\subsection{Cutting}
+This test was to evaluate the physical resilience of the furcation tubing when exposed to sharp tools. In these tests, a utility knife, pliers and scissors were used. The utility knife was unable to penetrate the tubing with multiple passes, however the pliers and scissors were able to cut through the whole fibre with moderate effort. This suggests that the furcation tubing is capable of holding up to passing cuts, but not when blades are applied with reasonable force. Care should be taken when working with any sharp object around fibres, and any exposure minimised.
+
+\subsection{Scraping}
+This test focussed completely on the fibre connectors, applying surface abrasion to simulate damage caused by the connectors being dragged along floors or scraped against surfaces during installation. \cref{fig:scraping} shows microscope images taken of the connectors, where the extent of the damage to the internal fibre core after scraping along the lab floor can easily be seen.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{scraping}
+\caption{Microscope images of connectors for FP400URT (left) and FG105UCA (right) before (top) and after (bottom) scraping along the lab floor.}\label{fig:scraping}
+\end{figure}
+A permanent reduction in power of up to 50\% was observed after causing this damage. This highlights the need to keep all ends of fibres protected by dust caps throughout shipping, testing and installation, right up until the point of connection.
+
+
+\section{Reception Testing}\label{sec:testing}
+\cref{sec:lengths} will discuss the number of fibres required for the entire LI system to be built. In an ideal scenario, all fibres will be delivered to Japan with no issues. However, with such a large order, the potential for small defects in manufacturing or some damage in shipping must be accounted for. A contingency of $\sim$10\% will be assumed in quotes to account for this. Upon receipt of the fibres in Japan, several tests should be carried out to ensure the fibres are performing as expected.
+
+With nearly 1000 fibres in total, full characterisation of each one is not viable. Instead, upon delivery of each set of fibres, quick checks of power output through each fibre will be performed with the hand-held testing device detailed in \cref{sec:destruction}. By measuring the transmitted power through all fibres in a set a distribution of values can be built, and the largest outliers excluded down to the number of required fibres. Specification sheets for the FG105UCA \cite{bib:fg105uca} and FP400URT \cite{bib:fp400urt} provide measured attenuation values for a range of wavelengths. By comparing the batch average power to the expectation when accounting for attenuation, any difference should be immediately obvious, and significant issues would be raised with the supplier straight away. During installation of the fibres, power readings with the hand-held devices will be repeated, to ensure no damage has occurred to fibres in the process.
+
+While it will not be possible to extensively test all fibres, more detailed batch testing of fibres upon delivery to Japan is required. This will be carried out using a very similar set-up to the Liverpool fibre optic test stand (described in \cref{sec:meas:sub:stand}), which will be reproduced in the lab space in Japan, using the laser system which will then be installed as a light source for the ID injectors. Arguably the most important measurements to be made here will be those of the speed of light in fibres. These will be carried out following the same prescription as in \cref{sec:c}, for both fibre types. As the speed of light in a medium is wavelength-dependent, this will be done for every appropriate wavelength, with the measurements being used to define the required offsets in electronics to account for different lengths of fibres used. In addition to speed of light measurements, batch testing of attenuation and pulse widths will be carried out to screen for potential issues.
+
+
 \section{Fibre Length Requirements}\label{sec:lengths}
 
 With the large number of injectors being employed for the light injection system, an even larger number of fibre optic cables will be required. This section details the quantity and lengths of cables required to connect the full HK LI system.
@@ -534,7 +573,7 @@ In order to limit the effect of potential damage to fibres, these will be split 
 
 The initial preference for the fibre layout was to keep all fibre lengths the same. While this would involve many injectors being attached to fibres that were unnecessarily long, it would mean that the attenuation, dispersion and timing delays of pulses sent to all injectors would be constant. However, during the process of obtaining quotes, it was discovered that manufacturing a large number of fibres over 100~m would be problematic for the FP400URT, as draw lengths above 100~m are rare. This is problematic as lengths of $\sim$120~m are required to reach from the OD fibre ports to the centre of the bottom end-cap. To work around this, in-tank fibres will be split into two parts, one extending to the bottom of the barrel, and another extending across the bottom end-cap. Connectors will be installed on the bottom corners of the tank to facilitate this.
 
-With multiple in-tank fibres needing to be connected together to reach the injectors on the bottom end-cap, it no longer makes sense to make all injector path lengths the same. Therefore, the required lengths need to be calculated for each section, based on deployment method and path taken.
+With multiple in-tank fibres needing to be connected together to reach the injectors on the bottom end-cap, it no longer makes sense to make all injector path lengths the same. Therefore, the required lengths need to be calculated for each section, based on deployment method and path taken. 
 
 \subsection{Injector Cell Locations}\label{sec:lengths:sub:inj}
 \subsubsection{Barrel Injectors}\label{sec:lengths:sub:inj:sub:barrel}
@@ -709,7 +748,7 @@ Vertical label	&	Layer	&	Vertical dist. from deck [mm]	&	Total dist. from port [
 \end{table}
 These numbers show that the additional horizontal fibre required to reach from vertical supports to an injector cell is not a problem, as the maximum length case still comes from reaching to the bottom of the barrel. For contingency, and to allow fibres to not be kept taught, the maximum length requirement is rounded up to 76~m. For the ID system, all fibres will have FC/PC connectors on either end. This is the same for the OD system fibres which traverse the entire barrel depth to the bottom end-cap. For the fibres connecting to OD barrel diffusers however, these will be polished fibre on one end, as this is what has to be pushed into the back of the diffuser hemisphere.
 
-The plans presented here assume that all fibres in the barrel will be the same length, regardless of where the injectors are or if they extend to the bottom. An alternative option is to split into three sets of fibres, so that the amount of excess fibre can be limited, particularly for the higher up injectors. In this case, there is one length for vertical labels 1 and 2, one for 3, 4 and 5, and one for 6, 7, and fibres to the bottom of the barrel. The lengths of these are calculated using the values from \cref{tab:barrelLength}, and are given in \cref{tab:barrelLengthSplit}.
+The plans presented here are used to calculate the maximum required length. Rather than have all fibres that traverse the barrel the same length, an alternative option is to split into three sets of fibres so that the amount of excess fibre can be limited, particularly for the higher up injectors. In this case, there is one length for vertical labels 1 and 2, one for 3, 4 and 5, and one for 6, 7, and fibres to the bottom of the barrel. The lengths of these are calculated using the values from \cref{tab:barrelLength}, and are given in \cref{tab:barrelLengthSplit}. From both a cost and installation perspective, this case using three different lengths of fibre for the barrel injectors is the preferred method.
 \begin{table}[h!]
 \centering
 \begin{tabular}{cc}\toprule
@@ -812,19 +851,19 @@ ODEB	&		Distance [$u$]	\\ \midrule
 The greatest length of fibre required comes from connecting to ODET17, the furthest injector from the calibration port. This requires 19 units of length, equating to 40299~mm. Adding on 4506~mm for the height of the calibration port, and then 3000~mm for travel to the electronics rack, a maximum requirement of 47805~mm is obtained. The length of these fibres is therefore rounded to 50~m for contingency. As with the other fibres connecting directly to the OD diffusers, these will need to have FC/PC connectors on one end, and a polished bare fibre on the other. It should be noted that installation of injectors and fibres on the top end-cap is planned to be carried out by company workers rather than researchers, due to additional complications foreseen in this work.
 
 
-\subsubsection{Patch Fibres}
+\subsubsection{Patch Fibres}\label{sec:lengths:sub:len:sub:patch}
 
 Along with the long lengths of fibres described in the previous sections, a large number of patch fibres will be required at various points within laser and LED systems.
 
 As described in \cref{sec:lengths:sub:len:sub:barrel}, to connect to all ID injectors bar the top end-cap ones an additional patch fibre is also required. ID injectors will be installed on the PMT support structure during construction, while the fibre installation will be carried out after construction of the structure has been completed, by utilising the OD gondola. In order to avoid workers having to reach far out of the gondola, through the support structure, to attach fibres to the injector housing, short patch fibres will be attached to the injectors at the time of their installation. These will span the dead region and be fixed to the outer side of the structure, so that the long fibres can be connected directly to the patch fibres. As part of this a fibre guide will be used, to ensure that the end of the fibre will be pointing vertically upwards for connection, without the fibre being pushed past its bending radius. The required lengths have been measured using a mockup of the support, obtaining values of 640~mm for the diffuser and 530~mm for the collimator. Both ends of these patch fibres will need to have FC/PC connectors.
 
-Based on \cref{fig:laserswitches}, eight patch fibres will be required for within the laser system itself, not including the five that will come coupled to the laser heads. Five of these will run from individual attenuators to connect the laser heads to the 1x8 switch, and then three are used for the connections between the 1x8 and 1x80 switch, which includes integrating the fibre splitter for the monitor PMT. These will all be FG105UCA fibres with FC/PC connectors on either end, with a rough length requirement of $\sim50$~cm.
+Based on \cref{fig:laserswitches}, eight patch fibres will be required for within the laser system itself, not including the five that will come coupled to the laser heads. Five of these will run from individual attenuators to connect the laser heads to the 1x8 switch, and then three are used for the connections between the 1x8 and 1x80 switch, which includes integrating the fibre splitter for the monitor PMT. These will all be FG105UCA fibres with FC/PC connectors on either end, with a rough length requirement of $\sim100$~cm.
 
 A series of short patch fibres will also be required for the LED system. Each LED pulser board will feature a connector sitting atop the surface mounted LED, with space for two fibres to be inserted. One of these will be directly above the LED to collect as much light as possible, and this will be used for illuminating the OD diffusers. The second will be offset, collecting some of the remaining light to be used as a signal for monitoring purposes. As the monitor system will sit at the electronics rack, much less fibre will be used and therefore less initial light input is required. The design for the the fibre connector is currently ongoing, and will be used to confirm the required length of the patch fibres within the pulser board crates. Initial measurements of the required lengths, which are different due to the topology of the connector, give $21.1\pm1.4$~cm and $18.4\pm0.6$~cm, where the uncertainties here are the measured tolerances on the length. Any shorter than this and the cable will not reach. If the cables are longer, they would be required to bend at a greater angle than their specified bending radius, which will cause degradation over the lifetime of the system. As the connector for the LED pulser board will have the fibres epoxied in, each of these patch cables will require FC/PC connectors on one end, with the other cleaved and polished.
 
 The final set of patch cables for the LED pulser system is that used to connect to the monitor PMTs. The internal patch cable from the LED connector will go into a patch panel on the front of the electronics rack. These patch cables will carry light from that patch panel to a system of several monitor PMTs in the same electronics rack. These will be 1~m long, with an FC/PC connector on the patch panel end, and polished bare fibre at the PMT-facing end.
 
-\cref{tab:fibreSummaryLaser,tab:fibreSummaryLED} summarise all the required fibres for the laser and LED systems respectively, detailing the chosen type, length, connectors and quantities needed. Quantities are also detailed for the cases where the fibres that traverse the barrel region are split into different lengths to minimise excess.
+\cref{tab:fibreSummaryLaser,tab:fibreSummaryLED} summarise all the required fibres for the laser and LED systems respectively, detailing the chosen type, length, connectors and quantities needed. Quantities are also detailed for the cases where the fibres that traverse the barrel region are split into different lengths to minimise excess, which is the preferred approach for this system. In these tables, fibres of the same configuration are grouped together. \cref{tab:fibreDetailsLaser,tab:fibreDetailsLED} in \cref{app:fibreconfig} breaks this down further for additional clarity. As discussed in \cref{sec:fibre:sub:att:sub:results}, all fibres with be tubed using the Thorlabs FT030-BK tubing, the same as used for the UKLI system in Super-K. The exception to this is the LED crate fibres, which will instead be colour-coded.
 
 \begin{table}[h]
 \centering
@@ -835,13 +874,13 @@ Length [m]	&	Connector A	&	Connector B	&	Required no.	&	Use		\\ \midrule
 76			&	FC/PC		&	FC/PC		&	73				&	Barrel (all)$^\dagger$	\\
 42			&	FC/PC		&	FC/PC		&	84				&	Deck and bottom	\\
 10			&	FC/PC		&	FC/PC		&	5				&	Top ID inj. and top OD coll. \\
+1			&	FC/PC		&	FC/PC		&	8				&	Laser system patch cable \\
 0.64		&	FC/PC		&	FC/PC		&	32				&	ID diffuser patch cable	\\
-0.56		&	FC/PC		&	FC/PC		&	32				&	ID collimator patch cable	\\
-0.5			&	FC/PC		&	FC/PC		&	8				&	Laser system patch cable \\ \midrule
-\multicolumn{3}{l}{$^\dagger$Alternate staged approach:}			&					&			\\
+0.56		&	FC/PC		&	FC/PC		&	32				&	ID collimator patch cable	\\ \midrule
+\multicolumn{3}{l}{$^\dagger$Staged approach:}			&					&			\\
 32			&	FC/PC		&	FC/PC		&	16				&	Barrel (levels 1+2) \\
 58			&	FC/PC		&	FC/PC		&	24				&	Barrel (levels 3+4+5)	\\
-76			&	FC/PC		&	FC/PC		&	33				&	Barrel (levels 5+6+bottom)	\\
+76			&	FC/PC		&	FC/PC		&	33				&	Barrel (levels 6+7+bottom)	\\
 \bottomrule
 \end{tabular}
 \caption{List of all required fibres for the laser system with necessary lengths, connector configurations, quantities and uses.}\label{tab:fibreSummaryLaser}
@@ -861,10 +900,10 @@ Length [m]	&	Connector A	&	Connector B	&	Required no.	&	Use		\\ \midrule
 1			&	FC/PC		&	Bare		&	122				&	Crate to monitor PMT(s)	\\
 0.21		&	FC/PC		&	Bare		&	122				&	Crate internal patch 1	\\
 0.18		&	FC/PC		&	Bare		&	122				&	Crate internal patch 2 \\ \midrule
-\multicolumn{3}{l}{$^\dagger$Alternate staged approach:}			&					&			\\
+\multicolumn{3}{l}{$^\dagger$Staged approach:}			&					&			\\
 32			&	FC/PC		&	Bare		&	24				&	Barrel (levels 1+2) \\
 58			&	FC/PC		&	Bare		&	36				&	Barrel (levels 3+4+5)	\\
-76			&	FC/PC		&	Bare		&	24				&	Barrel (levels 5+6)	\\
+76			&	FC/PC		&	Bare		&	24				&	Barrel (levels 6+7)	\\
 \bottomrule
 \end{tabular}
 \caption{List of all required fibres for the LED system with necessary lengths, connector configurations, quantities and uses.}\label{tab:fibreSummaryLED}
@@ -963,29 +1002,29 @@ PicoQuant GmbH, LDH-FA Series Amplified Picosecond Pulsed Laser Diode Heads, Sep
 
 %%fibres
 \bibitem{bib:fp200urt}
-Thorlabs Inc., FP200URT Specifications, 6th February 2024, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/FP200URT-SpecSheet.pdf}
+Thorlabs Inc., FP200URT Specifications, 6th February 2024, \url{https://www.thorlabs.com/thorproduct.cfm?partnumber=FP200URT}
 
 \bibitem{bib:fp400urt}
-Thorlabs Inc., FP400URT Specifications, 6th December 2022, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/FP400URT-SpecSheet.pdf}
+Thorlabs Inc., FP400URT Specifications, 6th December 2022, \url{https://www.thorlabs.com/thorproduct.cfm?partnumber=FP400URT}
 
 \bibitem{bib:fg050uga}
-Thorlabs Inc., FG050UGA Specifications, 22nd April 2024, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/FG050UGA-SpecSheet.pdf}
+Thorlabs Inc., FG050UGA Specifications, 22nd April 2024, \url{https://www.thorlabs.com/thorproduct.cfm?partnumber=FG050UGA}
 
 \bibitem{bib:fg105uca}
-Thorlabs Inc., FG105UCA Specifications, 22nd April 2024, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/FG105UCA-SpecSheet.pdf}
+Thorlabs Inc., FG105UCA Specifications, 22nd April 2024, \url{https://www.thorlabs.com/thorproduct.cfm?partnumber=FG105UCA}
 
 \bibitem{bib:gif50c}
-Thorlabs Inc., GIF50C Specifications, 6th February 2024, \url{hhttps://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/GIF50C-SpecSheet.pdf}
+Thorlabs Inc., GIF50C Specifications, 6th February 2024, \url{https://www.thorlabs.com/thorproduct.cfm?partnumber=GIF50C}
 
 \bibitem{bib:gif50d}
-Thorlabs Inc., GIF50D Specifications, 6th February 2024, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/GIF50D-SpecSheet.pdf}
+Thorlabs Inc., GIF50D Specifications, 6th February 2024, \url{https://www.thorlabs.com/thorproduct.cfm?partnumber=GIF50D}
 
 
 \bibitem{bib:opm}
-Thorlabs Inc., Optical Power Meter PM100USB Operation Manual v1.7, 28th March 2023, \url{https://www.thorlabs.com/drawings/358f9a4c347897ec-F6D46DF6-F3B1-0FC2-1D78C79FC5065F04/PM100USB-Manual.pdf}
+Thorlabs Inc., Optical Power Meter PM100USB Operation Manual v1.7, 28th March 2023, \url{https://www.thorlabs.com/thorproduct.cfm?partnumber=pm100usb}
 
 \bibitem{bib:opmsensor}
-Thorlabs Inc., Fiber Power Head with Silicon Detector S150C, 4th February 2016, \url{https://www.thorlabs.com/drawings/d13a8cb83b2fa5fc-1B09855E-D596-03E0-87CB959C07E1E119/S150C-SpecSheet.pdf}
+Thorlabs Inc., Fiber Power Head with Silicon Detector S150C, 4th February 2016, \url{https://www.thorlabs.com/thorproduct.cfm?partnumber=S150C}
 
 \bibitem{bib:hpmt}
 Hamamatsu Photonics K.K., Photomultiplier Tube Modules H10720/H10721 Series, September 2024, \url{https://www.hamamatsu.com/content/dam/hamamatsu-photonics/sites/documents/99_SALES_LIBRARY/etd/H10720_H10721_TPMO1062E.pdf}
@@ -997,7 +1036,10 @@ Tektronix Inc., 5 Series MSO Mixed Signal Oscilloscope Datasheet, \url{https://w
 Y. Nishimura, The Box-and-Line PMT (R12860), (HK-TN-0009 Ver.1.2 RevId20200718)
 
 \bibitem{bib:matingsleeve}
-Thorlabs Inc., ADAFC1 - FC/PC to FC/PC Mating Sleeve, Wide Key (2.2 mm), D-Hole, \url{https://www.thorlabs.com/drawings/2a489cabfd9515d-9C4A02B3-EAE7-54D1-C7D705D1F6B147AD/ADAFC1-SpecSheet.pdf}
+Thorlabs Inc., ADAFC1 - FC/PC to FC/PC Mating Sleeve, Wide Key (2.2 mm), D-Hole, \url{https://www.thorlabs.com/thorproduct.cfm?partnumber=adafc1}
+
+\bibitem{bib:ft030bk}
+Thorlabs Inc., FT030-BK - Black Reinforced Ø3 mm Furcation Tubing, \url{https://www.thorlabs.com/thorproduct.cfm?partnumber=FT030-BK}
 
 \bibitem{bib:skgd2}
 K. Abe {\it et al.}, Second gadolinium loading to Super-Kamiokande, NIM A 1065 (2024), \url{https://doi.org/10.1016/j.nima.2024.169480}
@@ -1009,6 +1051,10 @@ Agiltron, \url{https://agiltron.com}
 
 \bibitem{bib:weinert}
 Weinert Industries, \url{https://weinert-industries.com/en/}
+
+%%handheld testing kit
+\bibitem{bib:TREND}
+TREND Networks, FibreMaster MM 850nm Light Source, \url{https://www.trend-networks.com/product/cable-tester-fibermaster/}
 
 
 %%lengths
@@ -1078,5 +1124,71 @@ WCSim, \url{https://github.com/WCSim/WCSim}
 \end{subfigure}
 \caption{Power recorded on a) port 1, b) port 2, c) port 3 and d) port 4 of the Weinert GIF50C switch, when one of the other three ports was illuminated.}\label{fig:weingifcrosstalk2}
 \end{figure}
+
+\clearpage
+\newpage
+
+\section{Fibre Configuration}\label{app:fibreconfig}
+
+A more detailed breakdown of the required fibres for both the laser and LED systems is given in \cref{tab:fibreDetaiLaser} and \cref{tab:fibreDetaiLED} respectively.
+
+\begin{table}[h]
+\centering
+\setlength{\tabcolsep}{4pt}
+\rotatebox{90}{
+\begin{tabular}{cccccc}
+\toprule
+Length [m]	&	Connector A	&	Connector B	&	Req. no.	&	Fibre location		&	Injector use	\\ \midrule
+76			&	FC/PC (air)		&	FC/PC (water)		&	56				&	Barrel		&	Barrel ID (all)$^\dagger$	\\
+76			&	FC/PC (air)		&	FC/PC (water)		&	8				&	Barrel		&	Bottom ID	\\
+76			&	FC/PC (air)		&	FC/PC (water)		&	9				&	Barrel		&	Bottom edge OD collimators	\\
+42			&	FC/PC (air)		&	FC/PC (air)		&	56				&	Deck		&	Barrel ID	\\
+42			&	FC/PC (air)		&	FC/PC (air)		&	8				&	Deck		&	Bottom ID	\\
+42			&	FC/PC (air)		&	FC/PC (air)		&	12				&	Deck		&	All OD collimators	\\
+42			&	FC/PC (water)		&	FC/PC (water)		&	8				&	Bottom		&	Bottom ID	\\
+10			&	FC/PC (air)		&	FC/PC (water)		&	2				&	Top			&	Top ID		\\
+10			&	FC/PC (air)		&	FC/PC (water)		&	3				&	Top			& 	Top edge OD collimators \\
+1			&	FC/PC (air)		&	FC/PC (air)		&	8				&	Laser system	&	Before channel split \\
+0.64		&	FC/PC (water)		&	FC/PC (water)		&	28				&	Barrel (dead region)	& ID diffuser patch cable	\\
+0.64		&	FC/PC (water)		&	FC/PC (water)		&	4				&	Bottom (dead region)	& ID diffuser patch cable	\\
+0.56		&	FC/PC (water)		&	FC/PC (water)		&	28				&	Barrel (dead region)	& ID collimator patch cable	\\
+0.56		&	FC/PC (water)		&	FC/PC (water)		&	4				&	Bottom (dead region)	& ID collimator patch cable	\\ \midrule
+\multicolumn{3}{l}{$^\dagger$Staged approach:}			&					&			\\
+32			&	FC/PC (air)		&	FC/PC (water)		&	16				&	Barrel	&	Barrel ID (levels 1+2) \\
+58			&	FC/PC (air)			&	FC/PC (water)		&	24				&	Barrel	&	Barrel ID (levels 3+4+5)	\\
+76			&	FC/PC (air)			&	FC/PC (water)		&	16				&	Barrel	&	Barrel ID (levels 6+7)	\\
+\bottomrule
+\end{tabular}
+}
+\caption{List of all required fibres for the laser system with necessary lengths, connector configurations and quantities, along with the location the fibres will be installed and the injectors requiring them. Connector A(B) is defined as that closest to (furthest from) the light source.}\label{tab:fibreDetailsLaser}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\setlength{\tabcolsep}{4pt}
+\rotatebox{90}{
+\begin{tabular}{cccccc}
+\toprule	
+Length [m]	&	Connector A	&	Connector B	&	Req. no.		&	Fibre location	& Injector use	\\ \midrule
+76			&	FC/PC (air)	&	FC/PC (water)	&	19				&	Barrel			& Bottom OD diff.	\\
+76			&	FC/PC (air)	&	Bare (water)	&	84				&	Barrel			& Bottom OD diff. (all)$^\dagger$	\\
+50			&	FC/PC (air)	&	Bare (water)	&	19				&	Top				& Top OD diff. \\
+42			&	FC/PC (air)	&	FC/PC (air)	&	19				&	Deck			& Bottom OD diff. \\
+42			&	FC/PC (air)	&	FC/PC (air)	&	84				&	Deck			& Barrel OD diff. \\
+42			&	FC/PC (air)	&	Bare (water)	&	19				&	Bottom			& Bottom OD diff.	\\
+1			&	FC/PC (air)	&	Bare (air)	&	122				&	Crate			& Monitor PMT(s)	\\
+0.21		&	FC/PC (air)	&	Bare (air)	&	122				&	Crate 			& Internal patch 1	\\
+0.18		&	FC/PC (air)	&	Bare (air)	&	122				&	Crate			& Internal patch 2 \\ \midrule
+\multicolumn{3}{l}{$^\dagger$Staged approach:}			&					&			\\
+32			&	FC/PC (air)	&	Bare (water)	&	24				&	Barrel &	Barrel (levels 1+2) \\
+58			&	FC/PC (air)	&	Bare (water)	&	36				&	Barrel &	Barrel (levels 3+4+5)	\\
+76			&	FC/PC (air)	&	Bare (water)	&	24				&	Barrel &	Barrel (levels 6+7)	\\
+\bottomrule
+\end{tabular}
+}
+\caption{List of all required fibres for the LED system with necessary lengths, connector configurations, quantities, along with the location the fibres will be installed and the injectors requiring them. Connector A(B) is defined as that closest to (furthest from) the light source.}\label{tab:fibreDetailsLED}
+\end{table}
+
 
 \end{document}
