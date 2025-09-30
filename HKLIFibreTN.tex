@@ -13,6 +13,7 @@
 \usepackage{gensymb}
 \usepackage{wasysym}
 \usepackage{tikz}
+\usepackage{authblk}
 \usepackage{physics}
 \usepackage{booktabs}
 \usepackage{multirow}
@@ -21,8 +22,8 @@
 					 noabbrev]{cleveref}
 \usepackage[mathlines]{lineno}
 \usepackage{cleveref}
- \usepackage{setspace}
- \usepackage{bm}
+\usepackage{setspace}
+\usepackage{bm}
 \usepackage{fancyhdr}
 \usepackage{makecell}
 \usepackage{setspace}
@@ -33,6 +34,16 @@
 \usepackage{tocloft}
 \setlength{\cfttabnumwidth}{1.5cm}
 \setlength{\cftfignumwidth}{1.5cm}
+
+%% Additional includes from Yassine's addition
+\usepackage{longtable}
+\usepackage{lscape}
+\RequirePackage{xspace}
+\usepackage{siunitx}
+\newcommand{\hk}{Hyper-K\xspace}
+\newcommand{\sk}{Super-K\xspace}
+\newcommand{\rn}{$^{222}$Rn\xspace}
+%\newcommand{\hm}{Hamamatsu\xspace}
 
 \renewcommand*\thetable{\Roman{table}}
 \linenumbers
@@ -81,8 +92,18 @@
 
 \begin{document}
 
-\title{\huge{HK-TN-91: HK LI Fibre Specifications}}
-\author{S.J. Jenkins\footnote{s.j.jenkins@liverpool.ac.uk}, B. Bogdan, N. Foster, U. Limbu, N. McCauley}
+\title{\huge{HK-TN-91: HK LI Fibre and Laser Specifications}}
+\author[1]{S.J. Jenkins\footnote{s.j.jenkins@liverpool.ac.uk}}
+\author[1]{B. Bogdan}
+\author[1]{N. Foster}
+\author[1]{U. Limbu}
+\author[1]{N. McCauley}
+\author[2]{Y. Alj Hakim}
+\author[2]{P. Stowell}
+\affil[1]{University of Liverpool}
+\affil[2]{University of Sheffield}
+\date{\today\\
+{\bf Version v3.5}}
 
 \maketitle
 
@@ -99,7 +120,9 @@
 \item v3.2 - Minor revision after first review committee meeting. Added a section on reception testing/QA/QC. Changed section on furcation tubing to reflect choice to tube all fibres, this was outdated. Also fixed links to Thorlabs products (spec sheets seem to generate limited-time URLs, now directing to the product page from which the spec sheets are linked). 
 \item v3.3 - Minor revision. Added sections on light- and water-tightness testing, and slightly increased fibre lengths for additional spare. Corrected line about which port ID top-cap injectors will be deployed through. Updated FC/PC connectors to stainless steel SMA after choice to change. Few grammatical changes.
 \item v3.4 - Minor revision. Clarify wavelength of LED system and need for wide-core fibre, small section added on LED system which will link to TN when ready. Added specified attenuation plots from Thorlabs.
+\item v3.5 - Minor revision to answer some comments from review committee. Correct connector ends of OD collimator fibres to FC/PC. Added Yassine's section on initial soak testing results. Add table of laser specifications for clarity.
 \end{itemize}
+
 
 \clearpage
 \newpage
@@ -220,16 +243,31 @@ These laser heads will be coupled into a single fibre using a 1-to-8 (hereafter 
 \section{Laser System Specification}\label{sec:laser}
 In order to perform the desired calibrations across a range of wavelengths, a system of at least five pico-second diode lasers is required. These must ideally be controlled from a single unit, to simplify communication and operation during regular data-taking and dedicated calibration runs. These lasers should be fibre-coupled, to avoid the need to direct an open beam into the fibre system. Avoiding any open beams is also preferable in terms of safety to both users of the system, and any nearby workers. The intended setup for this laser system, as described in \cref{sec:overview}, is shown in \cref{fig:laserswitches}. While the setup will begin with five lasers heads, the switch will allow for up to eight to be connected, giving the ability to expand the system at a later date if required.
 
-As the large lengths of fibre required to transport light from the laser sources to injection points will result in both attenuation and dispersion of the signal, output power and pulse width from the lasers should be maximised and minimised, respectively. The studies performed to estimate the required pulse energy to illuminate 1\% of PMTs in spot region of each ID diffuser returned values of 5--10 pJ, with the maximum values at higher wavelengths. These studies are described in detail in \cref{sec:photonreq}. In certain scenarios, it will be necessary to inject more light into the detector than this. To account for this, a minimum pulse energy of 50 pJ was set for each laser wavelength. Coupling this with the requirement of short pulse widths, picosecond diode lasers were identified as the type of laser required. These lasers generally provide relatively high-powered pulses with pulse widths on the order of 1--100 ps.
+As the large lengths of fibre required to transport light from the laser sources to injection points will result in both attenuation and dispersion of the signal, output power and pulse width from the lasers should be maximised and minimised, respectively. The studies performed to estimate the required pulse energy to illuminate 1\% of PMTs in spot region of each ID diffuser returned values of 5--10 pJ, with the maximum values at higher wavelengths. These studies are described in detail in \cref{sec:photonreq}. In certain scenarios, it will be necessary to inject more light into the detector than this. To account for this, a minimum pulse energy of 50 pJ was set for each laser wavelength, though more is of course better. Coupling this with the requirement of short pulse widths, picosecond diode lasers were identified as the type of laser required. These lasers generally provide relatively high-powered pulses with pulse widths on the order of 1--100 ps.
 
-Through our own market research and communicating with specialist laser suppliers, the preferred supplier identified for this system is PicoQuant \cite{bib:picoquant}, who manufacture high-powered pulsed picosecond diode lasers in a range of wavelengths. The Sepia PDL 828-L laser driver mainframe \cite{bib:laserdriver} allows for connection of up to eight laser drivers, which are all controlled from the single unit. This unit is capable of repetition frequencies with the internal oscillator of up to 80 MHz, though for the laser system in question triggering will be done externally. The LDH Series of laser heads \cite{bib:laserhead} provide pulses below 100 ps in length, in the wavelength range 375 to 1990~nm, with the option to run in pulsed or continuous mode. As an option, they can be fibre coupled, which as described will be necessary for the system. The laser heads which best fit the system requirements are the LDH-D-C-375, LDH-D-C-390, LDH-D-C-440 and LDH-D-C-500 \cite{bib:picoquant}, which provide peak wavelengths of 375$\pm$5, 395$\pm$10, 440$\pm$10 and 500$\pm$10~nm respectively. In order to go below 375~nm the LDH-FA Series of laser heads \cite{bib:LDH} can be used, which is a fibre amplified laser head, providing pulses of less than 80~ps in width. For this specific case, the LDH-P-FA-355 with peak wavelength at 355$\pm$1~nm would be used. All of these laser heads fulfil the requirement of at least 50 pJ energy per pulse. With a total of five laser heads currently planned for, this leaves three free slots in both the driver mainframe and 1x8 switch. If there is a desire for further wavelength lasers to be added to the system, this can easily be done either through use of PicoQuant's products, or for a different manufacturer by simply connecting the new laser straight to the 1x8 switch.
+Through our own market research and communicating with specialist laser suppliers, the preferred supplier identified for this system is PicoQuant \cite{bib:picoquant}, who manufacture high-powered pulsed picosecond diode lasers in a range of wavelengths. The Sepia PDL 828-L laser driver mainframe \cite{bib:laserdriver} allows for connection of up to eight laser drivers, which are all controlled from the single unit. This unit is capable of repetition frequencies with the internal oscillator of up to 80 MHz, though for the laser system in question triggering will be done externally. The LDH Series of laser heads \cite{bib:laserhead} provide pulses below 100 ps in length, in the wavelength range 375 to 1990~nm, with the option to run in pulsed or continuous mode. As an option, they can be fibre coupled, which as described will be necessary for the system. The laser heads which best fit the system requirements are the LDH-D-C-375, LDH-D-C-390, LDH-D-C-440 and LDH-D-C-500 \cite{bib:picoquant}, which provide peak wavelengths of 375$\pm$5, 395$\pm$10, 440$\pm$10 and 500$\pm$10~nm respectively. In order to go below 375~nm the LDH-FA Series of laser heads \cite{bib:LDH} can be used, which is a fibre amplified laser head, providing pulses of less than 80~ps in width. For this specific case, the LDH-P-FA-355 with peak wavelength at 355$\pm$1~nm would be used. All of these laser heads fulfil the requirement of at least 50 pJ energy per pulse. \cref{tab:laserPower} shows the measured properties of previously manufactured lasers of these model numbers, and are thus indicative of what would be achieved by the system. With a total of five laser heads currently planned for, this leaves three free slots in both the driver mainframe and 1x8 switch. If there is a desire for further wavelength lasers to be added to the system, this can easily be done either through use of PicoQuant's products, or for a different manufacturer by simply connecting the new laser straight to the 1x8 switch.
+
+\begin{table}
+\centering
+\begin{tabular}{lccc}
+\toprule
+Model no.	   & $\lambda$ [nm]  & Pulse width (FWHM) [ps] &  $E_\text{pulse}$ [pJ]	\\ \midrule
+LDH-P-FA-355	&	354			&   64						&	1000			\\
+LDH-D-C-375		&	373			&	52						&	\phantom{00}70	\\
+LDH-D-C-390		&	391			&	48						&	\phantom{0}143	\\
+LDH-D-C-440		&	442			&	64						&	\phantom{0}120	\\
+LDH-D-C-500		&	498			&	76						&	\phantom{00}89	\\
+ \bottomrule
+\end{tabular}
+\caption{Measured laser properties from PicoQuant laser delivery reports for previous manufactured laser units  for the model numbers of interest.}\label{tab:laserPower}
+\end{table}
 
 From this market research, it became clear that PicoQuant are the only company selling products that match the specification of both short pulse widths and high power. Several other companies which make picosecond diode lasers were contacted, but ultimately did not reach the power requirements. PicoQuant are also fairly unique in the ability to control multiple laser heads with a single unit, whereas most commercial options need a single control unit per laser.
 
 \section{LED System}\label{sec:LED}
 Rather than using lasers, the array of 122 OD diffusers will be illuminated with a custom built LED pulser system. Full details of this system are given in {\bf reference LED TN once finished}. Each pulser board will use a LC LED UT-67UV365P \cite{bib:LCLED} surface mounted LED, with a fixed 365~nm wavelength, which will be coupled to a bare fibre end via a 3D printed connector. One pulser board will be used per diffuser. Each connector will also have a second fibre to take light to a set of nearby PMTs for monitoring purposes, for the same purposes as mentioned in \cref{sec:laser}.
 
-One of the primary purposes of the OD diffuser system is to saturate as many of the $\sim3600$ PMTs in the OD as possible. As such, the driving factor for both LED and fibre choice for this system is photon yield. Through a series of optimisations in the pulser system electronics, a maximum photon yield of $2.4\times10^{7}$ photons per pulse was achieved, for a sub-10~ns pulse. This measurement includes attenuation of the signal by 182~m of Thorlabs FP400URT fibre \cite{bib:fp400urt}, one of the candidate fibres tested extensively in the following sections. A further $\sim$50\% efficiency should also be factored in for the OD diffusers. Saturation studies ({\bf these will be in the LED TN)} suggest at least $5.5\times10^6$ photons per pulse are required to have the majority of PMTs above the defined saturation limit of 100 photoelectrons. 
+One of the primary purposes of the OD diffuser system is to saturate as many of the $\sim3600$ PMTs in the OD as possible. As such, the driving factor for both LED and fibre choice for this system is photon yield. Through a series of optimisations in the pulser system electronics, a maximum photon yield of $2.4\times10^{7}$ photons per pulse was achieved, for a sub-10~ns pulse. This measurement includes attenuation of the signal by 182~m of Thorlabs FP400URT fibre \cite{bib:fp400urt}, one of the candidate fibres tested extensively in the following sections. A further $\sim$50\% efficiency should also be factored in for the OD diffusers. Saturation studies ({\bf these will be in the LED TN)} suggest at least $5.5\times10^6$ photons per pulse are required to have a reasonable number of PMTs above the defined saturation limit of 100 photoelectrons.
 
 
 \section{Fibre Lab Measurements}
@@ -424,7 +462,7 @@ However, the initial results for the 1~m patch cables given in \cref{tab:attinit
 \section{Fibre Switching Device}\label{sec:switch}
 
 \subsection{Overview}
-As was mentioned in \cref{sec:overview}, the ID laser system will require dedicated fibre switching devices in order to couple all lasers to all possible channels. To that end, two potential companies that manufacture fibre switching devices were identified, and test devices in a 1x4 configuration were purchased for evaluation. From the first company, Agiltron \cite{bib:agiltron}, a single 1x4 device was purchased with FP400URT as the internal fibre. A second company, Weinert Industries \cite{bib:weinert} supplied two 1x4 devices; one of these contained FP400URT fibre, while the other used GIF50C. All three devices are controlled via USB. It should be noted that only two companies could be found that could supply these kinds of specialist devices.
+As was mentioned in \cref{sec:overview}, the laser system will require dedicated fibre switching devices in order to couple all lasers to all possible channels. To that end, two potential companies that manufacture fibre switching devices were identified, and test devices in a 1x4 configuration were purchased for evaluation. From the first company, Agiltron \cite{bib:agiltron}, a single 1x4 device was purchased with FP400URT as the internal fibre. A second company, Weinert Industries \cite{bib:weinert} supplied two 1x4 devices; one of these contained FP400URT fibre, while the other used GIF50C. All three devices are controlled via USB. It should be noted that only two companies could be found that could supply these kinds of specialist devices.
 
 \subsection{General Comparisons}
 
@@ -446,11 +484,11 @@ Port 4		& $8.66\pm0.01$	& $90.50\pm0.14$ & $7.00\pm0.01$ & $72.39\pm0.13$ & $9.2
 \end{tabular}
 \caption{Power transmission across the 1x4 switching devices, with comparison to a reference cable of the same type as the device internal fibre.}\label{tab:switchpower}
 \end{table}
-The results obtained show generally good power transmission for all three devices tested, albeit with clearly better transmission for the Agiltron FP400URT and Weinert GIF50C than for the Weinert FP400URT. This may be in part due to the fact the fibre on the Weinert FP400URT is longer than the others (and the 2~m reference), measuring approximately 2.3~m in total. It should be noted here that, at least for the Weinert switches, any switch with more than four outputs is formed by daisy-chaining together 1x4 switches. For example, a 1x16 switch would be constructed by connecting the four output channels of a single 1x4 switch into the inputs of four additional 1x4 switches. Therefore for the required 1x6 and 1x80 switches, these losses will be experienced up to six times in total. It is unclear whether the Agiltron switch is constructed in the same manner.
+The results obtained show generally good power transmission for all three devices tested, albeit with clearly better transmission for the Agiltron FP400URT and Weinert GIF50C than for the Weinert FP400URT. This may be in part due to the fact the fibre on the Weinert FP400URT is longer than the others (and the 2~m reference), measuring approximately 2.3~m in total. It should be noted here that, at least for the Weinert switches, any switch with more than four outputs is formed by daisy-chaining together 1x4 switches. For example, a 1x16 switch would be constructed by connecting each of the four output channels of a single 1x4 switch into the inputs of four additional 1x4 switches. Therefore for the required 1x8 and 1x80 switches, these losses will be experienced up to six times in total. It is unclear whether the Agiltron switch is constructed in the same manner.
 
 The variation in output power between ports is also generally low across the devices, with a difference of 2.61\% for the Agiltron FP400URT, 4.25\% for the the Weinert FP400URT and 3.53\% for the Weinert GIF50C. These results suggest that the Agiltron device minorly outperforms the Weinert devices in terms of power variation across ports, whilst the Weinert GIF50C was best for transmission.
 
-During ordering, setup and testing of these devices, we experienced very different degrees of assistance from the two companies. While this is not a quantifiable metric, it is none the less very important to keep in mind when making a decision for the full fibre system. The Agiltron switch arrived with no documentation on how to set up and run the device. The correct way of doing this was eventually understood out after several emails to the supplier. The Weinert switches on the other hand arrived with full documentation, along with a simple software package for operation. All email communication with them throughout the ordering and testing process has been very helpful, if somewhat slow at times.
+During ordering, setup and testing of these devices, we experienced very different degrees of assistance from the two companies. While this is not a quantifiable metric, it is none the less very important to keep in mind when making a decision for the full fibre system. The Agiltron switch arrived with no documentation on how to set up and run the device. The correct way of doing this was eventually understood after several emails to the supplier. The Weinert switches on the other hand arrived with full documentation, along with a simple software package for operation. All email communication with them throughout the ordering and testing process has been very helpful, if somewhat slow at times.
 
 The LI system is a critical component of the HK calibration programme, and will need to run for many years. It is crucial that support is available from the manufacturer of significant components such as the fibre optic switch, should anything go wrong during its lifetime. The experience of working with Weinert was significantly better, and this should be kept in mind when selecting which device to proceed with. In particular, should issues arise with hardware in the future, it would be significantly easier to deal directly with the manufacturer, rather than going through a third-party distributor as with Agiltron.
 
@@ -556,11 +594,69 @@ At around $\sim30$~s, the door to the dark box was opened, and the fibre connect
 \caption{Power against time for the short-term laser test checking for untriggered photon emission.}\label{fig:laserOffShort}
 \end{figure}
 
-The second test involved leaving the laser on standby, connected to the power meter, for a number of days. This meant that random emission over a longer period of time could be checked for. {\bf currently running, will add results next week}
+The second test involved leaving the laser on standby for a longer period of time, and ensuring that no errant pulses were recorded. To ensure that even a single pulse would be observed, the laser was instead connected to the PMT in the fibre test-stand, which is read out via the oscilloscope. The laser was set to 100\% intensity, and the oscilloscope trigger set to 20\% of the peak height of a pulse. The oscilloscope trace settings were set to infinite persistence, so that any pulse trace would be kept on screen indefinitely, and a measurement table added to count the number of pulses detected, if any.
+
+A screenshot of the oscilloscope display is given in \cref{fig:noPulseTest}. The bottom half of the display is where the signal traces would be, and the empty display clearly shows that across the five days of testing no rogue pulses were seen. This is confirmed by the measurement table in the top half, which shows a population of 0 triggered events.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{ScopeTrace_NoPulse.png}
+\caption{Screenshot from the oscilloscope for the longer-term test for errant pulses, showing no detected pulses after five days.}\label{fig:noPulseTest}
+\end{figure}
 
 \section{Additional Fibre Tests}\label{sec:tests}
+
 \subsection{Soak Testing}\label{sec:tests:sub:soak}
-{\bf Yassine writing this now, will add here}
+
+The first deployed test of one of the LI optics was performed with WCTE, in which a ID diffuser was included as a calibration source. During WCTE decommissioning, it was observed that the FC/PC connector on the end of the FG105UCA fibre had undergone reaction with either the Ultra Pure Water (UPW) or gadolinium-doped water. Along with the need to confirm everything that is placed into Hyper-K is safe for long-term exposure, this observation motivated the soak testing of the fibre and the fibre connectors. Water quality degradation is to be assessed with the UV effective attenuation length weighted by the expected Cherenkov light response of the PMTs.
+
+The samples used in the test were a 10~cm long fibre and one fibre FC/PC fibre connector. These were initially cleaned with isopropyl alcohol (IPA), before being  placed into a sterile 100~ml PET container with a known volume of deionised water. At the same time, an additional sterile PET container was filled with a control sample of water from the same source. The containers were be immediately sealed, labelled, and placed into a dark constant environment chamber set at $14^\circ$C. The procedure above was be repeated for another sample of the same material in a solution of 0.2\% Gd$_2$(SO$_4$)$_3\cdot$8H$_2$O in deionised water.
+
+The standard procedure applied for \hk material soak test is to leave the sample to soak undisturbed for 90 days. This period was estimated conservatively to be the period of water turnover in the \hk water tank. However, given the long lead time for purchase and delivery of the fibre, it was decided to perform a first measurement of the water properties after one month of soaking, before returning the samples to the containers for the remainder of the time.
+
+After soaking, the percent transmission of water from each sample container is measured as a function of wavelength using a sensitive UV-VIS spectrophotometer. Particular wavelengths of concern are those in the UV range, where the PMT response and Cherenkov spectrum are maximised. The overall effective attenuation length of the sample is the weighted average of attenuation lengths at different wavelengths. Different wavelength light interacts differently with water, WLS plates, and the PMT photocathode. The overall effective attenuation length is then:
+\begin{equation}
+L_{HK,eff} = \frac{\sum_{\lambda} L_{HK}\left(\lambda\right)\times w\left(\lambda\right)}{\sum_{\lambda} w\left(\lambda\right)},
+\end{equation}
+where $L_{HK}(\lambda)$ is the expected attenuation length in \hk and $w(\lambda)$ the weights.
+
+\subsubsection{Soak Testing Plan}
+The criteria for success of a material soak test is defined to be that the effective $1/e$ attenuation length is greater than 2000~m.
+
+Soak tests of materials are performed at the University of Sheffield, where there is a source of ultra-pure deionised water, Gd$_2$(SO$_4$)$_3\cdot$8H$_2$O powder, a Shimadzu UV-2700i UV-VIS spectrophotometer, and a 102~L constant environment chamber.
+
+\subsubsection{Results}
+
+The expected effective attenuation length in \hk is calculated using the factor $R$ and the UV-VIS cell length of $x=9$~cm. Given the worst-case-scenario assumptions in the calculation of $R$, it was found that the effective attenuation length for both samples were above the 2~km limit set by \hk. Details on the calculation of the factor R for each sample soak tested in UPW can be found in Appendix \ref{RCalcUPW} and in gadolinium-doped water in Appendix \ref{RCalcGd}.
+
+The transmission spectra exhibited some UV absorption following the soak test, especially in the UV region. These losses in transmission were observed to be of the same order in magnitude for UPW and Gd water for the fibre sample, while for the fibre connector sample the Gd water loss in transmission was around 15\% higher than in UPW in the UV region. 
+
+A full table of soak test results for the measured \hk materials is shown in Table~\ref{tab:soakresults}.
+
+\begin{longtable}{lccccccc}
+\hline
+\multirow{2}{*}{\textbf{Sample}} & \multicolumn{3}{c}{\textbf{Pure Water}} & \multicolumn{3}{c}{\textbf{Gd Water}} & \multirow{2}{*}{\textbf{Fig.}} \\ \cmidrule(l){2-4} \cmidrule(l){5-7} 
+& \textbf{T$_\text{soak}$ (days)} & \textbf{R} & \textbf{L$_\text{eff}$ (km)} & \textbf{T$_\text{soak}$ (days)} & \textbf{R} & \textbf{L$_\text{eff}$ (km)} &  \\ \hline
+LI Fibre & $32$ & $8.99 \times 10^4$ & $388$ & $32$ & $7.69 \times 10^4$ & $1227$ & \ref{fig:LIFibre} \\
+Fibre end & $32$ & $1.87 \times 10^6$ & $1.29 \times 10^4$ & $32$ & $1.85 \times 10^6$ & $3061$ & \ref{fig:FibreEnd} \\
+\hline
+\caption{Scaling factor R, and effective attenuation length of \hk water L$_\text{eff}$, relating to soak testing of \hk materials. }
+\label{tab:soakresults}
+\end{longtable}
+
+The loss in transmittance observed in the fibre spectra could be due to leftover dirt or residue where the fibre was cut. Given that the water in \hk will not be still, it was decided to change the soaking water and redo the measurement after two months of soaking thus reproducing the water turnover in \hk. Even though the effective attenuation length was measurement to be higher than the 2~km limit for the fibre end, it was decided to switch from FC/PC connectors to stainless steel SMA connectors because of the clear evidence of reaction with water and the high loss in transmittance in the UV region for the Gd water sample.
+\begin{figure}
+    \begin{minipage}[t]{0.49\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{transmittance_LI_Fibre.png}
+   \caption{\label{fig:LIFibre}\% Transmission: Fibre}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{transmittance_Fibre_connector.png}
+    \caption{\label{fig:FibreEnd}\% Transmission: FC/PC connector}
+    \end{minipage}
+\end{figure}
 
 \subsection{Light Tightness}\label{sec:tests:sub:light}
 An important quality to test is how light-tight the fibres are to external sources of light, as it is vital that light is only output from the injectors when injection is planned and tagged in the data stream. If the fibres are not light-tight, it is possible that enough light from overhead dome lamps could leak into them to output photons into the detector outside of planned injections. To test this, reels of FP400URT with and without furcation tubing were connected individually to separate power meters. The lengths of these fibres are 35 and 40~m respectively, and both were wound onto reels during the test. The ends not connected to the power meters were terminated in the patch panel on the side of the dark box, to limit any light entering from the fibre ends.
@@ -597,12 +693,12 @@ Another important aspect of the fibres to test is their durability. While every 
 
 As these tests need to be carried out in a working environment, using the same set-up as in the fibre optic test stand (\cref{sec:meas:sub:stand}) is not viable. Instead, commercially available, hand-held testing devices were investigated, and three units of the TREND Networks FiberMASTER MM testing kit \cite{bib:TREND} were purchased. This is a hand-held, battery operated light source and power meter, with varied wavelengths between 850--1550~nm. Although this is not the operating wavelength of the LI system, it still allows for quick checks of through-put power, and any damage to the fibres will still be obvious in changed readings.
 
-A series of tests were carried out to assess the resilience of FP400URT and FG105UCA 1~m patch fibres to crushing, bending and cutting, plus scraping of the connector ends. The results for these are briefly summarised here. {\bf can go into more detail if desired, but Unik has a lot of info that needs condensing into this section}
+A series of tests were carried out to assess the resilience of FP400URT and FG105UCA 1~m patch fibres to crushing, bending and cutting, plus scraping of the connector ends. The results for these are briefly summarised here.
 
 \subsubsection{Crushing}
 The first set of tests carried out consisted of applying a series of increased weights to the fibres. This started with simply applying bodyweight ($\sim80$~kg) through stepping on the fibres, the most likely scenario for them to experience stress. No visible damage or change in power output was observed in this case.
 
-To increase the force experienced, a trolley was used to apply a series of weights from 100--160~kg through a single wheel. At the maximum weight of 160~kg, a 24\% reduction in output power was observed, but this returned to normal once the weight was removed. Visual inspection of the fibre revealed some yellowing caused by stress to the fibre, but no other signs of permanent damage were observed. To push this further, the fibre was then driven over by a small car ($sim$330~kg per wheel), while connected to the hand-held test kit. Static compression was seen to reduce the power output by 60\%, but again only while the weight remained on the fibre, returning back to nominal after being removed. As a final test, the fibre was also exposed to shearing forces, by turning the car's wheels whilst stationary on the fibre. This caused a sharp drop in power of 86\% and clear structural damage, as the power output did not recover after removing the weight.
+To increase the force experienced, a trolley was used to apply a series of weights from 100--160~kg through a single wheel. At the maximum weight of 160~kg, a 24\% reduction in output power was observed, but this returned to normal once the weight was removed. Visual inspection of the fibre revealed some yellowing caused by stress to the fibre, but no other signs of permanent damage were observed. To push this further, the fibre was then driven over by a small car ($\sim$330~kg per wheel), while connected to the hand-held test kit. Static compression was seen to reduce the power output by 60\%, but again only while the weight remained on the fibre, returning back to nominal after being removed. As a final test, the fibre was also exposed to shearing forces, by turning the car's wheels whilst stationary on the fibre. This caused a sharp drop in power of 86\% and clear structural damage, as the power output did not recover after removing the weight.
 
 \subsubsection{Bending}
 These tests explored how the fibres responded to manual bending and twisting, particularly beyond the specified bending radius. Fibres were observed to tolerate mild bends without degradation, however when forming angles below 90\degree\ significant signs of degradation occurred, particularly if bent in locations of previous wear. For the FG105UCA, a sharp bend in its midpoint caused a power reduction of 35--55\%, and ultimately breakage when folded back on itself. Results were similar with the FP400URT. Though only exploratory, these tests highlighted the importance of maintaining the quoted bending radius and the care that should be taken when deploying fibres.
@@ -638,7 +734,7 @@ The overall design of the HK water tank and PMT support structure is given in \c
 \includegraphics[width=0.6\textwidth]{HKdiagram.png}
 \caption{Schematic of the HK water tank and PMT support structure. \cite{bib:tn0048}}\label{fig:HKtank}
 \end{figure}
-16 of these fibre ports are distributed roughly evenly around the outer edge of the dome. The full schematic of the dome showing all calibration and fibre ports is given in \cref{fig:ports}. The OD fibre ports in question are those marked with magenta dots and labelled `odf' (OD(\begin{CJK*}{UTF8}{min}ファイバー用\end{CJK*})).
+16 of these fibre ports are distributed roughly evenly around the outer edge of the dome. The full schematic of the dome showing all calibration and fibre ports is given in \cref{fig:ports}. The OD fibre ports in question are those marked with magenta dots and labelled `odf' (OD(\begin{CJK*}{UTF8}{min}ファイバー用\end{CJK*})). For the purposes of this document those fibre ports are labelled ODF1 to 16, going clockwise from the radial position tR0.
 \begin{figure}[h]
 \centering
 \includegraphics[angle=90,width=\textwidth]{portMap}
@@ -836,7 +932,7 @@ Region		&		Length [m]		\\ \midrule
 \caption{Total length requirements for barrel fibres, in the case where lengths are split for different barrel regions to reduce excess fibre.}\label{tab:barrelLengthSplit}
 \end{table}
 
-As mentioned in \cref{sec:lengths:sub:inj:sub:barrel}, there will also be 12 OD collimators affixed to the barrel/end-cap edges; three on the top and nine on the bottom. The bottom collimators will require the aforementioned amount of fibre needed to reach the edge of the bottom end-cap. For the top ones, which will also be connected through the OD fibre ports, a length of 10~m will be enough to connect these.
+As mentioned in \cref{sec:lengths:sub:inj:sub:barrel}, there will also be 12 OD collimators affixed to the barrel/end-cap edges; three on the top and nine on the bottom. The bottom collimators will require the aforementioned amount of fibre needed to reach the edge of the bottom end-cap. For the top ones, which will also be connected through the OD fibre ports, a length of 10~m will be enough to connect these. As these fibres connect directly to the collimator without an additional patch fibre, these will need to be FC/PC connectors on the in-water end.
 
 \subsubsection{Bottom End-cap}\label{sec:lengths:sub:len:sub:bottom}
 
@@ -949,7 +1045,7 @@ The greatest length of fibre required comes from connecting to ODET17, the furth
 
 Along with the long lengths of fibres described in the previous sections, a large number of patch fibres will be required at various points within laser and LED systems.
 
-As described in \cref{sec:lengths:sub:len:sub:barrel}, to connect to all ID injectors bar the top end-cap ones an additional patch fibre is also required. ID injectors will be installed on the PMT support structure during construction, while the fibre installation will be carried out after construction of the structure has been completed, by utilising the OD gondola. In order to avoid workers having to reach far out of the gondola, through the support structure, to attach fibres to the injector housing, short patch fibres will be attached to the injectors at the time of their installation. These will span the dead region and be fixed to the outer side of the structure, so that the long fibres can be connected directly to the patch fibres. As part of this a fibre guide will be used, to ensure that the end of the fibre will be pointing vertically upwards for connection, without the fibre being pushed past its bending radius. The required lengths have been measured using a mockup of the support, obtaining values of 640~mm for the diffuser and 530~mm for the collimator. One end of these patch fibres will need to be SMA to connect to the longer fibres, however the other end needs to connect to the FC/PC fibre feedthrough. The plan for how to do this without exposing FC/PC connectors to gaidated water is currently being assessed.
+As described in \cref{sec:lengths:sub:len:sub:barrel}, to connect to all ID injectors bar the top end-cap ones an additional patch fibre is also required. ID injectors will be installed on the PMT support structure during construction, while the fibre installation will be carried out after construction of the structure has been completed, by utilising the OD gondola. In order to avoid workers having to reach far out of the gondola, through the support structure, to attach fibres to the injector housing, short patch fibres will be attached to the injectors at the time of their installation. These will span the dead region and be fixed to the outer side of the structure, so that the long fibres can be connected directly to the patch fibres. As part of this a fibre guide will be used, to ensure that the end of the fibre will be pointing vertically upwards for connection, without the fibre being pushed past its bending radius. The required lengths have been measured using a mockup of the support, obtaining values of 640~mm for the diffuser and 530~mm for the collimator. One end of these patch fibres will need to be SMA to connect to the longer fibres, however the other end needs to connect to the FC/PC fibre feedthrough. The plan for how to do this without exposing FC/PC connectors to gadiated water is currently being assessed.
 
 Based on \cref{fig:laserswitches}, eight patch fibres will be required for within the laser system itself, not including the five that will come coupled to the laser heads. Five of these will run from individual attenuators to connect the laser heads to the 1x8 switch, and then three are used for the connections between the 1x8 and 1x80 switch, which includes integrating the fibre splitter for the monitor PMT. These will all be FG105UCA fibres with FC/PC connectors on either end, with a rough length requirement of $\sim100$~cm.
 
@@ -965,10 +1061,12 @@ The final set of patch cables for the LED pulser system is that used to connect 
 \begin{tabular}{ccccc}
 \toprule
 Length [m]	&	Connector A	&	Connector B	&	Required no.	&	Use		\\ \midrule
-80			&	FC/PC		&	SMA			&	73				&	Barrel (all)$^\dagger$	\\
+80			&	FC/PC		&	SMA			&	64				&	ID Barrel (all)$^\dagger$	\\
+80			&	FC/PC		&	FC/PC		&	9				&	Bottom OD collimators \\
 44			&	FC/PC		&	FC/PC		&	76				&	Deck	\\
 44			&	SMA			&	SMA			&	8				&	Bottom	\\
-10			&	FC/PC		&	SMA			&	5				&	Top ID inj. and top OD coll. \\
+10			&	FC/PC		&	SMA			&	2				&	Top ID injectors \\
+10			&	FC/PC		&	FC/PC		&	3				&	Top OD collimators \\
 1			&	FC/PC		&	FC/PC		&	8				&	Laser system patch cable \\
 0.64		&	SMA			&	FC/PC		&	32				&	ID diffuser patch cable	\\
 0.56		&	SMA			&	FC/PC		&	32				&	ID collimator patch cable	\\ \midrule
@@ -1239,6 +1337,29 @@ WCSim, \url{https://github.com/WCSim/WCSim}
 \clearpage
 \newpage
 
+\section{R value calculations}
+The R factor is obtained using the following formula:
+\begin{equation*}
+    R=\frac{T_{sample}}{T_{HK}}\cdot \frac{\left(SA/Vol\right)_{sample}}{\left(SA/Vol\right)_{HK}}.\label{eq:R}
+\end{equation*}
+The value used for $Vol_{HK}$ will be the same throughout all calculations and is obtained using : $Vol_{HK}\;=\; \pi\times3400\times3400\times7100\;\approx\; 2.58\times10^{11}\;\text{cm}^3$.
+
+
+\subsection{Ultra Pure Water}\label{RCalcUPW}
+\begin{itemize}
+    \item $R_{LI-Fibre}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/89.54\;\text{cm}^3\right)}{\left(1138.79\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $8.99 \times 10^4$
+    \item $R_{Fibre-end}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(1\;\text{fibre end}/94\;\text{cm}^3\right)}{\left(522\;\text{fibre ends}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $1.87 \times 10^6$
+\end{itemize}
+
+\subsection{Gadolinium water}\label{RCalcGd}
+\begin{itemize}
+    \item $R_{LI-Fibre}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/104.74\;\text{cm}^3\right)}{\left(1138.79\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $7.69 \times 10^4$
+    \item $R_{Fibre-end}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(1\;\text{fibre end}/94.8\;\text{cm}^3\right)}{\left(522\;\text{fibre ends}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $1.85 \times 10^6$
+\end{itemize}
+
+\clearpage
+\newpage
+
 \section{Fibre Configuration}\label{app:fibreconfig}
 
 A more detailed breakdown of the required fibres for both the laser and LED systems is given in \cref{tab:fibreDetailsLaser} and \cref{tab:fibreDetailsLED} respectively.
@@ -1252,13 +1373,13 @@ A more detailed breakdown of the required fibres for both the laser and LED syst
 Length [m]	&	Connector A	&	Connector B	&	Req. no.	&	Fibre location		&	Injector use	\\ \midrule
 80			&	FC/PC (air)		&	SMA (water)		&	56				&	Barrel		&	Barrel ID (all)$^\dagger$	\\
 80			&	FC/PC (air)		&	SMA (water)		&	8				&	Barrel		&	Bottom ID	\\
-80			&	FC/PC (air)		&	SMA (water)		&	9				&	Barrel		&	Bottom edge OD collimators	\\
+80			&	FC/PC (air)		&	FC/PC (water)	&	9				&	Barrel		&	Bottom edge OD collimators	\\
 44			&	FC/PC (air)		&	FC/PC (air)		&	56				&	Deck		&	Barrel ID	\\
 44			&	FC/PC (air)		&	FC/PC (air)		&	8				&	Deck		&	Bottom ID	\\
 44			&	FC/PC (air)		&	FC/PC (air)		&	12				&	Deck		&	All OD collimators	\\
 44			&	SMA (water)		&	SMA (water)		&	8				&	Bottom		&	Bottom ID	\\
 10			&	FC/PC (air)		&	SMA (water)		&	2				&	Top			&	Top ID		\\
-10			&	FC/PC (air)		&	SMA (water)		&	3				&	Top			& 	Top edge OD collimators \\
+10			&	FC/PC (air)		&	FC/PC (water)	&	3				&	Top			& 	Top edge OD collimators \\
 1			&	FC/PC (air)		&	FC/PC (air)		&	8				&	Laser system	&	Before channel split \\
 0.64		&	SMA (water)		&	FC/PC (water)		&	28				&	Barrel (dead region)	& ID diffuser patch cable	\\
 0.64		&	SMA (water)		&	FC/PC (water)		&	4				&	Bottom (dead region)	& ID diffuser patch cable	\\
