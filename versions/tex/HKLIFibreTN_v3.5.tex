@@ -5,7 +5,7 @@
 \usepackage{array}
 \usepackage{hyperref}
 \usepackage{graphicx}
-\usepackage{units}
+%\usepackage{units}
 \usepackage{xfrac}
 \usepackage[version=4]{mhchem}
 \usepackage[margin=0.9in]{geometry,caption}
@@ -120,7 +120,7 @@
 \item v3.2 - Minor revision after first review committee meeting. Added a section on reception testing/QA/QC. Changed section on furcation tubing to reflect choice to tube all fibres, this was outdated. Also fixed links to Thorlabs products (spec sheets seem to generate limited-time URLs, now directing to the product page from which the spec sheets are linked). 
 \item v3.3 - Minor revision. Added sections on light- and water-tightness testing, and slightly increased fibre lengths for additional spare. Corrected line about which port ID top-cap injectors will be deployed through. Updated FC/PC connectors to stainless steel SMA after choice to change. Few grammatical changes.
 \item v3.4 - Minor revision. Clarify wavelength of LED system and need for wide-core fibre, small section added on LED system which will link to TN when ready. Added specified attenuation plots from Thorlabs.
-\item v3.5 - Minor revision to answer some comments from review committee. Correct connector ends of OD collimator fibres to FC/PC. Added Yassine's section on initial soak testing results. Add table of laser specifications for clarity.
+\item v3.5 - Minor revision to answer some comments from review committee. Correct connector ends of OD collimator fibres to FC/PC. Added Yassine's section on initial soak testing results. Add table of laser specifications for clarity. Add summary of installation-driven fibre requirements in the intro section, to further make it clear why design choices are made.
 \end{itemize}
 
 
@@ -181,7 +181,7 @@ The HK LI system will be split into two parts, one for the inner detector (ID) a
 \end{figure}
 Installing injectors at different heights throughout the detector will allow water parameters to be measured as a function of depth.
 
-The OD system will consist primarily of diffusers, using bare hemispheres coupled to fibres, rather than the housed versions used for the ID system; 122 of these OD diffusers will be installed. The current design features 84 equally spaced around the barrel region. This results in 7 rows of 12 diffusers, with rows alternately offset from one another. This configuration is particularly advantageous as it matches the number of rows in the ID system, simplifying the installation of the fibre optic cables. Each end-cap would then feature 19 diffusers, again equally spaced across the surface. A diagram showing this layout is presented in \cref{fig:ODdiffmap}. Finally, 12 collimators will be installed in the OD, in suitable locations to achieve long path lengths such as across the end caps and up the side of the barrel. These collimators will be exactly the same as those installed in the ID.
+The OD system will consist primarily of diffusers, using bare hemispheres coupled to fibres, rather than the housed versions used for the ID system; 122 of these OD diffusers will be installed. Further details of these are given in {\bf ref LED TN}. The current design features 84 equally spaced around the barrel region. This results in 7 rows of 12 diffusers, with rows alternately offset from one another. This configuration is particularly advantageous as it matches the number of rows in the ID system, simplifying the installation of the fibre optic cables. Each end-cap would then feature 19 diffusers, again equally spaced across the surface. A diagram showing this layout is presented in \cref{fig:ODdiffmap}. Finally, 12 collimators will be installed in the OD, in suitable locations to achieve long path lengths such as across the end caps and up the side of the barrel. These collimators will be exactly the same as those installed in the ID.
 
 \begin{figure}[h!]
 \centering
@@ -239,6 +239,38 @@ In total, including a laser diffuser ball and at least one spare channel, the la
 \end{figure}
 These laser heads will be coupled into a single fibre using a 1-to-8 (hereafter denoted as 1x8) switch, after each individually passing through air-gap attenuators. While only five laser heads are initially planned, this allows the system to be expanded at a later date if required. Individual attenuators are used so that the power can be manually tuned for each laser, independently of the  others. The single fibre exiting the 1x8 switch can then connect to a fibre splitter with a 1/99 splitting. This allows 1\% of the laser power to be directed to a nearby monitor PMT, which will monitor laser power before coupling into the long fibres and without entangling water parameters from within the detector. The fibre with the remaining 99\% will go into a 1x80 switch, with the output going into the long fibres that extend down to the injectors.
 
+\subsection{Fibre Configuration}
+Due to the size and complexity of the Hyper-K design and installation procedure, fibre routing is not as simple as running single fibres from source to injector. A summary of requirements is given here, while \cref{sec:lengths} gives full details on the necessary lengths and justifications.
+
+In order to reach an injector, several fibres must be connected together at particular points. The first is at the OD fibre ports around the edge of the deck. While most fibre routing will be done after the full structure is built, this is not the case for fibres that run across the deck or top end-cap. These will be installed during the construction of the top end-cap, which is not connected to the barrel until both are raised and it is not possible to run fibres from one to the other during construction. This separation of the two sections means that running a single fibre from the source on the deck to an injector on the barrel region is impossible. Having a break in the fibre chain here is also advantageous, as the deck fibres are more likely to experience accidental damage. With these being separate to the in-water fibres, they could feasibly be replaced if necessary, which would be impossible if they were a single fibre extending into the tank. The top end-cap OD diffusers will be installed at the same time as the fibres in that region, as once the end-cap has been raised, the structure will be inaccessible. The single set of ID injectors on the top end-cap will be installed after detector construction, as these are simply deployed through a calibration port.
+
+The second break in the chain for ID barrel and bottom injectors is at the injector location. The ID injectors for these regions will be mounted during frame construction, and the fibres will be routed later, as previously mentioned. To avoid workers having to lean out of the OD gondola into the structure in an attempt to connect the fibre to the back-end of the injector, a patch fibre will be connected to the injector at the time of installation, which spans the dead region. The long fibre running from the top of the tank will connect to this patch fibre on the OD side of the structure. This requirement does not apply to the OD collimators or diffusers; as they are installed on the OD side no patch fibre is required. 
+
+This patch fibre is also required as the fibres have to be reeled down from the top of the tank to the injector location, rather than the reverse. As the spools that the fibres are housed on are larger than the diameter of the OD fibre ports, fibres would have to be completely unspooled to pass them up through the ports. In the small working space of the OD gondola, this is impossible. In routing fibres from top to bottom, a small amount of fibre can be unwinded from the spool and passed up the port, before reeling downwards to the injector, while if fibres are run up the tank the only way to pass them through the port is to unwind the entire remaining reel in the gondola.  The final advantage of installing this way is it allows workers to test the long fibres from the gondola before connecting them to the injector patch cables, which would not be possible in the reverse direction.
+
+The final break in the chain occurs for injectors installed on the bottom end-cap. During discussion with Thorlabs, the favoured supplier for the fibre optics (further details on fibre choices are given in \cref{sec:fibre:sub:choice}), it became clear that manufacturing fibres over 100~m in length on a large scale is not feasible. Due to the scale of Hyper-K, these lengths are required to reach bottom injectors. To account for this, connectors will be placed on the bottom edge of the detector, to connect fibres in series where required.
+
+This summarises all connection points between the exterior of electronics crates and the injectors. All required connections will be performed with FC/PC matings where connections are done out of water, or stainless steel SMA matings where they are done in water. \cref{tab:fibreConfigIntro} summaries the number of fibres required in series for each injector type, along with the number of each type of connector.
+
+\begin{table}[h]
+\centering
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{cccccc}
+\toprule	
+Injector group	&	Fibres	&	FC/PC connectors	&	SMA connectors		&	Total length [m]	& Number	\\ \midrule
+ID Barrel   &   3   &   1   &   1   &   80.5, 106.5, 124.5  &   56  \\
+ID Bottom   &   4   &   1   &   2   &   168.5 &   8   \\
+ID Top      &   1   &   0   &   0   &   10  &   2   \\
+OD Diff. Top    &   1   &   0   &   0   &   50  &   19  \\
+OD Diff. Barrel &   2   &   1   &   0   &   80, 106, 124  & 84  \\
+OD Diff. Bottom &   3   &   1   &   1   &   168 &   19  \\
+OD Coll. Top    &   2   &   1   &   0   &   54  &   3   \\
+OD Coll. Bottom &   2   &   1   &   0   &   124 &   9   \\
+\bottomrule
+\end{tabular}
+\caption{Fibre configurations for each type of injector, showing the number of fibres in series, and the number of connectors of each type required. Barrel injectors have three possible lengths, depending on which region of the barrel they are in.}\label{tab:fibreConfigIntro}
+\end{table}
+
 
 \section{Laser System Specification}\label{sec:laser}
 In order to perform the desired calibrations across a range of wavelengths, a system of at least five pico-second diode lasers is required. These must ideally be controlled from a single unit, to simplify communication and operation during regular data-taking and dedicated calibration runs. These lasers should be fibre-coupled, to avoid the need to direct an open beam into the fibre system. Avoiding any open beams is also preferable in terms of safety to both users of the system, and any nearby workers. The intended setup for this laser system, as described in \cref{sec:overview}, is shown in \cref{fig:laserswitches}. While the setup will begin with five lasers heads, the switch will allow for up to eight to be connected, giving the ability to expand the system at a later date if required.
@@ -267,7 +299,7 @@ From this market research, it became clear that PicoQuant are the only company s
 \section{LED System}\label{sec:LED}
 Rather than using lasers, the array of 122 OD diffusers will be illuminated with a custom built LED pulser system. Full details of this system are given in {\bf reference LED TN once finished}. Each pulser board will use a LC LED UT-67UV365P \cite{bib:LCLED} surface mounted LED, with a fixed 365~nm wavelength, which will be coupled to a bare fibre end via a 3D printed connector. One pulser board will be used per diffuser. Each connector will also have a second fibre to take light to a set of nearby PMTs for monitoring purposes, for the same purposes as mentioned in \cref{sec:laser}.
 
-One of the primary purposes of the OD diffuser system is to saturate as many of the $\sim3600$ PMTs in the OD as possible. As such, the driving factor for both LED and fibre choice for this system is photon yield. Through a series of optimisations in the pulser system electronics, a maximum photon yield of $2.4\times10^{7}$ photons per pulse was achieved, for a sub-10~ns pulse. This measurement includes attenuation of the signal by 182~m of Thorlabs FP400URT fibre \cite{bib:fp400urt}, one of the candidate fibres tested extensively in the following sections. A further $\sim$50\% efficiency should also be factored in for the OD diffusers. Saturation studies ({\bf these will be in the LED TN)} suggest at least $5.5\times10^6$ photons per pulse are required to have a reasonable number of PMTs above the defined saturation limit of 100 photoelectrons.
+One of the primary purposes of the OD diffuser system is to saturate as many of the $\sim3600$ PMTs in the OD as possible. As such, the driving factor for both LED and fibre choice for this system is photon yield. Through a series of optimisations in the pulser system electronics, a maximum photon yield of $2.4\times10^{7}$ photons per pulse was achieved, for a sub-10~ns pulse. This measurement includes attenuation of the signal by 182~m of Thorlabs FP400URT fibre \cite{bib:fp400urt}, one of the candidate fibres tested extensively in the following sections. A further $\sim$50\% efficiency should also be factored in for the OD diffusers. Saturation studies ({\bf these will be in the LED TN)} suggest at least $5.5\times10^6$ photons per pulse are required to have the majority of PMTs above the defined saturation limit of 100 photoelectrons.
 
 
 \section{Fibre Lab Measurements}
