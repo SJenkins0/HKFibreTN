@@ -1,14 +1,18 @@
 \documentclass[a4paper,11pt]{article}
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL ../versions/tex/HKLIFibreTN_v3.4.tex   Thu Aug 14 17:41:43 2025
-%DIF ADD ../HKLIFibreTN.tex                     Tue Sep 30 15:45:48 2025
+%DIF ADD ../HKLIFibreTN.tex                     Wed Oct  1 21:27:40 2025
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{placeins}
 \usepackage{array}
 \usepackage{hyperref}
 \usepackage{graphicx}
-\usepackage{units}
+%DIF 8c8
+%DIF < \usepackage{units}
+%DIF -------
+%\usepackage{units} %DIF > 
+%DIF -------
 \usepackage{xfrac}
 \usepackage[version=4]{mhchem}
 \usepackage[margin=0.9in]{geometry,caption}
@@ -211,7 +215,7 @@
 \item v3.2 - Minor revision after first review committee meeting. Added a section on reception testing/QA/QC. Changed section on furcation tubing to reflect choice to tube all fibres, this was outdated. Also fixed links to Thorlabs products (spec sheets seem to generate limited-time URLs, now directing to the product page from which the spec sheets are linked). 
 \item v3.3 - Minor revision. Added sections on light- and water-tightness testing, and slightly increased fibre lengths for additional spare. Corrected line about which port ID top-cap injectors will be deployed through. Updated FC/PC connectors to stainless steel SMA after choice to change. Few grammatical changes.
 \item v3.4 - Minor revision. Clarify wavelength of LED system and need for wide-core fibre, small section added on LED system which will link to TN when ready. Added specified attenuation plots from Thorlabs.
-\DIFaddbegin \item \DIFadd{v3.5 - Minor revision to answer some comments from review committee. Correct connector ends of OD collimator fibres to FC/PC. Added Yassine's section on initial soak testing results. Add table of laser specifications for clarity.
+\DIFaddbegin \item \DIFadd{v3.5 - Minor revision to answer some comments from review committee. Correct connector ends of OD collimator fibres to FC/PC. Added Yassine's section on initial soak testing results. Add table of laser specifications for clarity. Add summary of installation-driven fibre requirements in the intro section, to further make it clear why design choices are made.
 }\DIFaddend \end{itemize}
 
 
@@ -272,7 +276,7 @@ The HK LI system will be split into two parts, one for the inner detector (ID) a
 \end{figure}
 Installing injectors at different heights throughout the detector will allow water parameters to be measured as a function of depth.
 
-The OD system will consist primarily of diffusers, using bare hemispheres coupled to fibres, rather than the housed versions used for the ID system; 122 of these OD diffusers will be installed. The current design features 84 equally spaced around the barrel region. This results in 7 rows of 12 diffusers, with rows alternately offset from one another. This configuration is particularly advantageous as it matches the number of rows in the ID system, simplifying the installation of the fibre optic cables. Each end-cap would then feature 19 diffusers, again equally spaced across the surface. A diagram showing this layout is presented in \cref{fig:ODdiffmap}. Finally, 12 collimators will be installed in the OD, in suitable locations to achieve long path lengths such as across the end caps and up the side of the barrel. These collimators will be exactly the same as those installed in the ID.
+The OD system will consist primarily of diffusers, using bare hemispheres coupled to fibres, rather than the housed versions used for the ID system; 122 of these OD diffusers will be installed. \DIFaddbegin \DIFadd{Further details of these are given in }{\bf \DIFadd{ref LED TN}}\DIFadd{. }\DIFaddend The current design features 84 equally spaced around the barrel region. This results in 7 rows of 12 diffusers, with rows alternately offset from one another. This configuration is particularly advantageous as it matches the number of rows in the ID system, simplifying the installation of the fibre optic cables. Each end-cap would then feature 19 diffusers, again equally spaced across the surface. A diagram showing this layout is presented in \cref{fig:ODdiffmap}. Finally, 12 collimators will be installed in the OD, in suitable locations to achieve long path lengths such as across the end caps and up the side of the barrel. These collimators will be exactly the same as those installed in the ID.
 
 \begin{figure}[h!]
 \centering
@@ -330,8 +334,52 @@ In total, including a laser diffuser ball and at least one spare channel, the la
 \end{figure}
 These laser heads will be coupled into a single fibre using a 1-to-8 (hereafter denoted as 1x8) switch, after each individually passing through air-gap attenuators. While only five laser heads are initially planned, this allows the system to be expanded at a later date if required. Individual attenuators are used so that the power can be manually tuned for each laser, independently of the  others. The single fibre exiting the 1x8 switch can then connect to a fibre splitter with a 1/99 splitting. This allows 1\% of the laser power to be directed to a nearby monitor PMT, which will monitor laser power before coupling into the long fibres and without entangling water parameters from within the detector. The fibre with the remaining 99\% will go into a 1x80 switch, with the output going into the long fibres that extend down to the injectors.
 
+\DIFaddbegin \subsection{\DIFadd{Fibre Configuration}}
+\DIFadd{Due to the size and complexity of the Hyper-K design and installation procedure, fibre routing is not as simple as running single fibres from source to injector. A summary of requirements is given here, while \mbox{%DIFAUXCMD
+\cref{sec:lengths} }\hskip0pt%DIFAUXCMD
+gives full details on the necessary lengths and justifications.
+}
 
-\section{Laser System Specification}\label{sec:laser}
+\DIFadd{In order to reach an injector, several fibres must be connected together at particular points. The first is at the OD fibre ports around the edge of the deck. While most fibre routing will be done after the full structure is built, this is not the case for fibres that run across the deck or top end-cap. These will be installed during the construction of the top end-cap, which is not connected to the barrel until both are raised and it is not possible to run fibres from one to the other during construction. This separation of the two sections means that running a single fibre from the source on the deck to an injector on the barrel region is impossible. Having a break in the fibre chain here is also advantageous, as the deck fibres are more likely to experience accidental damage. With these being separate to the in-water fibres, they could feasibly be replaced if necessary, which would be impossible if they were a single fibre extending into the tank. The top end-cap OD diffusers will be installed at the same time as the fibres in that region, as once the end-cap has been raised, the structure will be inaccessible. The single set of ID injectors on the top end-cap will be installed after detector construction, as these are simply deployed through a calibration port.
+}
+
+\DIFadd{The second break in the chain for ID barrel and bottom injectors is at the injector location. The ID injectors for these regions will be mounted during frame construction, and the fibres will be routed later, as previously mentioned. To avoid workers having to lean out of the OD gondola into the structure in an attempt to connect the fibre to the back-end of the injector, a patch fibre will be connected to the injector at the time of installation, which spans the dead region. The long fibre running from the top of the tank will connect to this patch fibre on the OD side of the structure. This requirement does not apply to the OD collimators or diffusers; as they are installed on the OD side no patch fibre is required. 
+}
+
+\DIFadd{This patch fibre is also required as the fibres have to be reeled down from the top of the tank to the injector location, rather than the reverse. As the spools that the fibres are housed on are larger than the diameter of the OD fibre ports, fibres would have to be completely unspooled to pass them up through the ports. In the small working space of the OD gondola, this is impossible. In routing fibres from top to bottom, a small amount of fibre can be unwinded from the spool and passed up the port, before reeling downwards to the injector, while if fibres are run up the tank the only way to pass them through the port is to unwind the entire remaining reel in the gondola.  The final advantage of installing this way is it allows workers to test the long fibres from the gondola before connecting them to the injector patch cables, which would not be possible in the reverse direction.
+}
+
+\DIFadd{The final break in the chain occurs for injectors installed on the bottom end-cap. During discussion with Thorlabs, the favoured supplier for the fibre optics (further details on fibre choices are given in \mbox{%DIFAUXCMD
+\cref{sec:fibre:sub:choice}}\hskip0pt%DIFAUXCMD
+), it became clear that manufacturing fibres over 100~m in length on a large scale is not feasible. Due to the scale of Hyper-K, these lengths are required to reach bottom injectors. To account for this, connectors will be placed on the bottom edge of the detector, to connect fibres in series where required.
+}
+
+\DIFadd{This summarises all connection points between the exterior of electronics crates and the injectors. All required connections will be performed with FC/PC matings where connections are done out of water, or stainless steel SMA matings where they are done in water. \mbox{%DIFAUXCMD
+\cref{tab:fibreConfigIntro} }\hskip0pt%DIFAUXCMD
+summaries the number of fibres required in series for each injector type, along with the number of each type of connector.
+}
+
+\begin{table}[h]
+\centering
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{cccccc}
+\toprule	
+\DIFaddFL{Injector group	}&	\DIFaddFL{Fibres	}&	\DIFaddFL{FC/PC connectors	}&	\DIFaddFL{SMA connectors		}&	\DIFaddFL{Total length }[\DIFaddFL{m}]	& \DIFaddFL{Number	}\\ \midrule
+\DIFaddFL{ID Barrel   }&   \DIFaddFL{3   }&   \DIFaddFL{1   }&   \DIFaddFL{1   }&   \DIFaddFL{80.5, 106.5, 124.5  }&   \DIFaddFL{56  }\\
+\DIFaddFL{ID Bottom   }&   \DIFaddFL{4   }&   \DIFaddFL{1   }&   \DIFaddFL{2   }&   \DIFaddFL{168.5 }&   \DIFaddFL{8   }\\
+\DIFaddFL{ID Top      }&   \DIFaddFL{1   }&   \DIFaddFL{0   }&   \DIFaddFL{0   }&   \DIFaddFL{10  }&   \DIFaddFL{2   }\\
+\DIFaddFL{OD Diff. Top    }&   \DIFaddFL{1   }&   \DIFaddFL{0   }&   \DIFaddFL{0   }&   \DIFaddFL{50  }&   \DIFaddFL{19  }\\
+\DIFaddFL{OD Diff. Barrel }&   \DIFaddFL{2   }&   \DIFaddFL{1   }&   \DIFaddFL{0   }&   \DIFaddFL{80, 106, 124  }& \DIFaddFL{84  }\\
+\DIFaddFL{OD Diff. Bottom }&   \DIFaddFL{3   }&   \DIFaddFL{1   }&   \DIFaddFL{1   }&   \DIFaddFL{168 }&   \DIFaddFL{19  }\\
+\DIFaddFL{OD Coll. Top    }&   \DIFaddFL{2   }&   \DIFaddFL{1   }&   \DIFaddFL{0   }&   \DIFaddFL{54  }&   \DIFaddFL{3   }\\
+\DIFaddFL{OD Coll. Bottom }&   \DIFaddFL{2   }&   \DIFaddFL{1   }&   \DIFaddFL{0   }&   \DIFaddFL{124 }&   \DIFaddFL{9   }\\
+\bottomrule
+\end{tabular}
+\caption{\DIFaddFL{Fibre configurations for each type of injector, showing the number of fibres in series, and the number of connectors of each type required. Barrel injectors have three possible lengths, depending on which region of the barrel they are in.}}\label{tab:fibreConfigIntro}
+\end{table}
+
+
+\DIFaddend \section{Laser System Specification}\label{sec:laser}
 In order to perform the desired calibrations across a range of wavelengths, a system of at least five pico-second diode lasers is required. These must ideally be controlled from a single unit, to simplify communication and operation during regular data-taking and dedicated calibration runs. These lasers should be fibre-coupled, to avoid the need to direct an open beam into the fibre system. Avoiding any open beams is also preferable in terms of safety to both users of the system, and any nearby workers. The intended setup for this laser system, as described in \cref{sec:overview}, is shown in \cref{fig:laserswitches}. While the setup will begin with five lasers heads, the switch will allow for up to eight to be connected, giving the ability to expand the system at a later date if required.
 
 As the large lengths of fibre required to transport light from the laser sources to injection points will result in both attenuation and dispersion of the signal, output power and pulse width from the lasers should be maximised and minimised, respectively. The studies performed to estimate the required pulse energy to illuminate 1\% of PMTs in spot region of each ID diffuser returned values of 5--10 pJ, with the maximum values at higher wavelengths. These studies are described in detail in \cref{sec:photonreq}. In certain scenarios, it will be necessary to inject more light into the detector than this. To account for this, a minimum pulse energy of 50 pJ was set for each laser wavelength\DIFaddbegin \DIFadd{, though more is of course better}\DIFaddend . Coupling this with the requirement of short pulse widths, picosecond diode lasers were identified as the type of laser required. These lasers generally provide relatively high-powered pulses with pulse widths on the order of 1--100 ps.
@@ -345,13 +393,7 @@ shows the measured properties of previously manufactured lasers of these model n
 \centering
 \begin{tabular}{lccc}
 \toprule
-\DIFaddFL{Model no.	   }& \DIFaddFL{\mbox{%DIFAUXCMD
-$\lambda$
-}%DIFAUXCMD
-}[\DIFaddFL{nm}]  & \DIFaddFL{Pulse width (FWHM) }[\DIFaddFL{ps}] &  \DIFaddFL{\mbox{%DIFAUXCMD
-$E_\text{pulse}$
-}%DIFAUXCMD
-}[\DIFaddFL{pJ}]	\\ \midrule
+\DIFaddFL{Model no.	   }& \DIFaddFL{$\lambda$ }[\DIFaddFL{nm}]  & \DIFaddFL{Pulse width (FWHM) }[\DIFaddFL{ps}] &  \DIFaddFL{$E_\text{pulse}$ }[\DIFaddFL{pJ}]	\\ \midrule
 \DIFaddFL{LDH-P-FA-355	}&	\DIFaddFL{354			}&   \DIFaddFL{64						}&	\DIFaddFL{1000			}\\
 \DIFaddFL{LDH-D-C-375		}&	\DIFaddFL{373			}&	\DIFaddFL{52						}&	\phantom{00}\DIFaddFL{70	}\\
 \DIFaddFL{LDH-D-C-390		}&	\DIFaddFL{391			}&	\DIFaddFL{48						}&	\phantom{0}\DIFaddFL{143	}\\
@@ -691,13 +733,7 @@ This verifies that the speed of light can easily be measured with this setup, an
 . For the short-term test, the laser was connected to a 1~m FP400URT fibre, which initially was not connected to the power meter. The laser was switched on, set to an intensity of 60\%, and left waiting for a trigger signal to fire. The laser, fibre and power meter were contained within the dark box, and the power meter calibrated to remove the small background effect of the `standby' light on the laser head, before starting data recording.
 }
 
-\DIFadd{At around \mbox{%DIFAUXCMD
-$\sim30$
-}%DIFAUXCMD
-~s, the door to the dark box was opened, and the fibre connected to the power meter. Ambient light from the lab causes the two initial spikes in power, which then drops back to zero as the fibre is connected, blocking out the ambient light. At 60~s, the laser is triggered, causing an immediate increase in power. While running, the power steadily increases as the laser stabilises, before the triggering is disabled at 90~s by activating the interlock. This results in an immediate loss of power back to the baseline noise. The following two activations of the laser exhibit the same behaviour, this time with the laser being deactivated firstly via the software, and secondly by the key on the control unit. In each case the recorded power immediately drops to \mbox{%DIFAUXCMD
-$\sim$
-}%DIFAUXCMD
-0~W, with no non-zero values of power detected in the gaps while the laser in powered on but on standby.
+\DIFadd{At around $\sim30$~s, the door to the dark box was opened, and the fibre connected to the power meter. Ambient light from the lab causes the two initial spikes in power, which then drops back to zero as the fibre is connected, blocking out the ambient light. At 60~s, the laser is triggered, causing an immediate increase in power. While running, the power steadily increases as the laser stabilises, before the triggering is disabled at 90~s by activating the interlock. This results in an immediate loss of power back to the baseline noise. The following two activations of the laser exhibit the same behaviour, this time with the laser being deactivated firstly via the software, and secondly by the key on the control unit. In each case the recorded power immediately drops to $\sim$0~W, with no non-zero values of power detected in the gaps while the laser in powered on but on standby.
 }
 
 \begin{figure}[h]
@@ -728,22 +764,7 @@ $\sim$
 \DIFadd{The first deployed test of one of the LI optics was performed with WCTE, in which a ID diffuser was included as a calibration source. During WCTE decommissioning, it was observed that the FC/PC connector on the end of the FG105UCA fibre had undergone reaction with either the Ultra Pure Water (UPW) or gadolinium-doped water. Along with the need to confirm everything that is placed into Hyper-K is safe for long-term exposure, this observation motivated the soak testing of the fibre and the fibre connectors. Water quality degradation is to be assessed with the UV effective attenuation length weighted by the expected Cherenkov light response of the PMTs.
 }
 
-\DIFadd{The samples used in the test were a 10~cm long fibre and one fibre FC/PC fibre connector. These were initially cleaned with isopropyl alcohol (IPA), before being  placed into a sterile 100~ml PET container with a known volume of deionised water. At the same time, an additional sterile PET container was filled with a control sample of water from the same source. The containers were be immediately sealed, labelled, and placed into a dark constant environment chamber set at \mbox{%DIFAUXCMD
-$14^\circ$
-}%DIFAUXCMD
-C. The procedure above was be repeated for another sample of the same material in a solution of 0.2\% Gd\mbox{%DIFAUXCMD
-$_2$
-}%DIFAUXCMD
-(SO\mbox{%DIFAUXCMD
-$_4$
-}%DIFAUXCMD
-)\mbox{%DIFAUXCMD
-$_3\cdot$
-}%DIFAUXCMD
-8H\mbox{%DIFAUXCMD
-$_2$
-}%DIFAUXCMD
-O in deionised water.
+\DIFadd{The samples used in the test were a 10~cm long fibre and one fibre FC/PC fibre connector. These were initially cleaned with isopropyl alcohol (IPA), before being  placed into a sterile 100~ml PET container with a known volume of deionised water. At the same time, an additional sterile PET container was filled with a control sample of water from the same source. The containers were be immediately sealed, labelled, and placed into a dark constant environment chamber set at $14^\circ$C. The procedure above was be repeated for another sample of the same material in a solution of 0.2\% Gd$_2$(SO$_4$)$_3\cdot$8H$_2$O in deionised water.
 }
 
 \DIFadd{The standard procedure applied for }\hk \DIFadd{material soak test is to leave the sample to soak undisturbed for 90 days. This period was estimated conservatively to be the period of water turnover in the }\hk \DIFadd{water tank. However, given the long lead time for purchase and delivery of the fibre, it was decided to perform a first measurement of the water properties after one month of soaking, before returning the samples to the containers for the remainder of the time.
@@ -753,49 +774,19 @@ O in deionised water.
 }\begin{equation}
 \DIFadd{L_{HK,eff} = \frac{\sum_{\lambda} L_{HK}\left(\lambda\right)\times w\left(\lambda\right)}{\sum_{\lambda} w\left(\lambda\right)},
 }\end{equation}
-\DIFadd{where \mbox{%DIFAUXCMD
-$L_{HK}(\lambda)$
-}%DIFAUXCMD
-is the expected attenuation length in }\hk \DIFadd{and \mbox{%DIFAUXCMD
-$w(\lambda)$
-}%DIFAUXCMD
-the weights.
+\DIFadd{where $L_{HK}(\lambda)$ is the expected attenuation length in }\hk \DIFadd{and $w(\lambda)$ the weights.
 }
 
 \subsubsection{\DIFadd{Soak Testing Plan}}
-\DIFadd{The criteria for success of a material soak test is defined to be that the effective \mbox{%DIFAUXCMD
-$1/e$
-}%DIFAUXCMD
-attenuation length is greater than 2000~m.
+\DIFadd{The criteria for success of a material soak test is defined to be that the effective $1/e$ attenuation length is greater than 2000~m.
 }
 
-\DIFadd{Soak tests of materials are performed at the University of Sheffield, where there is a source of ultra-pure deionised water, Gd\mbox{%DIFAUXCMD
-$_2$
-}%DIFAUXCMD
-(SO\mbox{%DIFAUXCMD
-$_4$
-}%DIFAUXCMD
-)\mbox{%DIFAUXCMD
-$_3\cdot$
-}%DIFAUXCMD
-8H\mbox{%DIFAUXCMD
-$_2$
-}%DIFAUXCMD
-O powder, a Shimadzu UV-2700i UV-VIS spectrophotometer, and a 102~L constant environment chamber.
+\DIFadd{Soak tests of materials are performed at the University of Sheffield, where there is a source of ultra-pure deionised water, Gd$_2$(SO$_4$)$_3\cdot$8H$_2$O powder, a Shimadzu UV-2700i UV-VIS spectrophotometer, and a 102~L constant environment chamber.
 }
 
 \subsubsection{\DIFadd{Results}}
 
-\DIFadd{The expected effective attenuation length in }\hk \DIFadd{is calculated using the factor \mbox{%DIFAUXCMD
-$R$
-}%DIFAUXCMD
-and the UV-VIS cell length of \mbox{%DIFAUXCMD
-$x=9$
-}%DIFAUXCMD
-~cm. Given the worst-case-scenario assumptions in the calculation of \mbox{%DIFAUXCMD
-$R$
-}%DIFAUXCMD
-, it was found that the effective attenuation length for both samples were above the 2~km limit set by }\hk\DIFadd{. Details on the calculation of the factor R for each sample soak tested in UPW can be found in Appendix \ref{RCalcUPW} and in gadolinium-doped water in Appendix \ref{RCalcGd}.
+\DIFadd{The expected effective attenuation length in }\hk \DIFadd{is calculated using the factor $R$ and the UV-VIS cell length of $x=9$~cm. Given the worst-case-scenario assumptions in the calculation of $R$, it was found that the effective attenuation length for both samples were above the 2~km limit set by }\hk\DIFadd{. Details on the calculation of the factor R for each sample soak tested in UPW can be found in Appendix \ref{RCalcUPW} and in gadolinium-doped water in Appendix \ref{RCalcGd}.
 }
 
 \DIFadd{The transmission spectra exhibited some UV absorption following the soak test, especially in the UV region. These losses in transmission were observed to be of the same order in magnitude for UPW and Gd water for the fibre sample, while for the fibre connector sample the Gd water loss in transmission was around 15\% higher than in UPW in the UV region. 
@@ -803,7 +794,6 @@ $R$
 
 \DIFadd{A full table of soak test results for the measured }\hk \DIFadd{materials is shown in Table~\ref{tab:soakresults}.
 }
-
 
 \begin{longtable}{lccccccc}
 \hline
@@ -874,13 +864,7 @@ A series of tests were carried out to assess the resilience of FP400URT and FG10
 \subsubsection{Crushing}
 The first set of tests carried out consisted of applying a series of increased weights to the fibres. This started with simply applying bodyweight ($\sim80$~kg) through stepping on the fibres, the most likely scenario for them to experience stress. No visible damage or change in power output was observed in this case.
 
-To increase the force experienced, a trolley was used to apply a series of weights from 100--160~kg through a single wheel. At the maximum weight of 160~kg, a 24\% reduction in output power was observed, but this returned to normal once the weight was removed. Visual inspection of the fibre revealed some yellowing caused by stress to the fibre, but no other signs of permanent damage were observed. To push this further, the fibre was then driven over by a small car (\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
-$sim$
-}%DIFAUXCMD
-}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-$\sim$
-}%DIFAUXCMD
-}\DIFaddend 330~kg per wheel), while connected to the hand-held test kit. Static compression was seen to reduce the power output by 60\%, but again only while the weight remained on the fibre, returning back to nominal after being removed. As a final test, the fibre was also exposed to shearing forces, by turning the car's wheels whilst stationary on the fibre. This caused a sharp drop in power of 86\% and clear structural damage, as the power output did not recover after removing the weight.
+To increase the force experienced, a trolley was used to apply a series of weights from 100--160~kg through a single wheel. At the maximum weight of 160~kg, a 24\% reduction in output power was observed, but this returned to normal once the weight was removed. Visual inspection of the fibre revealed some yellowing caused by stress to the fibre, but no other signs of permanent damage were observed. To push this further, the fibre was then driven over by a small car (\DIFdelbegin \DIFdel{$sim$}\DIFdelend \DIFaddbegin \DIFadd{$\sim$}\DIFaddend 330~kg per wheel), while connected to the hand-held test kit. Static compression was seen to reduce the power output by 60\%, but again only while the weight remained on the fibre, returning back to nominal after being removed. As a final test, the fibre was also exposed to shearing forces, by turning the car's wheels whilst stationary on the fibre. This caused a sharp drop in power of 86\% and clear structural damage, as the power output did not recover after removing the weight.
 
 \subsubsection{Bending}
 These tests explored how the fibres responded to manual bending and twisting, particularly beyond the specified bending radius. Fibres were observed to tolerate mild bends without degradation, however when forming angles below 90\degree\ significant signs of degradation occurred, particularly if bent in locations of previous wear. For the FG105UCA, a sharp bend in its midpoint caused a power reduction of 35--55\%, and ultimately breakage when folded back on itself. Results were similar with the FP400URT. Though only exploratory, these tests highlighted the importance of maintaining the quoted bending radius and the care that should be taken when deploying fibres.
@@ -1525,58 +1509,20 @@ WCSim, \url{https://github.com/WCSim/WCSim}
 }\begin{equation*}
     \DIFadd{R=\frac{T_{sample}}{T_{HK}}\cdot \frac{\left(SA/Vol\right)_{sample}}{\left(SA/Vol\right)_{HK}}.\label{eq:R}
 }\end{equation*}
-\DIFadd{The value used for \mbox{%DIFAUXCMD
-$Vol_{HK}$
-}%DIFAUXCMD
-will be the same throughout all calculations and is obtained using : \mbox{%DIFAUXCMD
-$Vol_{HK}\;=\; \pi\times3400\times3400\times7100\;\approx\; 2.58\times10^{11}\;\text{cm}^3$
-}%DIFAUXCMD
-.
+\DIFadd{The value used for $Vol_{HK}$ will be the same throughout all calculations and is obtained using : $Vol_{HK}\;=\; \pi\times3400\times3400\times7100\;\approx\; 2.58\times10^{11}\;\text{cm}^3$.
 }
 
 
 \subsection{\DIFadd{Ultra Pure Water}}\label{RCalcUPW}
 \begin{itemize}
-    \item \DIFadd{\mbox{%DIFAUXCMD
-$R_{LI-Fibre}$
-}%DIFAUXCMD
-= \mbox{%DIFAUXCMD
-$\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/89.54\;\text{cm}^3\right)}{\left(1138.79\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$
-}%DIFAUXCMD
-= \mbox{%DIFAUXCMD
-$8.99 \times 10^4$
-}%DIFAUXCMD
-}\item \DIFadd{\mbox{%DIFAUXCMD
-$R_{Fibre-end}$
-}%DIFAUXCMD
-= \mbox{%DIFAUXCMD
-$\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(1\;\text{fibre end}/94\;\text{cm}^3\right)}{\left(522\;\text{fibre ends}/2.58\times10^{11}\;\text{cm}^3\right)}$
-}%DIFAUXCMD
-= \mbox{%DIFAUXCMD
-$1.87 \times 10^6$
-}%DIFAUXCMD
+    \item \DIFadd{$R_{LI-Fibre}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/89.54\;\text{cm}^3\right)}{\left(1138.79\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $8.99 \times 10^4$
+    }\item \DIFadd{$R_{Fibre-end}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(1\;\text{fibre end}/94\;\text{cm}^3\right)}{\left(522\;\text{fibre ends}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $1.87 \times 10^6$
 }\end{itemize}
 
 \subsection{\DIFadd{Gadolinium water}}\label{RCalcGd}
 \begin{itemize}
-    \item \DIFadd{\mbox{%DIFAUXCMD
-$R_{LI-Fibre}$
-}%DIFAUXCMD
-= \mbox{%DIFAUXCMD
-$\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/104.74\;\text{cm}^3\right)}{\left(1138.79\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$
-}%DIFAUXCMD
-= \mbox{%DIFAUXCMD
-$7.69 \times 10^4$
-}%DIFAUXCMD
-}\item \DIFadd{\mbox{%DIFAUXCMD
-$R_{Fibre-end}$
-}%DIFAUXCMD
-= \mbox{%DIFAUXCMD
-$\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(1\;\text{fibre end}/94.8\;\text{cm}^3\right)}{\left(522\;\text{fibre ends}/2.58\times10^{11}\;\text{cm}^3\right)}$
-}%DIFAUXCMD
-= \mbox{%DIFAUXCMD
-$1.85 \times 10^6$
-}%DIFAUXCMD
+    \item \DIFadd{$R_{LI-Fibre}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/104.74\;\text{cm}^3\right)}{\left(1138.79\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $7.69 \times 10^4$
+    }\item \DIFadd{$R_{Fibre-end}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(1\;\text{fibre end}/94.8\;\text{cm}^3\right)}{\left(522\;\text{fibre ends}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $1.85 \times 10^6$
 }\end{itemize}
 
 \clearpage
@@ -1619,10 +1565,7 @@ A more detailed breakdown of the required fibres for both the laser and LED syst
 \begin{tabular}{cccccc}
 \toprule
 Length [m]	&	Connector A	&	Connector B	&	Req. no.	&	Fibre location		&	Injector use	\\ \midrule
-80			&	FC/PC (air)		&	SMA (water)		&	56				&	Barrel		&	Barrel ID (all)\mbox{%DIFAUXCMD
-$^\dagger$
-}%DIFAUXCMD
-\\
+80			&	FC/PC (air)		&	SMA (water)		&	56				&	Barrel		&	Barrel ID (all)$^\dagger$	\\
 80			&	FC/PC (air)		&	SMA (water)		&	8				&	Barrel		&	Bottom ID	\\
 80			&	FC/PC (air)		&	FC/PC (water)	&	9				&	Barrel		&	Bottom edge OD collimators	\\
 44			&	FC/PC (air)		&	FC/PC (air)		&	56				&	Deck		&	Barrel ID	\\
@@ -1636,10 +1579,7 @@ $^\dagger$
 0.64		&	SMA (water)		&	FC/PC (water)		&	4				&	Bottom (dead region)	& ID diffuser patch cable	\\
 0.56		&	SMA (water)		&	FC/PC (water)		&	28				&	Barrel (dead region)	& ID collimator patch cable	\\
 0.56		&	SMA (water)		&	FC/PC (water)		&	4				&	Bottom (dead region)	& ID collimator patch cable	\\ \midrule
-\multicolumn{3}{l}{\mbox{%DIFAUXCMD
-$^\dagger$
-}%DIFAUXCMD
-Staged approach:}			&					&			\\
+\multicolumn{3}{l}{$^\dagger$Staged approach:}			&					&			\\
 36			&	FC/PC (air)		&	SMA (water)		&	16				&	Barrel	&	Barrel ID (levels 1+2) \\
 62			&	FC/PC (air)			&	SMA (water)		&	24				&	Barrel	&	Barrel ID (levels 3+4+5)	\\
 80			&	FC/PC (air)			&	SMA (water)		&	16				&	Barrel	&	Barrel ID (levels 6+7)	\\
@@ -1679,10 +1619,7 @@ Staged approach:}			&					&			\\
 \toprule	
 Length [m]	&	Connector A	&	Connector B	&	Req. no.		&	Fibre location	& Injector use	\\ \midrule
 80			&	FC/PC (air)	&	SMA (water)		&	19				&	Barrel			& Bottom OD diff.	\\
-80			&	FC/PC (air)	&	Bare (water)	&	84				&	Barrel			& Barrel OD diff. (all)\mbox{%DIFAUXCMD
-$^\dagger$
-}%DIFAUXCMD
-\\
+80			&	FC/PC (air)	&	Bare (water)	&	84				&	Barrel			& Barrel OD diff. (all)$^\dagger$	\\
 50			&	FC/PC (air)	&	Bare (water)	&	19				&	Top				& Top OD diff. \\
 44			&	FC/PC (air)	&	FC/PC (air)		&	19				&	Deck			& Bottom OD diff. \\
 44			&	FC/PC (air)	&	FC/PC (air)		&	84				&	Deck			& Barrel OD diff. \\
@@ -1690,10 +1627,7 @@ $^\dagger$
 1			&	FC/PC (air)	&	Bare (air)		&	122				&	Crate			& Monitor PMT(s)	\\
 0.21		&	FC/PC (air)	&	Bare (air)		&	122				&	Crate 			& Internal patch 1	\\
 0.18		&	FC/PC (air)	&	Bare (air)		&	122				&	Crate			& Internal patch 2 \\ \midrule
-\multicolumn{3}{l}{\mbox{%DIFAUXCMD
-$^\dagger$
-}%DIFAUXCMD
-Staged approach:}			&					&			\\
+\multicolumn{3}{l}{$^\dagger$Staged approach:}			&					&			\\
 36			&	Bare (water)	&	FC/PC (air)	&	24				&	Barrel &	Barrel (levels 1+2) \\
 62			&	Bare (water)	&	FC/PC (air)	&	36				&	Barrel &	Barrel (levels 3+4+5)	\\
 80			&	Bare (water)	&	FC/PC (air)	&	24				&	Barrel &	Barrel (levels 6+7)	\\
