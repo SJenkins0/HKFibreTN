@@ -103,7 +103,7 @@
 \affil[1]{University of Liverpool}
 \affil[2]{University of Sheffield}
 \date{\today\\
-{\bf Version v3.5}}
+{\bf Version v3.7}}
 
 \maketitle
 
@@ -122,8 +122,72 @@
 \item v3.4 - Minor revision. Clarify wavelength of LED system and need for wide-core fibre, small section added on LED system which will link to TN when ready. Added specified attenuation plots from Thorlabs.
 \item v3.5 - Minor revision to answer some comments from review committee. Correct connector ends of OD collimator fibres to FC/PC. Added Yassine's section on initial soak testing results. Add table of laser specifications for clarity. Add summary of installation-driven fibre requirements in the intro section, to further make it clear why design choices are made.
 \item v3.6 - Minor revision to add laser delivery reports from PicoQuant and description of expected running conditions.
+\item v3.7 - Add section addressing specific questions from review committee as part of recommendation for switch purchase.
 \end{itemize}
 
+
+\clearpage
+\newpage
+
+\section{Answers to specific review committee questions}
+This section is included to answer specific questions asked by the review committee or collaboration in the process of reviewing the system. Where the requested details are not already in this technical note, they will also be added in main body of the text in the appropriate location.
+
+\subsection{Questions included in recommendation on purchasing the Weinert-FG105UCA [8x80] switch device (24/10/2025)}
+
+The following questions are taken from the review committee proposal, and paraphrased where necessary.
+
+\subsubsection{Q1}
+ \begin{quote}
+Measured power transmission with Weinert FP400URT. Power used was $\sim10~\mu$W whereas the typical power of a 375~nm laser pulse is $\sim500000~\mu$W (0.5~W). Can the result ($\sim75\%$) be extrapolated to much more power pulses (factor 50000) expected in HK operation?
+ \end{quote}
+A lot of the issues in recent review iterations seem to result from a confusion between average and peak laser power values, which for pulsed lasers are not the same. Peak power is defined as the maximum instantaneous power emitted from a given laser pulse. The average power is defined as the power from a laser pulse across the given period of repetition, which is dependent on the repetition frequency. As these lasers have such short pulse widths, they are not emitting for the majority of a given time period, and therefore average power is smaller than peak power. The power measurements made and quoted in this technical note will always be the average power values made by optical power meters, as we do not have equipment with the timing resolution to measure the peak power of a single laser pulse.
+
+Taking the 375~nm laser in the question as an example, the laser delivery report in \cref{fig:375} measured a pulse energy of 143~pJ emitting a peak power of 595~mW. At a frequency of 40~MHz, the average power delivered is then
+\begin{align*}
+    P_{avg} &= E_\text{pulse} \cdot f_{rep} \\
+            &= 143\times10^{-12} \cdot 40\times10^7 \\
+            &= 5.72\times10^{-3}~\text{W} \\
+            &= 5.72~\text{mW}
+\end{align*}
+which is the quoted average power value in the same report. This also roughly matches the online typical laser specification sheets in \cite{bib:laserhead}.
+
+With this in mind, the difference in average power between the quoted values from the switch tests and the value on specification sheets is a factor of 500, not 50000. This difference is likely related to running the laser at a different frequency, and not at 100\% intensity. The percentage of power transmission is not expected to be affected by increases in power.
+
+\subsubsection{Q2}
+\begin{quote}
+The fiber to be used by the laser system (LI-ID), FG105UCA, has a significantly smaller transmittance than the one used for this measurement FP400URT [58\% vs. 82\%, table V, TN-91-v3.5]. Any idea/feeling how this fact will deteriorate the result ($\sim$75\%)?
+\end{quote}
+
+The quoted numbers are taken from the {\it preliminary} measurements in \cref{sec:meas:sub:prelim}. As mentioned there, these measurements were performed with an old version of the LED pulser board and a preliminary 3D printed fibre coupler. Due to the wide output profile of an LED, coupling a fibre to the LED is less efficient for smaller core fibres, and larger variations are expected between different fibres of the same spec, since the connector won't hold the fibre in exactly the same position every time. This most likely accounts for the large difference quoted here.
+
+The attenuation measurements presented in \cref{sec:atten} show measured attenuation curves as a function of wavelength, which were made with improved fibre couplers, which allowed for more controlled testing. These results show that the attenuation in FG105UCA at sub-400~nm wavelengths is lower than for FP400URT, and so we shouldn't expect worse transmission from the planned switch. Ultimately, the amount of fibre in these switches in on the order of cm, so will have minimal effect on attenuation anyway.
+
+\subsubsection{Q3}
+\begin{quote}
+    {\it Refers to concern about measurements being made at much lower power, and FG105UCA exhibiting lower transmission}\\
+    Any idea/feeling if those facts may change significantly the conclusion of negligible cross talk?
+\end{quote}
+The concerns over different power definitions and FG105UCA vs. FP400URT transmission have been addressed already, but we don't expect that residual cross talk, if any, will scale with power. Page 14 of the review committee proposal points out a small number of data points above the baseline noise for the FP400URT cross talk tests, which can be seen in \cref{fig:weinfp400crosstalkport1,fig:weinfp400crosstalkport2}.
+
+The test was setup with one power meter connected to each of the four output ports, with the software configured to take a power reading from all four every 0.5 seconds. The switch was programmed to switch positions every $\sim10$~s, while the laser was constantly pulsing at a fast rate (can't remember the exact value, but $\mathcal{O}$(kHz)). It can be seen from the mentioned plots that almost all higher points occur at the start or end of a specific port being on. As power meters record the average power over the 0.5~s period, if the switch moves from eg. port 1 to port 2 near the end of that 0.5~s period, the average power recorded on port 2 will be slightly above the baseline noise due to the small number of pulses received. This could happen both from moving between neighbouring ports, and moving across ports to get to others. A similar thing is seen in the GIF50C plots but to a lesser extent, probably due to the much smaller core diameter. If this were genuinely residual cross-talk, we would expect to see roughly constant levels of leaked light as in the Agiltron switch (\cref{fig:agifp400crosstalkoff}), not just occasional pulses. We will redo the measurements in a running mode more akin to the LI system expected running to confirm this.
+
+It should also be noted that this was regarded as a stress-test for the system, with a high rate of switching and pulsing. In actual HK running the system will operate at a much slower rate which would avoid this. For the high rate dedicated calibration runs, we would only switch positions once pulsing has stopped. Cross-talk measurements will be made with the final system once we have it, so we have a good understanding of any limitations of the device.
+
+\subsubsection{Questions from P. Urquijo}
+\begin{quote}
+    Is the safety factor in the wear-out lifetime really enough?
+\end{quote}
+We expect to switch at a maximum rate of 0.2~Hz. Assuming constant running (ie. no downtime for other work), this equates to $6.3\times10^6$ switches per year. The switch is rated for up to 1 billion cycles according to quotes we've received, so has an expected lifetime of $10^9/6.3\times10^6 = 159$ HK-years. The switch system will be housed in the calibration rack in the HK dome, so if there are issues before the year 2186 we can easily access the system to replace it.
+
+\begin{quote}
+    Will back reflections be an issue?
+\end{quote}
+The switch system itself is small, with a few cm of fibre inside. If there are reflections getting into the detector delayed due to more path length, this will still be less than the level of dispersion from the fibre. The coupling to the laser will also use an FC/APC connection, to mitigate potential issues with reflections getting back to the laser.
+
+\begin{quote}
+    Are there any thermal management concerns that might affect couplings?
+\end{quote}
+The specifications recieved from quotes state operating conditions of 0--60\degree C and 35--55\% RH. To deal with this the switch (along with other electronics) will be kept in air conditioned racks, so that we can precisely control the environmental conditions.
 
 \clearpage
 \newpage
@@ -369,7 +433,7 @@ Two different detection methods for the fibre transmitted light are available. T
 \caption{Fibre test stand in the optical lab at University of Liverpool.}\label{fig:fibreteststand}
 \end{figure}
 
-\subsection{Preliminary Measurements}
+\subsection{Preliminary Measurements}\label{sec:meas:sub:prelim}
 
 In order to narrow down the choice of fibre optic cable, all six options listed in \cref{tab:fibres} were purchased, in lengths of 1~m and 35~m. This is much shorter than the fibres that will be needed for Hyper-K; full length fibres were not used due to supplier issues. The length of cables which could be cut was limited by the size of the building used for production, as cold weather conditions during winter in the US at the time of ordering prevented them from being cut outside. Rather than delay the measurements, the decision was taken to start preliminary measurements of attenuation and dispersion with the lengths that were available.
 
@@ -418,7 +482,7 @@ The results from these initial tests suggest that different fibre types will nee
 As this was a preliminary version of the fibre test stand, and measurements were carried out with fibre lengths significantly shorter than what will actually be installed into Hyper-K, the decision was initially taken to purchase three candidate fibres for further testing. These were FP400URT, GIF50C and GIF50D. Based on estimates of the length required, reels of 40~m and 105~m length were purchased for each of these fibre types. However, it was later understood that the feed-throughs for the injectors would use an FG105UCA patch cable. In order to not add extra inefficiencies to the system in coupling different fibres to one another, the ideal scenario would be to use this fibre for the laser system. A reel of 105~m for this was also purchased and tested, with results for all four primary candidate fibres described together in the following sections for simplicity.
 
 
-\subsection{Attenuation Measurements}
+\subsection{Attenuation Measurements}\label{sec:atten}
 
 \subsubsection{Method}\label{sec:fibre:sub:att:sub:method}
 
@@ -600,7 +664,7 @@ To further investigate this, the way the data is plotted was inverted. The four 
 \end{figure}
 While the absolute value of the power is not expected to be exactly zero due to global drift caused by temperature changes in the lab over the course of data taking, all four power meters were calibrated at the same time, so should show the same level of power when not illuminated. This is clearly not the case for ports 1 and 2 (\cref{fig:agifp400crosstalkport1,fig:agifp400crosstalkport2}), with the former showing higher power readings when port 2 or port 3 were illuminated, and the latter showing the same when port 3 or port 4 were illuminated. There is also a small offset observed for port 4 in \cref{fig:agifp400crosstalkport4}, when port 3 is being illuminated. Interestingly, no obvious cross talk was observed to port 3, from any of the other ports being illuminated.
 
-As no cross talk was observed for either of the Weinert devices, the corresponding plots are not shown here, but are given in \cref{fig:weinfp400crosstalk2,fig:weingifcrosstalk2} in \cref{app:crosstalk} for completeness.
+As no cross talk was observed for either of the Weinert devices, the corresponding plots are not shown here, but are given in \cref{fig:weinfp400crosstalk2,fig:weingifcrosstalk2} in \cref{app:crosstalk} for completeness. 
 
 \subsection{Summary}
 Testing of the three different fibre switching devices finds different devices come out best based on different factors. The Weinert GIF50C device showed best power transmission, with at most 4.7\% loss compared to the reference fibre, while the Weinert FP400URT device showed up to 27.6\% loss. This is with the caveat that the device package was different, and the latter had a greater length of fibre than both the other devices and the reference fibre used. All devices exhibited under 5\% variation in output power across the four ports, with the Agiltron switch showing the least variation at a difference of 2.61\%.
