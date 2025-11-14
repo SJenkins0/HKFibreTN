@@ -40,6 +40,7 @@
 \usepackage{lscape}
 \RequirePackage{xspace}
 \usepackage{siunitx}
+\DeclareSIUnit{\connector}{connector}
 \newcommand{\hk}{Hyper-K\xspace}
 \newcommand{\sk}{Super-K\xspace}
 \newcommand{\rn}{$^{222}$Rn\xspace}
@@ -103,7 +104,7 @@
 \affil[1]{University of Liverpool}
 \affil[2]{University of Sheffield}
 \date{\today\\
-{\bf Version v3.7}}
+{\bf Version v3.8}}
 
 \maketitle
 
@@ -123,6 +124,7 @@
 \item v3.5 - Minor revision to answer some comments from review committee. Correct connector ends of OD collimator fibres to FC/PC. Added Yassine's section on initial soak testing results. Add table of laser specifications for clarity. Add summary of installation-driven fibre requirements in the intro section, to further make it clear why design choices are made.
 \item v3.6 - Minor revision to add laser delivery reports from PicoQuant and description of expected running conditions.
 \item v3.7 - Add section addressing specific questions from review committee as part of recommendation for switch purchase.
+\item v3.8 - Add fibre radon measurements.
 \end{itemize}
 
 
@@ -729,7 +731,7 @@ Soak tests of materials are performed at the University of Sheffield, where ther
 
 \subsubsection{Results}
 
-The expected effective attenuation length in \hk is calculated using the factor $R$ and the UV-VIS cell length of $x=9$~cm. Given the worst-case-scenario assumptions in the calculation of $R$, it was found that the effective attenuation length for both samples were above the 2~km limit set by \hk. Details on the calculation of the factor R for each sample soak tested in UPW can be found in Appendix \ref{RCalcUPW} and in gadolinium-doped water in Appendix \ref{RCalcGd}.
+The expected effective attenuation length in \hk is calculated using the factor $R$ and the UV-VIS cell length of $x=9$~cm. Given the worst-case-scenario assumptions in the calculation of $R$, it was found that the effective attenuation length for both samples was above the 2~km limit set by \hk. Details on the calculation of the factor R for each sample soak tested in UPW can be found in Appendix \ref{RCalcUPW} and in gadolinium-doped water in Appendix \ref{RCalcGd}.
 
 The transmission spectra exhibited some UV absorption following the soak test, especially in the UV region. These losses in transmission were observed to be of the same order in magnitude for UPW and Gd water for the fibre sample, while for the fibre connector sample the Gd water loss in transmission was around 15\% higher than in UPW in the UV region. 
 
@@ -739,14 +741,19 @@ A full table of soak test results for the measured \hk materials is shown in Tab
 \hline
 \multirow{2}{*}{\textbf{Sample}} & \multicolumn{3}{c}{\textbf{Pure Water}} & \multicolumn{3}{c}{\textbf{Gd Water}} & \multirow{2}{*}{\textbf{Fig.}} \\ \cmidrule(l){2-4} \cmidrule(l){5-7} 
 & \textbf{T$_\text{soak}$ (days)} & \textbf{R} & \textbf{L$_\text{eff}$ (km)} & \textbf{T$_\text{soak}$ (days)} & \textbf{R} & \textbf{L$_\text{eff}$ (km)} &  \\ \hline
-LI Fibre & $32$ & $8.99 \times 10^4$ & $388$ & $32$ & $7.69 \times 10^4$ & $1227$ & \ref{fig:LIFibre} \\
-Fibre end & $32$ & $1.87 \times 10^6$ & $1.29 \times 10^4$ & $32$ & $1.85 \times 10^6$ & $3061$ & \ref{fig:FibreEnd} \\
+LI Fibre & $32$ & $8.36 \times 10^3$ & $36$ & $32$ & $7.15 \times 10^3$ & $114$ & \ref{fig:LIFibre} \\
+Fibre end & $32$ & $1.87 \times 10^6$ & $1.29 \times 10^4$ & $32$ & $1.85 \times 10^6$ & $2.64 \times 10^3$ & \ref{fig:FibreEnd} \\
+LI Fibre & $61$ & $1.47 \times 10^4$ & $189$ & $96$ & $2.14 \times 10^4$ & $279$ & \ref{fig:LIFibre_2months} \\
+Fibre end & $61$ & $3.82 \times 10^6$ & $2.27 \times 10^4$ & $96$ & $5.56 \times 10^6$ & $8.71 \times 10^3$ & \ref{fig:FibreEnd_2months} \\
 \hline
 \caption{Scaling factor R, and effective attenuation length of \hk water L$_\text{eff}$, relating to soak testing of \hk materials. }
 \label{tab:soakresults}
 \end{longtable}
 
 The loss in transmittance observed in the fibre spectra could be due to leftover dirt or residue where the fibre was cut. Given that the water in \hk will not be still, it was decided to change the soaking water and redo the measurement after two months of soaking thus reproducing the water turnover in \hk. Even though the effective attenuation length was measurement to be higher than the 2~km limit for the fibre end, it was decided to switch from FC/PC connectors to stainless steel SMA connectors because of the clear evidence of reaction with water and the high loss in transmittance in the UV region for the Gd water sample.
+
+The soak tests results after two additional months of soaking is shown in Table \ref{tab:soakresults} and Figures \ref{fig:LIFibre_2months} and \ref{fig:FibreEnd_2months}. The transmittance of the fibre jacket soaked in UPW was lower than the fibre jacket soaked in Gd water after one month of soaking. After the change of water, it is shown that this behaviour is now inverted which is what was expected. The effective attenuation length after two additional months of soaking increased, it can be concluded that the change of water had the expected impact of washing away any dirt residue that could have contaminated the samples before the soaking. These residues should also be washed away in the \hk tank thanks to the water turnover.
+
 \begin{figure}
     \begin{minipage}[t]{0.49\linewidth}
     \centering
@@ -759,6 +766,93 @@ The loss in transmittance observed in the fibre spectra could be due to leftover
     \caption{\label{fig:FibreEnd}\% Transmission: FC/PC connector}
     \end{minipage}
 \end{figure}
+
+\begin{figure}
+    \begin{minipage}[t]{0.49\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/transmittance_LI_Fibre_2Months.png}
+   \caption{\label{fig:LIFibre_2months}\% Transmission: Fibre (after two additional months of soaking)}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/transmittance_Fibre_End_3Months.png}
+    \caption{\label{fig:FibreEnd_2months}\% Transmission: FC/PC connector (after two additional months of soaking)}
+    \end{minipage}
+\end{figure}
+
+
+\subsection{Radon Testing}\label{sec:tests:sub:radon}
+
+
+Measurements were conducted following the same methodology as used in the Kamioka radon test benches. 
+%
+A sample of material from the fibre was left to emanate in a sealed chamber for one month at the Boulby Underground Science Facility. After the emanation period, the chamber gas volume was injected into a detection vessel as a radon ``spike'' and monitored for subsequent radioactive decay. 
+%
+Fits of the decaying count rate after this spike are used to determine the overall concentration of radon in the emanation vessel before the spike, assuming the system has reached an equilibrium state in the long emanation period.
+%
+Activities of both \ce{^{218}Po} and \ce{^{214}Po} were measured for each sample to cross-check the radon activity calculations.
+%
+
+%
+To separate the results from the long fibre jacket lengths that will be in HK and the connectors, the end connectors of a ThorLabs fibre were cut off so that
+ \SI{87}{\centi\meter} length of optical fibre jacket could be tested alone. These samples are showin in the emanation chambers in \cref{fig:boulbe_radon_photos}.
+The measured activities of \ce{^{222}Rn} in the fibre jacket were determined from the decay products to be \SI{2.784 \pm 0.125}{\milli\becquerel}  from \ce{^{218}Po} and \SI{2.101 \pm 0.095}{\milli\becquerel} \ce{^{214}Po}, and are shown in \cref{fig:boulby_rad25064}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\linewidth]{images/WIN_20250807_12_23_39_Pro.jpg}
+    \includegraphics[width=0.4\linewidth]{images/WIN_20250924_10_26_23_Pro.jpg}
+    \caption{Optical fibre jacket sample and end connectors in the Boulby emanation chambers.}
+    \label{fig:boulbe_radon_photos}
+\end{figure}
+
+To remain conservative, the higher of the two values from the fibre was used, yielding an upper bound of \SI{3.2}{\milli\becquerel\per\meter} of fibre.
+%
+Scaling this result to the full fibre length used in the Hyper-Kamiokande detector gives a total emanation of \SI{39.21}{\becquerel}, corresponding to approximately \SI{9.8}{\percent} of the total radon budget (assuming the inner detector limit of \SI{400}{\becquerel} applied to the outer detector).
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/RAD25064_fitted_and_predicted_data.jpg}
+    \caption{Results for the fibre tests at Boulby showing the decay of radon daughters after the initial spike. }
+    \label{fig:boulby_rad25064}
+\end{figure}
+
+Additional measurements were conducted on the new connectors from ThorLabs, which are expected to have improved resistance to gadolinium corrosion. Tests were performed both with and without epoxy sealing to assess the effect the epoxy had on emanation. These are shown in \cref{fig:boulby_rad25064conn}. Taking the highest conservative measurement in each case resulted in \SI{1.031 \pm 0.110}{\milli\becquerel\per\connector} for the connector without epoxy, and \SI{0.813 \pm 0.049}{\milli\becquerel\per connector} for the connector with epoxy.
+%
+For 150 connectors, this corresponds to a total emanation of approximately \SI{154}{\milli\becquerel} (\SI{0.04}{\percent} of the total radon budget).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\linewidth]{images/RAD25076_fitted_and_predicted_data.jpg}
+    \includegraphics[width=0.45\linewidth]{images/RAD25077_fitted_and_predicted_data.jpg}
+    \caption{Results for the connector tests at Boulby showing the decay of radon daughters after the initial spike. (Left) With epoxy. (Right) Without epoxy. }
+    \label{fig:boulby_rad25064conn}
+\end{figure}
+
+
+Combining the fibre and connector contributions yields an estimated total radon emanation of:
+\[
+\SI{39.364 \pm 1.773}{\becquerel} \quad (\text{approximately } 9.8\% \text{ of budget})
+\]
+
+\begin{table}[h!]
+\centering
+\caption{Summary of Radon Emanation Measurements}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Component} & \textbf{Measured Activity} & \textbf{Scaling / Quantity} & \textbf{Total Contribution} \\ \midrule
+Fibre (\SI{87}{cm}) from \ce{^{218}Po} & \SI{2.784 \pm 0.125}{mBq} & --- & --- \\
+Fibre (\SI{87}{cm}) from \ce{^{214}Po} & \SI{2.101 \pm 0.095}{mBq} & --- & --- \\
+Conservative fibre activity & \SI{3.2}{mBq/m} & 12,250 km & \SI{39.21}{Bq} \\
+Connector (no epoxy) & \SI{1.031 \pm 0.110}{mBq/conn.} & 150 units & --- \\
+Connector (with epoxy) & \SI{0.813 \pm 0.049}{mBq/conn.} & 150 units & \SI{0.154}{Bq} \\
+\textbf{Total (fibres + connectors)} & --- & --- & \textbf{\SI{39.364 \pm 1.773}{Bq}} \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+
 
 \subsection{Light Tightness}\label{sec:tests:sub:light}
 An important quality to test is how light-tight the fibres are to external sources of light, as it is vital that light is only output from the injectors when injection is planned and tagged in the data stream. If the fibres are not light-tight, it is possible that enough light from overhead dome lamps could leak into them to output photons into the detector outside of planned injections. To test this, reels of FP400URT with and without furcation tubing were connected individually to separate power meters. The lengths of these fibres are 35 and 40~m respectively, and both were wound onto reels during the test. The ends not connected to the power meters were terminated in the patch panel on the side of the dark box, to limit any light entering from the fibre ends.
@@ -1505,14 +1599,18 @@ The value used for $Vol_{HK}$ will be the same throughout all calculations and i
 
 \subsection{Ultra Pure Water}\label{RCalcUPW}
 \begin{itemize}
-    \item $R_{LI-Fibre}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/89.54\;\text{cm}^3\right)}{\left(1138.79\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $8.99 \times 10^4$
+    \item $R_{LI-Fibre}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/89.54\;\text{cm}^3\right)}{\left(12251.08\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $8.36 \times 10^3$
     \item $R_{Fibre-end}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(1\;\text{fibre end}/94\;\text{cm}^3\right)}{\left(522\;\text{fibre ends}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $1.87 \times 10^6$
+    \item $R_{LI-Fibre}$ = $\frac{61\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/96.92\;\text{cm}^3\right)}{\left(12251.08\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $1.47 \times 10^4$
+    \item $R_{Fibre-end}$ = $\frac{61\;\text{days}}{90\;\text{days}}\cdot \frac{\left(1\;\text{fibre end}/87.57\;\text{cm}^3\right)}{\left(522\;\text{fibre ends}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $3.82 \times 10^6$
 \end{itemize}
 
 \subsection{Gadolinium water}\label{RCalcGd}
 \begin{itemize}
-    \item $R_{LI-Fibre}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/104.74\;\text{cm}^3\right)}{\left(1138.79\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $7.69 \times 10^4$
+    \item $R_{LI-Fibre}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/104.74\;\text{cm}^3\right)}{\left(12251.08\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $7.15 \times 10^3$
     \item $R_{Fibre-end}$ = $\frac{32\;\text{days}}{90\;\text{days}}\cdot \frac{\left(1\;\text{fibre end}/94.8\;\text{cm}^3\right)}{\left(522\;\text{fibre ends}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $1.85 \times 10^6$
+    \item $R_{LI-Fibre}$ = $\frac{96\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/104.74\;\text{cm}^3\right)}{\left(12251.08\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $2.14 \times 10^4$
+    \item $R_{Fibre-end}$ = $\frac{96\;\text{days}}{90\;\text{days}}\cdot \frac{\left(1\;\text{fibre end}/94.8\;\text{cm}^3\right)}{\left(522\;\text{fibre ends}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $5.56 \times 10^6$
 \end{itemize}
 
 \clearpage
