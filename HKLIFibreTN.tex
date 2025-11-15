@@ -124,7 +124,7 @@
 \item v3.5 - Minor revision to answer some comments from review committee. Correct connector ends of OD collimator fibres to FC/PC. Added Yassine's section on initial soak testing results. Add table of laser specifications for clarity. Add summary of installation-driven fibre requirements in the intro section, to further make it clear why design choices are made.
 \item v3.6 - Minor revision to add laser delivery reports from PicoQuant and description of expected running conditions.
 \item v3.7 - Add section addressing specific questions from review committee as part of recommendation for switch purchase.
-\item v3.8 - Add fibre radon measurements.
+\item v3.8 - Add fibre radon measurements. Specify fibre and connector types.
 \end{itemize}
 
 
@@ -712,11 +712,11 @@ A screenshot of the oscilloscope display is given in \cref{fig:noPulseTest}. The
 
 \subsection{Soak Testing}\label{sec:tests:sub:soak}
 
-The first deployed test of one of the LI optics was performed with WCTE, in which a ID diffuser was included as a calibration source. During WCTE decommissioning, it was observed that the FC/PC connector on the end of the FG105UCA fibre had undergone reaction with either the Ultra Pure Water (UPW) or gadolinium-doped water. Along with the need to confirm everything that is placed into Hyper-K is safe for long-term exposure, this observation motivated the soak testing of the fibre and the fibre connectors. Water quality degradation is to be assessed with the UV effective attenuation length weighted by the expected Cherenkov light response of the PMTs.
+The first deployed test of one of the LI optics was performed with WCTE, in which an ID diffuser was included as a calibration source. During WCTE decommissioning, it was observed that the FC/PC connector on the end of the FG105UCA fibre had undergone reaction with either the Ultra Pure Water (UPW) or gadolinium-doped water. Along with the need to confirm everything that is placed into Hyper-K is safe for long-term exposure, this observation motivated the soak testing of the fibre and the fibre connectors. Water quality degradation is to be assessed with the UV effective attenuation length weighted by the expected Cherenkov light response of the PMTs.
 
-The samples used in the test were a 10~cm long fibre and one fibre FC/PC fibre connector. These were initially cleaned with isopropyl alcohol (IPA), before being  placed into a sterile 100~ml PET container with a known volume of deionised water. At the same time, an additional sterile PET container was filled with a control sample of water from the same source. The containers were be immediately sealed, labelled, and placed into a dark constant environment chamber set at $14^\circ$C. The procedure above was be repeated for another sample of the same material in a solution of 0.2\% Gd$_2$(SO$_4$)$_3\cdot$8H$_2$O in deionised water.
+The samples used in the test were a 10~cm long FP400URT fibre with FT030 furcation tubing, and one FC/PC fibre connector. These were initially cleaned with isopropyl alcohol (IPA), before being  placed into a sterile 100~ml PET container with a known volume of deionised water. At the same time, an additional sterile PET container was filled with a control sample of water from the same source. The containers were immediately sealed, labelled, and placed in a dark constant environment chamber set at $14^\circ$C. The procedure above was repeated for another sample of the same material in a solution of 0.2\% Gd$_2$(SO$_4$)$_3\cdot$8H$_2$O in deionised water.
 
-The standard procedure applied for \hk material soak test is to leave the sample to soak undisturbed for 90 days. This period was estimated conservatively to be the period of water turnover in the \hk water tank. However, given the long lead time for purchase and delivery of the fibre, it was decided to perform a first measurement of the water properties after one month of soaking, before returning the samples to the containers for the remainder of the time.
+The standard procedure applied for \hk material soak testing is to leave the sample to soak undisturbed for 90 days. This period was estimated conservatively to be the period of water turnover in the \hk water tank. However, given the long lead time for purchase and delivery of the fibre, it was decided to perform a first measurement of the water properties after one month of soaking, before returning the samples to the containers for the remainder of the time.
 
 After soaking, the percent transmission of water from each sample container is measured as a function of wavelength using a sensitive UV-VIS spectrophotometer. Particular wavelengths of concern are those in the UV range, where the PMT response and Cherenkov spectrum are maximised. The overall effective attenuation length of the sample is the weighted average of attenuation lengths at different wavelengths. Different wavelength light interacts differently with water, WLS plates, and the PMT photocathode. The overall effective attenuation length is then:
 \begin{equation}
@@ -795,8 +795,8 @@ Activities of both \ce{^{218}Po} and \ce{^{214}Po} were measured for each sample
 
 %
 To separate the results from the long fibre jacket lengths that will be in HK and the connectors, the end connectors of a ThorLabs fibre were cut off so that
- \SI{87}{\centi\meter} length of optical fibre jacket could be tested alone. These samples are showin in the emanation chambers in \cref{fig:boulbe_radon_photos}.
-The measured activities of \ce{^{222}Rn} in the fibre jacket were determined from the decay products to be \SI{2.784 \pm 0.125}{\milli\becquerel}  from \ce{^{218}Po} and \SI{2.101 \pm 0.095}{\milli\becquerel} \ce{^{214}Po}, and are shown in \cref{fig:boulby_rad25064}.
+ \SI{87}{\centi\meter} length of FP400URT optical fibre with FT030 furcation tubing could be tested alone. These samples are shown in the emanation chambers in \cref{fig:boulbe_radon_photos}.
+The measured activities of \ce{^{222}Rn} in the fibre jacket were determined from the decay products to be \SI{2.784 \pm 0.125}{\milli\becquerel} from \ce{^{218}Po} and \SI{2.101 \pm 0.095}{\milli\becquerel} \ce{^{214}Po}, and are shown in \cref{fig:boulby_rad25064}.
 
 \begin{figure}
     \centering
@@ -818,7 +818,7 @@ Scaling this result to the full fibre length used in the Hyper-Kamiokande detect
     \label{fig:boulby_rad25064}
 \end{figure}
 
-Additional measurements were conducted on the new connectors from ThorLabs, which are expected to have improved resistance to gadolinium corrosion. Tests were performed both with and without epoxy sealing to assess the effect the epoxy had on emanation. These are shown in \cref{fig:boulby_rad25064conn}. Taking the highest conservative measurement in each case resulted in \SI{1.031 \pm 0.110}{\milli\becquerel\per\connector} for the connector without epoxy, and \SI{0.813 \pm 0.049}{\milli\becquerel\per connector} for the connector with epoxy.
+Additional measurements were conducted on the new stainless steel SMA connectors from ThorLabs (ADASMAV), which are expected to have improved resistance to gadolinium corrosion. Tests were performed both with and without epoxy sealing to assess the effect the epoxy had on emanation. The epoxy tested was the same known to be used for holding the fibres inside the fibre end connectors, Thorlabs 353NDPK. These are shown in \cref{fig:boulby_rad25064conn}. Taking the highest conservative measurement in each case resulted in \SI{1.031 \pm 0.110}{\milli\becquerel\per\connector} for the connector without epoxy, and \SI{0.813 \pm 0.049}{\milli\becquerel\per connector} for the connector with epoxy.
 %
 For 150 connectors, this corresponds to a total emanation of approximately \SI{154}{\milli\becquerel} (\SI{0.04}{\percent} of the total radon budget).
 
