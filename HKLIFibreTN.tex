@@ -108,7 +108,7 @@
 \affil[1]{University of Liverpool}
 \affil[2]{University of Sheffield}
 \date{\today\\
-{\bf Version v3.9}}
+{\bf Version v3.10}}
 
 \maketitle
 
@@ -130,6 +130,7 @@
 \item v3.7 - Add section addressing specific questions from review committee as part of recommendation for switch purchase.
 \item v3.8 - Add fibre radon measurements. Specify fibre and connector types.
 \item v3.9 - Add additional measurements requested for fibre cross-talk. Update calibration device install locations, and modify section structure to separate device installation and fibre mapping. Update all mentions of SMA connectors and matings, to reflect move to potting all in-water connections.
+\item v3.10 - Update installation sections to reflect recent changes on LI installation locations.
 \end{itemize}
 
 
@@ -935,11 +936,35 @@ While it will not be possible to extensively test all fibres, more detailed batc
 \section{Injector Installation}\label{sec:install}
 
 The installation of the injection devices will take place in several phases. Firstly, the OD diffusers and their respective fibres will be installed into the top end-cap between it being constructed and raised up. The ID injectors and OD collimators will be installed as the PMT support frame is constructed, at the points when the necessary locations are constructed. The remainder of the OD diffusers (bottom and barrel end-cap) will be installed once the full support frame construction is completed, when the majority of the fibre optics are installed using the OD gondola. Finally, the ID injectors for the top end-cap will be installed through the chosen calibration port at the end.
+
 \subsection{Mounting Design}\label{sec:install:sub:mount}
-{\bf this needs to be written by Warwick group}
+
 \subsubsection{ID Injector Mounting}\label{sec:install:sub:mount:sub:ID}
 
+Figure \ref{fig:IDMounts} shows a side and front view of the current prototype for the mounting frame which will hold the ID diffuser and collimator injectors. A diffuser and collimator are installed in this prototype. Short patch fibres will run from the injector to the connection box on the central spar. The injector-patch fibre connection will be potted in the surface lab before installation. The long fibre from the light source will be connected to these patch fibres, and the connection box filled with potting resin from the gondola. Not shown in the figures are (i) a drip tray which will be installed below the connection box to catch any resin seepage during curing and (ii) space on the front bar  reserved for the Korean injector. This is only needed in 7 out of the 28 injector frames. The rectangular frame on the front of the mount will hold a rectangle of black sheeting, which can then be attached to the rest of the ID black sheet.
+
+The mount is designed to hook over, and tighten onto, struts in an empty cell in the PMT support structure. It is not envisaged that any modification to the PMT support frame will be required. Installation can be done by two installers from a calibration expert team during barrel construction.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{images/IDMountSide.png}
+\includegraphics[width=0.7\textwidth]{images/IDMountFront.png}
+\caption{Side (top) and Front (bottom) view of the ID mounting frame prototype.}\label{fig:IDMounts}
+\end{figure}
+
+
 \subsubsection{OD Diffuser Mounting}\label{sec:install:sub:mount:sub:OD}
+reference section in LED TN
+
+The OD diffusers will each be mounted in an individual holder that will be slotted onto a strut facing into the OD side of the PMT support structure. This mounting is small, and will be fixed to its respective fibre before installation. Figure~\ref{fig:ODMounts} shows a picture of the OD mount. The OD diffuser itself is encapsulated by two flat stainless steel plates and is sealed by internal O-rings. A cable gland is installed on the back plate through which the optical fibre is inserted and fixed in position. The cable gland and fibre are housed inside an ABS plastic box which is screwed to the back plate and partially filled with potting resin. As the mounts are small, all potting and installation on the fibre will take place on the surface before the fibre is deployed in the tank. The mounts can then be slotted onto a spar in the outer surface of the PMT frames. A square of black/white Tyvek will be fixed to the front of the mount so that only the diffuser is visible in the OD region.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{images/ODMountSide.png}
+\includegraphics[width=0.7\textwidth]{images/ODMountFront.png}
+\caption{Side (top) and Front (bottom) drawings of the OD diffuser mount.}\label{fig:ODMounts}
+\end{figure}
+
 
 \subsection{Injector Cell Locations}\label{sec:install:sub:inj}
 \subsubsection{Barrel Injectors}\label{sec:install:sub:inj:sub:barrel}
@@ -948,9 +973,9 @@ As shown in \cref{fig:IDmap}, the ideal ID injector layout features seven inject
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.9\textwidth]{barrelStructureDiagram.png}
-\caption{Diagram showing cells 1-12 of a 30\degree\ section of the barrel PMT support structure, with fixed locations of components marked, as seen from the OD side of the structure.}\label{fig:barrelDiagram}
+\caption{Diagram showing a 16H tall, 60\degree\ (48W) section of the barrel PMT support structure, with fixed locations of components marked, as seen from the OD side of the structure.}\label{fig:barrelDiagram}
 \end{figure}
-\cref{fig:barrelDiagram} shows an example of this, for the bottom 12 cells of a 30\degree\ section of the barrel PMT support structure. There will be a total of 92 cells in the vertical direction. During construction, the barrel PMT support frame will be constructed in layers of four cells at a time. Once the full layer is complete and the respective components installed, the layer will be raised, and the next four cells constructed underneath. Although not clear in \cref{fig:barrelDiagram}, the second and fourth cells of each four-cell layer no longer feature horizontal cross bars, which are required for the installation of LI devices. Because of this, the third cell up will be used. In testing installation using the mockup frame at RAL, it was determined that this could be done without the use of a scaffold, with the injectors mounted at the bottom of the cell. Dividing the total height of the structure into eight parts and taking the closest third layer yields the vertical cells given in \cref{tab:injvertical}. This results in a set of seven vertical cells symmetrical around cell 46, the top of which is at the centre of the tank. \cref{tab:injvertical} also lists the $z$ position of the bottom of the cell, using cell heights of 707~mm and again treating the top of cell 46 as $z=0$~mm. To get the injector $z$ coordinates an offset is added to each, accounting for the 125~mm width of the horizontal bars, and then assuming an extra 50~mm to account for diffuser mounting and radius. This is approximate, and will be updated for exact locations when the mounting design is fixed.
+\cref{fig:barrelDiagram} shows an example of this, for 16 cells (16H) of a 60\degree\ (48W) section of the barrel PMT support structure. There will be a total of 92 cells in the vertical direction. During construction, the barrel PMT support frame will be constructed in layers of four cells at a time. Once the full layer is complete and the respective components installed, the layer will be raised, and the next four cells constructed underneath. Although not shown in \cref{fig:barrelDiagram}, the second and fourth cells of each four-cell layer no longer feature horizontal cross bars, which are required for the installation of LI devices. Because of this, the third cell up will be used. In testing installation using the mockup frame at RAL, it was determined that this could be done without the use of a scaffold, with the injectors mounted at the bottom of the cell. Use of a step stool may be required. Dividing the total height of the structure into eight parts and taking the closest third layer yields the vertical cells given in \cref{tab:injvertical}. This results in a set of seven vertical cells symmetric around cell 46, the top of which is at the centre of the tank. \cref{tab:injvertical} also lists the $z$ position of the bottom of the cell, using cell heights of 707~mm and again treating the top of cell 46 as $z=0$~mm. To get the injector $z$ coordinates an offset is added to each, accounting for the 125~mm width of the horizontal bars, and then assuming an extra 50~mm to account for diffuser mounting and radius. This is approximate, and will be updated for exact locations when the mounting design is fixed.
 
 \begin{table}[h!]
 \centering
@@ -967,11 +992,34 @@ ID vertical label	&	Vertical cell	&	Cell $z$ position (mm)	&	Injector $z$ positi
 \caption{Vertical cell locations for both ID and OD barrel injectors. Cell $z$ position is defined as the bottom of the cell, and injector position assumes the injector being installed at the bottom of the cell, accounting for the width of horizontal bars and radius of injectors.}\label{tab:injvertical}
 \end{table}
 
-To define the horizontal location of cells, the radial labelling of the vertical support struts shown in \cref{fig:ports} is used, starting from tR0 and running to tR71 in the clockwise direction. Between each of these supports is a 5\degree\ angle, containing four cells. As no standard cell labelling currently exists in the horizontal, we label each cell 1 through 4, again in the clockwise direction, resulting in a horizontal cell label of the form tR$X.Y$, where $X\in\{0..71\}$ and $Y\in\{1..4\}$. As \cref{fig:barrelDiagram} is viewed from the OD side, vertical support labels and cell numbers increase from right to left.{\bf These cell addresses will be updated once a common system is decided within the integration group.}
+To define the horizontal location of cells, the radial labelling of the vertical support struts shown in \cref{fig:ports} is used, starting from tR0 and running to tR71 in the clockwise direction. Between each of these supports is a 5\degree\ angle, containing four cells. As no standard cell labelling originally existed in the horizontal, we label each cell 1 through 4, again in the clockwise direction, resulting in a horizontal cell label of the form tR$X.Y$, where $X\in\{0..71\}$ and $Y\in\{1..4\}$. As \cref{fig:barrelDiagram} is viewed from the OD side, vertical support labels and cell numbers increase from right to left. For clarity, the more recent cell address scheme is also used.
 
-As one column of ID injectors will coincide with the position of the Korean LI system, the horizontal positions are dictated by this. The Korean LI system will be installed between the two regular calibration ports (labelled `Br' in \cref{fig:barrelDiagram}) either side of tR14. Based on the previous requirements for cell choice, tR13.3 is the optimal choice for injector placement in this region, for the Korean LI and the ID LI optics. Placing LI ID injectors at every 90\degree\ this sets the remaining horizontal cell locations as tR31.3, tR49.3 and tR67.3.
+\begin{figure}[h]
+\centering
+\includegraphics[angle=90,width=\textwidth]{images/TankDeckPlanUpdatedJan26.pdf}
+\caption{Top down view of the HK experimental area on top of the tank, showing locations of various calibration and fibre ports.}\label{fig:ports}
+\end{figure}
+\FloatBarrier
 
-The OD diffuser ideal positions are shown in \cref{fig:ODdiffmap}, where again there are seven vertical positions within the barrel. To simplify installation, the vertical positions for the ID and OD diffusers in the barrel will be aligned. As each layer of OD barrel diffusers is offset from the previous by 15\degree , this results in OD diffusers in the same cells as ID injectors for only layers 1, 3, 5 and 7. Starting from the overlap cells, and placing 12 diffusers in each layer (one every 30\degree), results in the OD diffuser barrel cell locations listed in \cref{tab:ODdiffBarrel}.
+As one column of ID injectors will coincide with the position of the Korean LI system, the horizontal positions are dictated by this. This comes from the Korean group's requirement to deploy cameras through a calibration port to characterise their injectors underwater. The two possible ports to use for this are those labelled `Br' in \cref{fig:ports} either side of tR14. As the most clockwise of these ports sits directly in front of a cell (while the other faces a boundary between cells), this is chosen as the port to use for camera deployment, for maximal injector coverage. Therefore tR14.1 is the optimal choice for injector placement in this region, for the Korean LI and the ID LI optics. Placing LI ID injectors at every 90\degree\ this sets the remaining horizontal cell locations as tR32.1, tR50.1 and tR68.1. The locations using the HK cell address scheme are given in \cref{tab:barrelIDAddresses}, with the locations additionally containing Korean injectors highlighted in red.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{cc|cccc} \toprule
+    ID label    &   Vertical cell  &   tR14.1  &   tR32.1  &   tR50.1  &   tR68.1  \\ \midrule
+    1           &       83         &   WZ20W03BW    &   WZ20W57BW   &  WZ20W39BW   &   WZ20W21BW   \\
+    2           &       71         &   {\color{red}WZ17W03BW}    &   WZ17W57BW   &  WZ17W39BW   &   WZ17W21BW \\ 
+    3           &       59         &   {\color{red}WZ14W03BW}    &   WZ14W57BW   &  WZ14W39BW   &   WZ14W21BW \\ 
+    4           &       47         &   {\color{red}WZ11W03BW}    &   WZ11W57BW   &  WZ11W39BW   &   WZ11W21BW \\ 
+    5           &       35         &   {\color{red}WZ08W03BW}    &   WZ08W57BW   &  WZ08W39BW   &   WZ08W21BW \\ 
+    6           &       23         &   {\color{red}WZ05W03BW}    &   WZ05W57BW   &  WZ05W39BW   &   WZ05W21BW \\ 
+    7           &       11         &   WZ02W03BW   &   WZ02W57BW   &   WZ02W39BW   &   WZ02W21BW \\ 
+    \end{tabular}
+    \caption{Cell addresses of all ID injectors in the barrel region, with locations of Korean injectors marked in red.}
+    \label{tab:barrelIDAddresses}
+\end{table}
+
+The OD diffuser ideal positions are shown in \cref{fig:ODdiffmap}, where again there are seven vertical positions within the barrel. To simplify installation, the vertical positions for the ID and OD diffusers in the barrel will be aligned. As each layer of OD barrel diffusers is offset from the previous by 15\degree , this results in OD diffusers very close to ID injectors for only layers 1, 3, 5 and 7. Due to COM cable storage locations and other restrictions, the ID and OD injectors cannot share the exact same cells, but are instead two cells apart in the horizontal direction. Starting from these nearby ID and OD locations, and placing 12 diffusers in each layer (one every 30\degree), results in the OD diffuser barrel cell locations listed in \cref{tab:ODdiffBarrel}.
 \begin{table}[h!]
 \centering
 \begin{tabular}{c|cc} \toprule
@@ -992,20 +1040,96 @@ Vertical label 			& 1, 3, 5, 7 & 2, 4, 6 \\ \midrule
 \caption{Cell locations for OD barrel diffusers.}\label{tab:ODdiffBarrel}
 \end{table}
 
-The exact positions of the OD collimators have yet to be set, but they will be mounted on the bottom edge of the detector, either facing up the barrel or along the bottom end-cap.
+The complete map of barrel injector locations, including fibre routing (which is discussed in \cref{sec:lengths}), along with the locations of the Korean injectors and photogrammetry units\footnote{While the Korean injectors and photogrammetry systems are not the responsibility of the authors, they will be installed at the same time and in the same way as the UK system, and so have been included in the installation logistics.} are given in \cref{fig:barrelDiagram1,fig:barrelDiagram2} in \cref{app:barrelDiagrams}.
+
+
 
 \subsubsection{End-cap Injectors}
 
-For the ID injectors, the top-end cap will have a single location. The diffuser and collimator will be installed through one of the central regular calibration ports, labelled `Br' in \cref{fig:ports}. Only one position here is needed, as the injectors can easily be removed in the case of any faults. For the bottom end-cap this is of course not possible, and so four sets of injectors will be installed around the centre for contingency. A diagram of an end-cap is shown in \cref{fig:endcapmap}. The locations of PMTs and electronics vessels shown will be the same for both top and bottom. Only the ports (shown in yellow) are unique to the top end-cap.
+For the ID injectors, the top-end cap will have a single location. The diffuser and collimator will be installed through one of the central regular calibration ports, labelled `Br' in \cref{fig:ports}. This is in the TP02P02 3x3 cell block, in the space between the AW, BW, AU and BU cells. Only one position here is needed, as the injectors can easily be removed in the case of any faults. For the bottom end-cap this is of course not possible, and so four sets of injectors will be installed around the centre for contingency. The cell locations for these are BP01P01AU, BP01M01AW, BM01M01CW and BM01P01CU. A diagram of an end-cap is shown in \cref{fig:endcapmap}. The locations of PMTs and electronics vessels shown will be the same for both top and bottom. Only the ports (shown in yellow) are unique to the top end-cap.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth]{endcapODdiff.png}
-\caption{Diagram of PMT support structure end-cap, with a variety of components' locations shown. Other than calibration ports (yellow circles), mapping is the same for both top and bottom end-caps. The location of OD diffusers is shown with cyan stars.}\label{fig:endcapmap}
+\includegraphics[width=0.9\textwidth]{ODDiffuserEndCapDiagram.png}
+\caption{Diagram of PMT support structure end-cap, with a variety of components' locations shown. Other than calibration ports (yellow circles), mapping is the same for both top and bottom end-caps. The location of OD diffusers is shown with dark blue stars.}\label{fig:endcapmap}
 \end{figure}
 
-For the OD, 19 diffusers will be installed on each end-cap. The locations of these, which are again the same for top and bottom, are shown in \cref{fig:endcapmap}, denoted by cyan stars. These positions are chosen to match as closely as possible to the `ideal' layout shown in \cref{fig:ODdiffmap}. {\bf Exact cell locations will be provided once a cell address scheme is decided upon by integration group}.
+For the OD, 19 diffusers will be installed on each end-cap. The locations of these, which are again the same for top and bottom, are shown in \cref{fig:endcapmap}, denoted by dark blue stars. These positions are chosen to match as closely as possible to the `ideal' layout shown in \cref{fig:ODdiffmap}. The cell address for each top or bottom diffuser are given in \cref{tab:ODdiffEndcap}.
 
+\begin{table}[h!]
+\centering
+\begin{tabular}[t]{c|c} \toprule
+Diffuser position 		& Cell address  \\ \midrule
+            1           &   M06P10CU    \\
+            2           &   N00P10AU    \\
+            3           &   P06P10AU    \\
+            4           &   M09P05CW    \\
+            5           &   M03P05AW    \\
+            6           &   P03P05CU    \\
+            7           &   P09P05AU    \\
+            8           &   M11N00BU    \\
+            9           &   M06N00CU    \\
+            10          &   N00N00AU    \\ \bottomrule 
+\end{tabular}
+\hspace{1cm}
+\begin{tabular}[t]{c|c} \toprule
+Diffuser position 		& Cell address  \\ \midrule
+            11          &   P06N00AU    \\
+            12          &   P11N00BU    \\
+            13          &   M09M05CW    \\
+            14          &   M03M05AW    \\
+            15          &   P03M05CU    \\
+            16          &   P09M05AU    \\
+            17          &   M06M10CU    \\
+            18          &   N00M10AU    \\
+            19          &   P06M10AU    \\ \bottomrule 
+\end{tabular}
+\caption{Cell addresses for OD end-cap diffusers. Same cell locations are used for top (T) and bottom (B).}\label{tab:ODdiffEndcap}
+\end{table}
+
+In the OD, there will also be 12 collimators, illuminated by the same laser system as the ID injectors. Early studies found that the number and layout of struts in the top end-cap prohibited enough light crossing that region to be useful for analysis. As such, all OD collimators will be installed at the bottom, around the other edge of the tank. Six of these will shine across the bottom end-cap, while the other six will shine up the OD barrel region.
+
+While not as complicated as the structure of the top end-cap, there are still a large number of diagonal struts in the bottom end-cap which would block the path of light crossing the region. As such, there are only a limited number of paths where light from a collimator can cross the entire region, and this drives the installation locations.
+
+Four collimators will be installed with 90\degree\ separation, at vertical supports tR0, tR18, tR36 and tR54. These will shine directly across the centre of the tank, giving the maximum possible path length. The remaining two collimators will be installed at a 45\degree\ offset, as this gives the largest variation in path length. Both injectors will be installed at tR63. \cref{fig:ODColBottom} shows some of these injectors on a segment of the end-cap, and the collimator spot path across that region. Note that the two injectors at tR63 are shown here rotated 90\degree\ to tR9, due to the segment of the detector shown. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/ODColBottom.png}
+    \caption{Diagram showing a subset of the OD collimators shining across the bottom end-cap. Injectors shown at tR9 will actually be installed at tR63, but are shown rotated here due to the segment of the bottom end-cap shown.}
+    \label{fig:ODColBottom}
+\end{figure}
+
+Due to the azimuthal symmetry of the OD barrel region, there is no physical motivation for where to install the six barrel OD diffusers. As such, the installation locations are driven by the desire to roughly balance the number of fibres routed through each of the 16 OD fibre ports. As each of the Korean injector locations require four cables (for two injectors and two monitor PMTs), two collimators will be installed in each of the three quadrants where the Korean injectors are not installed. These will be mounted on the floor near vertical supports tR1, tR28, tR37, tR46, tR55 and tR64. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/ODColBarrel.png}
+    \caption{Diagram showing the location of the six OD collimators which will shine up the barrel region.}
+    \label{fig:ODColBarrel}
+\end{figure}
+
+The OD collimator 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}[t]{ccc} \toprule
+Collimator location 	&  Region  &  Direction  \\ \midrule
+tR0     &   Bottom  &       $-y$  \\
+tR18    &   Bottom  &       $-x$  \\
+tR36    &   Bottom  &       $+y$  \\
+tR54    &   Bottom  &       $+x$  \\
+tR63    &   Bottom  &       $+x$  \\
+tR63    &   Bottom  &       $-y$    \\
+tR1     &   Barrel  &       $+z$    \\
+tR28     &   Barrel  &       $+z$    \\
+tR37     &   Barrel  &       $+z$    \\
+tR46     &   Barrel  &       $+z$    \\
+tR55     &   Barrel  &       $+z$    \\
+tR64     &   Barrel  &       $+z$    \\ \bottomrule
+\end{tabular}
+\caption{Summary of the OD collimator installation locations and directions.}\label{tab:ODColLocations}
+\end{table}
 
 \section{Fibre Installation}\label{sec:lengths}
 
@@ -1018,15 +1142,10 @@ The overall design of the HK water tank and PMT support structure is given in \c
 \caption{Schematic of the HK water tank and PMT support structure. \cite{bib:tn0048}}\label{fig:HKtank}
 \end{figure}
 16 of these fibre ports are distributed roughly evenly around the outer edge of the dome. The full schematic of the dome showing all calibration and fibre ports is given in \cref{fig:ports}. The OD fibre ports in question are those marked with magenta dots and labelled `odf' (OD(\begin{CJK*}{UTF8}{min}ファイバー用\end{CJK*})). For the purposes of this document those fibre ports are labelled ODF1 to 16, going clockwise from the radial position tR0.
-\begin{figure}[h]
-\centering
-\includegraphics[angle=90,width=\textwidth]{portMap}
-\caption{Top down view of the HK experimental area on top of the tank, showing locations of various calibration and fibre ports.}\label{fig:ports}
-\end{figure}
-\FloatBarrier
+
 In order to limit the effect of potential damage to fibres, these will be split into in-tank and out-of-tank fibres. The fibres laid along the top deck will run from the calibration rack near the centre of the dome to patch panels next to the OD fibre ports. Being on the deck where there will be foot traffic for at least 20 years, the out-of-tank fibres are most likely to get damaged. Keeping them separate to the in-tank fibres makes replacing damaged fibres much easier, as it would be implausible to replace the in-tank fibres.
 
-The initial preference for the fibre layout was to keep all fibre lengths the same. While this would involve many injectors being attached to fibres that were unnecessarily long, it would mean that the attenuation, dispersion and timing delays of pulses sent to all injectors would be constant. However, during the process of obtaining quotes, it was discovered that manufacturing a large number of fibres over 100~m would be difficult for the FP400URT, as draw lengths above 100~m are rare. This is problematic as lengths of $\sim$120~m are required to reach from the OD fibre ports to the centre of the bottom end-cap. To work around this, in-tank fibres will be split into two parts, one extending to the bottom of the barrel, and another extending across the bottom end-cap. Connectors will be installed on the bottom corners of the tank to facilitate this.
+The initial preference for the fibre layout was to keep all fibre lengths the same. While this would involve many injectors being attached to fibres that were unnecessarily long, it would mean that the attenuation, dispersion and timing delays of pulses sent to all injectors would be constant. However, during the process of obtaining quotes, it was discovered that manufacturing a large number of fibres over 100~m would be difficult, as draw lengths above 100~m are rare. This is problematic as lengths of $\sim$120~m are required to reach from the OD fibre ports to the centre of the bottom end-cap. To work around this, in-tank fibres will be split into two parts, one extending to the bottom of the barrel, and another extending across the bottom end-cap. Connectors will be installed on the bottom corners of the tank to facilitate this.
 
 With multiple in-tank fibres needing to be connected together to reach the injectors on the bottom end-cap, it no longer makes sense to make all injector path lengths the same. Therefore, the required lengths need to be calculated for each section, based on deployment method and path taken. Installation of the majority of fibres will take place after construction of the PMT support structure is completed. A small team of experts will enter the tank in the OD gondola, using this to route fibres around the tank. Given the size of the Hyper-K tank, and the low speed of a gondola (initial designs estimate this at 0.2~ms$^{-1}$), many decisions made here are in an effort to make installation as efficient as possible. Each section also mentions the connector choices for the respective fibres. All fibre ends which require connectors will use FC/PC connectors, with FC/PC--FC/PC matings to connect them together. In-water connections will be potted in a water-resistant epoxy or resin to prevent any possibility of interaction with the ultra-pure (or potentially gadiated) water. Out-of-water connectors have no such requirement, so will not be potted.
 
@@ -1078,59 +1197,71 @@ The maximum length requirement found here is 34572~mm, to get to ODF 11. Adding 
 
 \subsection{Barrel}\label{sec:lengths:sub:barrel}
 
-There are two sets of fibres which need to run down the side of the barrel: those that connect to barrel injectors, and those that must run to the bottom of the tank to reach bottom end-cap injectors. As these will both take the same paths down the vertical supports, they are included together here. 
+There are two sets of fibres which need to run down the side of the barrel: those that connect to barrel injectors, and those that must run to the bottom of the tank to reach bottom end-cap injectors. As these will both be installed in the same way, they are both included here.
 
-To route these fibres to either a barrel injector or bottom end-cap, the fibres will run through one of the 16 OD calibration ports. These ports extend 1200~mm below the top of the tank, above the dead region of the PMT support structure. As this does not reach far enough for workers to reach from the OD gondolas, extension pipes will be added to span the gap between the end of the port and the top of the barrel structure. At the point where the fibres exit this extension pipe, they will be routed to one of the two neighbouring vertical supports. The support chosen will not necessarily be the closest one, as choices should be optimised for efficient installation. The mapping between horizontal cell location, fibre port, and vertical support to route down is shown in the first three columns of \cref{tab:barrelInjPorts}.
+To route these fibres to either a barrel injector or bottom end-cap, the fibres will run through one of the 16 OD calibration ports. These ports extend 1200~mm below the top of the tank, above the dead region of the PMT support structure. As this does not reach far enough for workers to reach from the OD gondolas, extension pipes will be added to span the gap between the end of the port and the top of the barrel structure. At the point where the fibres exit this extension pipe, they will be routed to the vertical support that they will be routed down; this will not necessarily be a neighbouring vertical. The mapping between horizontal cell location, fibre port, and vertical support to route down is shown in the first three columns of \cref{tab:barrelInjPortsID,tab:barrelInjPortsOD} for ID and OD locations respectively.\begin{table}
+\centering
+\begin{tabular}{cccc}\toprule
+Inj. cell	&	ODF	&	Vertical to route down	&	Total angular travel	[\degree ]	\\ \midrule
+tR14.1		&	4	&		15					&		6.25		\\
+tR32.1		&	8	&		33					&		6.25		\\
+tR50.1		&	12	&		51					&		6.25		\\
+tR68.1		&	16	&		69					&		6.25		\\
+ \bottomrule
+\end{tabular}
+\caption{List of all barrel ID injector horizontal cell locations, with corresponding OD fibre port to route through, vertical support to route down, and total angular travel between ODF and injector. This assumes injector installation in centre of cell.}\label{tab:barrelInjPortsID}
+\end{table}
+
 \begin{table}
 \centering
 \begin{tabular}{cccc}\toprule
-Inj. cell	&	ODF	&	Vertical to route down	&	Vertical to inj. angle	[\degree ]	\\ \midrule
-tR1.3		&	1	&		2					&		\phantom{0}1.875		\\
-tR4.3		&	2	&		6					&		\phantom{0}6.875		\\
-tR7.3		&	2	&		6					&		\phantom{0}8.125		\\
-tR10.3		&	3	&		12					&		\phantom{0}6.875		\\
-tR13.3		&	4	&		15					&		\phantom{0}6.875		\\
-tR16.3		&	4	&		15					&		\phantom{0}8.125		\\
-tR19.3		&	5	&		20					&		\phantom{0}1.875		\\
-tR22.3		&	6	&		25					&		11.875		\\
-tR25.3		&	6	&		25					&		\phantom{0}3.125		\\
-tR28.3		&	7	&		29					&		\phantom{0}1.875		\\
-tR31.3		&	8	&		33					&		\phantom{0}6.875		\\
-tR34.3		&	8	&		33					&		\phantom{0}8.125		\\
-tR37.3		&	9	&		38					&		\phantom{0}1.875		\\
-tR40.3		&	10	&		43					&		11.875		\\
-tR43.3		&	10	&		43					&		\phantom{0}3.125		\\
-tR46.3		&	11	&		47					&		\phantom{0}1.875		\\
-tR49.3		&	12	&		52					&		11.875		\\
-tR52.3		&	12	&		52					&		\phantom{0}3.125		\\
-tR55.3		&	13	&		57					&		\phantom{0}4.375		\\
-tR58.3		&	13	&		57					&		\phantom{0}8.125		\\
-tR61.3		&	14	&		61					&		\phantom{0}3.125		\\
-tR64.3		&	15	&		65					&		\phantom{0}1.875		\\
-tR67.3		&	16	&		70					&		11.875		\\
-tR70.3		&	16	&		70					&		\phantom{0}3.125		\\ \bottomrule
+Inj. cell	&	ODF	&	Vertical to route down	&	Total angular travel	[\degree ]	\\ \midrule
+tR1.3		&	1	&		1					&		5.00		\\
+tR4.3		&	2	&		5					&		8.75		\\
+tR7.3		&	2	&		7					&		6.25		\\
+tR10.3		&	3	&		10					&		5.00		\\
+tR13.3		&	4	&		15					&		8.75		\\
+tR16.3		&	4	&		16					&		6.25		\\
+tR19.3		&	5	&		19					&		5.00		\\
+tR22.3		&	6	&		23					&		8.75		\\
+tR25.3		&	6	&		25					&		6.25		\\
+tR28.3		&	7	&		28					&		5.00		\\
+tR31.3		&	8	&		33					&		8.75		\\
+tR34.3		&	8	&		34					&		6.25		\\
+tR37.3		&	9	&		37					&		5.00		\\
+tR40.3		&	10	&		41					&		8.75		\\
+tR43.3		&	10	&		43					&		6.25		\\
+tR46.3		&	11	&		46					&		5.00		\\
+tR49.3		&	12	&		51					&		8.75		\\
+tR52.3		&	12	&		52					&		6.25		\\
+tR55.3		&	13	&		55					&		5.00		\\
+tR58.3		&	13	&		59					&		8.75		\\
+tR61.3		&	14	&		61					&		6.25		\\
+tR64.3		&	15	&		64					&		5.00		\\
+tR67.3		&	16	&		69					&		8.75		\\
+tR70.3		&	16	&		70					&		6.25		\\ \bottomrule
 \end{tabular}
-\caption{List of all barrel injector horizontal cell locations, with corresponding OD fibre port to route through, vertical support to route down, and angle between the given vertical support and the injector cell. This assumes injector installation in centre of cell.}\label{tab:barrelInjPorts}
+\caption{List of all barrel OD injector horizontal cell locations, with corresponding OD fibre port to route through, vertical support to route down, and total angular travel between ODF and injector. This assumes injector installation in centre of cell.}\label{tab:barrelInjPortsOD}
 \end{table}
-As should be clear from this, the majority of injectors will not have the fibre run directly down to them. Instead, each fibre will run down the respective vertical support until at the same horizontal level as the injector, before being routed radially around the side of the detector to reach the injector cell. In both ID and OD cases this will be done on the outer edge of the support structure; for OD diffusers this is where they will be housed. For the ID injectors, a patch cable to span the dead region will have been installed at the same time as the injector housing itself, to avoid the worker connecting the fibre having to reach out of the gondola into the dead region.
+The vertical support to route down is generally chosen to be as close to the injector location as possible, in order to enable running multiple fibres at once. Fibres will run down the respective vertical support until at the same horizontal level as the injector, before being routed horizontally to reach the injector cell. In both ID and OD cases this will be done on the outer edge of the support structure; for OD diffusers this is where they will be housed. For the ID injectors, a patch cable to span the dead region will have been installed at the same time as the injector housing itself, to avoid the worker connecting the fibre having to reach out of the gondola into the dead region.
 
-To calculate the maximum amount of additional fibre needed to account for this horizontal travel, the angular difference between each injector cell and the respective vertical support used to route down can be calculated. This is done assuming the injector is installed in the centre of a cell, with the values given in the final column of \cref{tab:barrelInjPorts}. Taking the maximum angular difference of 11.875\degree, an arc length of 6838~mm is found. The same has to be done for the distance between the OD fibre port and the vertical support. As the locations of the ports are not precisely documented, the maximum angular distance of 5\degree\ is taken, equating to 2879~mm. These additions will apply to all barrel injectors. For the fibres needed to reach the bottom, only the horizontal addition for port to vertical distance is required.
+To calculate the maximum amount of additional fibre needed to account for this horizontal travel, the total angular travel can be calculated. In some cases a fibre will be routed from the port to vertical in one direction, and then back on itself from the vertical to injector. This calculation is done assuming the injector is installed at the bottom of the cell, in the centre in the horizontal direction, with the values given in the final column of \cref{tab:barrelInjPortsID,tab:barrelInjPortsOD}. Taking the maximum angular difference of 8.75\degree, an arc length of 5039~mm is found. This addition will apply to all barrel injectors. 
 
 Vertical and total length requirements for the barrel fibres are easily found from the vertical cell locations given in \cref{tab:injvertical}, using a cell height of 707~mm, and a distance from the deck to top of cell 92 of 3935~mm. This again uses a bar width of 125~mm, and assumes a 50~mm offset to account for the height of the injector. The calculated values are shown \cref{tab:barrelLength}.
 \begin{table}[h!]
 \centering
 \begin{tabular}{cccc}\toprule
 Vertical label	&	Layer	&	Vertical dist. from deck [mm]	&	Total dist. from port [mm]	\\	\midrule
-	1			&	83		&	10910.5							&	20627.5	\\
-	2			&	71		&	19394.5							&	29111.5	\\	
-	3			&	59		&	27878.5							&	37595.5	\\
-	4			&	47		&	36362.5							&	46079.5	\\
-	5			&	35		&	44846.5							&	54563.5	\\
-	6			&	23		&	53330.5							&	63047.5	\\
-	7			&	11		&	61814.5							&	71531.5	\\
-	Bottom		&	0		&	70412.5							&	73297.5	\\ \bottomrule
+	1			&	83		&	10910.5							&	15949.5	\\
+	2			&	71		&	19394.5							&	24433.5	\\	
+	3			&	59		&	27878.5							&	32917.5	\\
+	4			&	47		&	36362.5							&	41401.5	\\
+	5			&	35		&	44846.5							&	49885.5	\\
+	6			&	23		&	53330.5							&	58369.5	\\
+	7			&	11		&	61814.5							&	66853.5	\\
+	Bottom		&	0		&	70412.5							&	75415.5	\\ \bottomrule
 \end{tabular}
-\caption{Vertical and total travel distance to reach to a given layer of barrel injectors. Both distances are calculated from the deck, but the total distance takes into account maximum required travel from port to vertical and vertical to injector. Only the port to vertical distance is added for fibres extending to the bottom end-cap.}\label{tab:barrelLength}
+\caption{Vertical and total travel distance to reach to a given layer of barrel injectors. Both distances are calculated from the deck, but the total distance takes into account maximum required travel from port to vertical and vertical to injector.}\label{tab:barrelLength}
 \end{table}
 These numbers show that the additional horizontal fibre required to reach from vertical supports to an injector cell is not a problem, as the maximum length case still comes from reaching to the bottom of the barrel. For contingency, and to allow fibres to not be kept taught, the maximum length requirement is rounded up to 80~m. For the ID system, all fibres will have an FC/PC connector on both ends. This is the same for the OD system fibres which traverse the entire barrel depth to the bottom end-cap. For the fibres connecting to OD barrel diffusers however, these will have stainless steel ferrules on one end, as this is what has to be pushed into the back of the diffuser hemisphere. The out-of-water end will have an FC/PC connector to connect to the patch panels near the ports. All underwater connections will be potted to ensure no water exposure.
 
@@ -1146,67 +1277,67 @@ Region		&		Length [m]		\\ \midrule
 \caption{Total length requirements for barrel fibres, in the case where lengths are split for different barrel regions to reduce excess fibre.}\label{tab:barrelLengthSplit}
 \end{table}
 
-Finally, there will be 9 OD collimators affixed to the barrel/end-cap edge at the bottom. These will require the aforementioned amount of fibre needed to reach the edge of the bottom end-cap. These fibres will also use FC/PC connectors on both ends, with the in-water end connecting to the collimators being potted.
+Finally, there will be 12 OD collimators affixed to the barrel/end-cap edge at the bottom. As these are installed on or near the floor of the tank, a small addition to the required fibre length is made, for a total of 82~m. These fibres will also use FC/PC connectors on both ends, with the in-water end connecting to the collimators being potted. To keep things simple, particularly when needing to apply timing offsets to account for differences in fibre lengths, all ID fibres extending to the bottom of the tank will be made 82~m in length, rather than 80~m.
 
 \subsection{Bottom End-cap}\label{sec:lengths:sub:bottom}
 
-To reach the injectors on the bottom end-cap, a final set of fibres is required. These will run from the connectors installed on the bottom edge of the PMT support structure to a given injector position. In order to simplify installation, the bottom end-cap cable mapping is optimised to only run from four vertical supports, minimising the number of times the gondola will need to traverse the full height of the tank. In doing this ODF4 is also avoided, as this is the port that the Korean injector fibres will also run through, and it is preferable to not overload a single port or vertical support with fibres.
+To reach the injectors on the bottom end-cap, a final set of fibres is required. These will run from the connectors installed on the bottom edge of the PMT support structure to a given injector position. In order to simplify installation, the bottom end-cap cable mapping is optimised to only run from four vertical supports for OD diffusers and two for ID injectors, minimising the number of times the gondola will need to traverse the full height of the tank.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth]{bottomEndCapMap}
+\includegraphics[width=0.9\textwidth]{BottomODfibreRouting_280426}
 \caption{Map of OD diffuser positions on end-cap (cyan stars), showing fibre routing plan specifically for the bottom end-cap. Schematic shown is for the deck so port positions do not apply, but diffuser positions are the same on top and bottom.}\label{fig:bottomEndCap}
 \end{figure}
-The proposed fibre routing map for the bottom end-cap OD diffusers is shown in \cref{fig:bottomEndCap}. This involves having matings at the bottom of verticals tR12, 33, 52 and 65, and thus will utilise ports ODF 3, 8, 12 and 16 for the barrel segments of these fibres, respectively. From the mating, the end-cap portion of the fibre will be routed around onto the bottom end-cap support structure, at the closest point where the orthogonal bars shown in \cref{fig:bottomEndCap} meet the barrel structure. The fibres must then follow this orthogonal path to reach the injectors. Required fibre lengths are measured simply by counting the unit lengths they must traverse, where the $3\times 3$ cell size defines $1u=2121$~mm. These lengths are given in \cref{tab:bottomEndCapLen} for each OD end-cap bottom (ODEB) diffuser.
+The fibre routing map for the bottom end-cap OD diffusers is shown in \cref{fig:bottomEndCap}. This involves having matings at the bottom of verticals tR7, 29, 55 and 65, and thus will utilise ports ODF 2, 7, 13 and 15 for the barrel segments of these fibres, respectively. From the mating, the end-cap portion of the fibre will be routed around onto the bottom end-cap support structure, at the closest point where the orthogonal bars shown in \cref{fig:bottomEndCap} meet the barrel structure. The fibres must then follow this orthogonal path to reach the injectors. Required fibre lengths are measured simply by counting the unit lengths they must traverse, where the $3\times 3$ cell size defines $1u=2121$~mm. These lengths are given in \cref{tab:bottomEndCapLen} for each OD end-cap bottom (ODEB) diffuser.
 \begin{table}[h!]
 \centering
-\begin{tabular}[t]{ccc}\toprule
-ODEB	&	Vertical	&	Distance [$u$]	\\ \midrule
-1		&		65		&	10		\\
-2		&		65		&	9		\\
-3		&		65		&	15		\\
-4		&		65		&	17		\\
-5		&		65		&	11		\\
-6		&		12		&	15		\\
-7		&		12		&	9		\\
-8		&		52		&	8		\\
-9		&		52		&	13		\\
-10		&		52		&	18		\\	\bottomrule
+\begin{tabular}[t]{cccc}\toprule
+ODEB	&  Port         &	Vertical	&	Distance [$u$]	\\ \midrule
+1		&  15           &		65		&	7		\\
+2		&  15           &	    65		&	13		\\
+3		&	2           &      	7		&	7		\\
+4		&  15    		&       65		&	9		\\
+5		&  15           &	    65		&	14		\\
+6		&	2           &      	7		&	15		\\
+7		&	2           &      	7		&	9		\\
+8		&	13          &       55		&	8		\\
+9		&	13          &      	55		&	13		\\
+10		&	13          &	    55		&	18		\\	\bottomrule
 \end{tabular}
 \hspace{1cm}
-\begin{tabular}[t]{ccc}\toprule
-ODEB	&	Vertical	&	Distance [$u$]	\\ \midrule
-11		&		12		&	17		\\
-12		&		12		&	12		\\
-13		&		52		&	10		\\
-14		&		52		&	15		\\
-15		&		33		&	12		\\
-16		&		33		&	17		\\
-17		&		33		&	16		\\
-18		&		33		&	10		\\
-19		&		33		&	9		\\	\bottomrule
+\begin{tabular}[t]{cccc}\toprule
+ODEB	&	Port        &    Vertical	&	Distance [$u$]	\\ \midrule
+11		&	2           &	7		&	17		\\
+12		&	2           &	7		&	12		\\
+13		&	13          &	55		&	10		\\
+14		&	13          &	55		&	15		\\
+15		&	7           &	29		&	12		\\
+16		&	7           &	29		&	17		\\
+17		&	7           &	29		&	16		\\
+18		&	7           &	29		&	10		\\
+19		&	7           & 	29		&	9		\\	\bottomrule
 \end{tabular}
-\caption{Required distance of fibre optic cable to reach each OD end-cap bottom (ODEB) diffuser, in units of 2121~mm. Also shown is the vertical support that the fibre will be routed from the bottom of.}\label{tab:bottomEndCapLen}
+\caption{Required distance of fibre optic cable to reach each OD end-cap bottom (ODEB) diffuser, in units of 2121~mm. Also shown is the OD fibre port used, and the vertical support that the fibre will be routed from the bottom of.}\label{tab:bottomEndCapLen}
 \end{table}
-As would be expected, the greatest length of fibre is needed to reach the diffuser position in the centre, ODEB10. This needs a distance of $18u = 38178$~mm. In order to simplify things, this is rounded to 44~m, matching the lengths needed for the deck fibres described in \cref{sec:lengths:sub:deck}. All of these OD diffuser fibres will need to have an FC/PC connector on one end, and stainless steel ferrule on the other. The mating between the barrel and bottom fibres will be potted.
+The longest length of fibre is needed to reach the diffuser position ODEB14. This needs a distance of $19u = 40299$~mm. This is rounded to 45~m, matching the lengths needed for the deck fibres described in \cref{sec:lengths:sub:deck}. All of these OD diffuser fibres will need to have an FC/PC connector on one end, and stainless steel ferrule on the other. The mating between the barrel and bottom fibres will be potted.
 
-\cref{fig:bottomEndCapID} shows the ID injector positions on the bottom end-cap. Each of the four sets will be positioned in one of the four $3\times 3$ cell squares diagonally adjacent to the central square. The longest fibres for these is are those required to run to ID locations 29 and 30, requiring lengths of $19u=40299$~mm. This is still below the decided 44~m length, so causes no issues. The lengths for all four positions are given in \cref{tab:bottomEndCapIDLen}. {\bf Exact cell location will be updated once we have a decided system}. These fibres will require FC/PC connectors on both ends, with matings again being potted.
+\cref{fig:bottomEndCapID} shows the ID injector positions on the bottom end-cap. Each of the four sets will be positioned in one of the four $3\times 3$ cell squares diagonally adjacent to the central square. The longest fibres for these is are those required to run to ID locations 30 and 31, requiring lengths of $18u=38178$~mm. The lengths for all four positions are given in \cref{tab:bottomEndCapIDLen}. These fibres will require FC/PC connectors on both ends, with matings again being potted.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth]{bottomEndCapMapID}
+\includegraphics[width=0.9\textwidth]{BottomIDfibreRouting_280426}
 \caption{Map of ID injector positions on bottom end-cap (red crosses), showing fibre routing plan. Schematic shown is for the deck so port positions do not apply.}\label{fig:bottomEndCapID}
 \end{figure}
 
 \begin{table}[h!]
 \centering
-\begin{tabular}[t]{ccc}\toprule
-ID	&	Vertical	&	Distance [$u$]	\\ \midrule
-29	&		65		&	19		\\
-30	&		33		&	19		\\
-31	&		65		&	17		\\
-32	&		52		&	17		\\	\bottomrule
+\begin{tabular}[t]{cccc}\toprule
+ID	&	Port   &   Vertical	&	Distance [$u$]	\\ \midrule
+29	&	1      &	1		&	17		\\
+30	&	9      &	37		&	18		\\
+31	&	1      &	1		&	18		\\
+32	&	9      &	37		&	17		\\	\bottomrule
 \end{tabular}
-\caption{Required distance of fibre optic cable to reach each OD end-cap bottom (ODEB) diffuser, in units of 2121~mm. Also shown is the vertical support that the fibre will be routed from the bottom of.}\label{tab:bottomEndCapIDLen}
+\caption{Required distance of fibre optic cable to reach each OD end-cap bottom (ODEB) diffuser, in units of 2121~mm. Also shown is the OD fibre port used, and the vertical support that the fibre will be routed from the bottom of.}\label{tab:bottomEndCapIDLen}
 \end{table}
 
 
@@ -1218,36 +1349,36 @@ As previously mentioned, the ID injectors for the top end-cap will be deployed t
 The OD diffusers on the top end-cap (labelled ODET 1--19) will be installed in exactly the same $x$ and $y$ locations as for the bottom end-cap. The difference is in the fibre routing, as there is no easy way to get the fibres from an OD fibre port back up to the top end-cap frame. Instead, all of these fibres will be routed through the `Bidf' calibration port, and then spread out from this position to each respective diffuser. The fibre routing map for this is given in \cref{fig:topEndCap}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth]{topEndCapMap}
-\caption{Map of OD diffuser positions on end-cap (cyan stars), showing fibre routing plan specifically for the top end-cap. All fibres will be deployed through the Bidf calibration port.}\label{fig:topEndCap}
+\includegraphics[width=0.9\textwidth]{TopODfibreRouting_280426}
+\caption{Map of OD diffuser positions on end-cap (cyan stars), showing fibre routing plan specifically for the top end-cap. All fibres will be deployed through the Bidf calibration port, shown near the centre as a dark red circle.}\label{fig:topEndCap}
 \end{figure}
-In a similar way to \cref{sec:lengths:sub:bottom}, the required lengths for these fibres are measured simply by counting the unit lengths along each path. The fibre lengths needed for each injector are given in \cref{tab:topEndCapLen}.
+Similarly to \cref{sec:lengths:sub:bottom}, the lengths required for these fibres are measured simply by counting the unit lengths along each path. The fibre lengths needed for each injector are given in \cref{tab:topEndCapLen}.
 \begin{table}[h!]
 \centering
 \begin{tabular}[t]{cc}\toprule
 ODET	&		Distance [$u$]	\\ \midrule
-1		&		18		\\
+1		&		16		\\
 2		&		10		\\
-3		&		17		\\
-4		&		17		\\
-5		&		11		\\
-6		&		10		\\
-7		&		15		\\
-8		&		15		\\
-9		&		10		\\
-10		&		4		\\	\bottomrule
+3		&		15		\\
+4		&		15		\\
+5		&		9		\\
+6		&		7		\\
+7		&		13		\\
+8		&		14		\\
+9		&		9		\\
+10		&		3		\\	\bottomrule
 \end{tabular}
 \hspace{1cm}
 \begin{tabular}[t]{cc}\toprule
 ODET	&		Distance [$u$]	\\ \midrule
 11		&		8		\\
-12		&		14		\\
-13		&		17		\\
-14		&		11		\\
-15		&		11		\\
+12		&		13		\\
+13		&		16		\\
+14		&		10		\\
+15		&		10		\\
 16		&		16		\\
 17		&		19		\\
-18		&		14		\\
+18		&		13		\\
 19		&		18		\\	\bottomrule
 \end{tabular}
 \caption{Required distance of fibre optic cable to reach each OD end-cap top (ODET) diffuser, in units of 2121~mm.}\label{tab:topEndCapLen}
@@ -1257,17 +1388,17 @@ The greatest length of fibre required comes from connecting to ODET17, the furth
 
 \subsection{Patch Fibres}\label{sec:lengths:sub:patch}
 
-Along with the long lengths of fibres described in the previous sections, a large number of patch fibres will be required at various points within laser and LED systems.
+Along with the long lengths of fibres described in the previous sections, a large number of patch fibres will be required at various points within the laser and LED systems.
 
-As described in \cref{sec:lengths:sub:barrel}, to connect to all ID injectors bar the top end-cap ones an additional patch fibre is also required. ID injectors will be installed on the PMT support structure during construction, while the fibre installation will be carried out after construction of the structure has been completed, by utilising the OD gondola. In order to avoid workers having to reach far out of the gondola, through the support structure, to attach fibres to the injector housing, short patch fibres will be attached to the injectors at the time of their installation. These will span the dead region and be fixed to the outer side of the structure, so that the long fibres can be connected directly to the patch fibres. As part of this a fibre guide will be used, to ensure that the end of the fibre will be pointing vertically upwards for connection, without the fibre being pushed past its bending radius. The required lengths have been measured using a mockup of the support, obtaining values of 640~mm for the diffuser and 530~mm for the collimator. One end of these patch fibres will need to be SMA to connect to the longer fibres, however the other end needs to connect to the FC/PC fibre feedthrough. The plan for how to do this without exposing FC/PC connectors to gadiated water is currently being assessed.
+As described in \cref{sec:lengths:sub:barrel}, to connect to all ID injectors bar the top end-cap ones an additional patch fibre is also required. ID injectors will be installed on the PMT support structure during construction, while the fibre installation will be carried out after construction of the structure has been completed, by utilising the OD gondolas. In order to avoid workers having to reach far out of the gondola, through the support structure, to attach fibres to the injector housing, short patch fibres will be attached to the injectors at the time of their installation. These will span the dead region and be fixed to the outer side of the structure, so that the long fibres can be connected directly to the patch fibres. As part of this a fibre guide will be used, to ensure that the end of the fibre will be pointing vertically upwards for connection, without the fibre being pushed past its bending radius. The required lengths have been measured using a mockup of the support, obtaining values of 330~mm for the diffuser and 225~mm for the collimator. Both ends of these fibres should have FC/PC fibre connections.
 
-Based on \cref{fig:laserswitches}, eight patch fibres will be required for within the laser system itself, not including the five that will come coupled to the laser heads. Five of these will run from individual attenuators to connect the laser heads to the 1x8 switch, and then three are used for the connections between the 1x8 and 1x80 switch, which includes integrating the fibre splitter for the monitor PMT. These will all be FG105UCA fibres with FC/PC connectors on either end, with a rough length requirement of $\sim100$~cm.
+Based on \cref{fig:laserswitches}, eight patch fibres will be required for within the laser system itself, not including the five that will come coupled to the laser heads. Five of these will run from individual attenuators to connect the laser heads to the 1x8 switch, and then three are used for the connections between the 1x8 and 1x80 switches, which includes integrating the fibre splitter for the monitor PMT. These will all be FG105UCA fibres with FC/PC connectors on either end, with a rough length requirement of $\sim100$~cm.
 
 A series of short patch fibres will also be required for the LED system. Each LED pulser board will feature a connector sitting atop the surface mounted LED, with space for two fibres to be inserted. One of these will be directly above the LED to collect as much light as possible, and this will be used for illuminating the OD diffusers. The second will be offset, collecting some of the remaining light to be used as a signal for monitoring purposes. As the monitor system will sit at the electronics rack, much less fibre will be used and therefore less initial light input is required. The design for the the fibre connector is currently ongoing, and will be used to confirm the required length of the patch fibres within the pulser board crates. Initial measurements of the required lengths, which are different due to the topology of the connector, give $21.1\pm1.4$~cm and $18.4\pm0.6$~cm, where the uncertainties here are the measured tolerances on the length. Any shorter than this and the cable will not reach. If the cables are longer, they would be required to bend at a greater angle than their specified bending radius, which will cause degradation over the lifetime of the system. As the connector for the LED pulser board will have the fibres epoxied in, each of these patch cables will require FC/PC connectors on one end, with the other cleaved and polished.
 
 The final set of patch cables for the LED pulser system is that used to connect to the monitor PMTs. The internal patch cable from the LED connector will go into a patch panel on the front of the electronics rack. These patch cables will carry light from that patch panel to a system of several monitor PMTs in the same electronics rack. These will be 1~m long, with an FC/PC connector on the patch panel end, and polished bare fibre at the PMT-facing end.
 
-\cref{tab:fibreSummaryLaser,tab:fibreSummaryLED} summarise all the required fibres for the laser and LED systems respectively, detailing the chosen type, length, connectors and quantities needed. Quantities are also detailed for the cases where the fibres that traverse the barrel region are split into different lengths to minimise excess, which is the preferred approach for this system. In these tables, fibres of the same configuration are grouped together. \cref{tab:fibreDetailsLaser,tab:fibreDetailsLED} in \cref{app:fibreconfig} breaks this down further for additional clarity. As discussed in \cref{sec:fibre:sub:att:sub:results}, all fibres with be tubed using the Thorlabs FT030-BK tubing, the same as used for the UKLI system in Super-K. The exception to this is the LED crate fibres, which will instead be colour-coded.
+\cref{tab:fibreSummaryLaser,tab:fibreSummaryLED} summarise all the required fibres for the laser and LED systems respectively, detailing the chosen type, length, connectors and quantities needed. \cref{tab:fibreDetailsLaser,tab:fibreDetailsLED} in \cref{app:fibreconfig} breaks this down further for additional clarity. As discussed in \cref{sec:fibre:sub:att:sub:results}, all fibres with be tubed using the Thorlabs FT030-BK tubing, the same as used for the UKLI system in Super-K. The exception to this is the LED crate fibres, which will instead be colour-coded.
 
 \begin{table}[h]
 \centering
@@ -1275,19 +1406,16 @@ The final set of patch cables for the LED pulser system is that used to connect 
 \begin{tabular}{ccccc}
 \toprule
 Length [m]	&	Connector A	&	Connector B	&	Required no.	&	Use		\\ \midrule
-80			&	FC/PC		&	SMA			&	64				&	ID Barrel (all)$^\dagger$	\\
-80			&	FC/PC		&	FC/PC		&	9				&	Bottom OD collimators \\
+36			&	FC/PC		&	FC/PC			&	16				&	ID Barrel (levels 1+2) \\
+62			&	FC/PC		&	FC/PC			&	24				&	ID Barrel (levels 3+4+5)	\\
+82			&	FC/PC		&	FC/PC			&	24				&	ID Barrel (levels 6+7+bottom)	\\
+82			&	FC/PC		&	FC/PC		&	12				&	Bottom OD collimators \\
 44			&	FC/PC		&	FC/PC		&	76				&	Deck	\\
-44			&	SMA			&	SMA			&	8				&	Bottom	\\
-10			&	FC/PC		&	SMA			&	2				&	Top ID injectors \\
-10			&	FC/PC		&	FC/PC		&	3				&	Top OD collimators \\
+45			&	FC/PC			&	FC/PC			&	8				&	ID Bottom	\\
+10			&	FC/PC		&	FC/PC			&	2				&	Top ID injectors \\
 1			&	FC/PC		&	FC/PC		&	8				&	Laser system patch cable \\
-0.64		&	SMA			&	FC/PC		&	32				&	ID diffuser patch cable	\\
-0.56		&	SMA			&	FC/PC		&	32				&	ID collimator patch cable	\\ \midrule
-\multicolumn{3}{l}{$^\dagger$Staged approach:}			&					&			\\
-36			&	FC/PC		&	SMA			&	16				&	Barrel (levels 1+2) \\
-62			&	FC/PC		&	SMA			&	24				&	Barrel (levels 3+4+5)	\\
-80			&	FC/PC		&	SMA			&	24				&	Barrel (levels 6+7+bottom)	\\
+0.64		&	FC/PC			&	FC/PC		&	32				&	ID diffuser patch cable	\\
+0.56		&	FC/PC			&	FC/PC		&	32				&	ID collimator patch cable	\\ 
 \bottomrule
 \end{tabular}
 \caption{List of all required fibres for the laser system with necessary lengths, connector configurations, quantities and uses.}\label{tab:fibreSummaryLaser}
@@ -1299,18 +1427,16 @@ Length [m]	&	Connector A	&	Connector B	&	Required no.	&	Use		\\ \midrule
 \begin{tabular}{ccccc}
 \toprule
 Length [m]	&	Connector A	&	Connector B	&	Required no.	&	Use		\\ \midrule
-80			&	FC/PC		&	SMA			&	19				&	Barrel to bottom	\\
-80			&	FC/PC		&	Bare		&	84				&	Barrel injs (all)$^\dagger$	\\
-50			&	FC/PC		&	Bare		&	19				&	Top diffusers \\
+80			&	FC/PC		&	FC/PC			&	19				&	Barrel to bottom	\\
+36			&	FC/PC		&	Ferrule		&	24				&	Barrel diffusers (levels 1+2) \\
+62			&	FC/PC		&	Ferrule		&	36				&	Barrel diffusers (levels 3+4+5)	\\
+80			&	FC/PC		&	Ferrule		&	24				&	Barrel diffusers (levels 6+7)	\\
+50			&	FC/PC		&	Ferrule		&	19				&	Top diffusers \\
 44			&	FC/PC		&	FC/PC		&	103				&	Deck		\\
-44			&	SMA			&	Bare		&	19				&	Bottom diffusers	\\
+44			&	FC/PC			&	Ferrule		&	19				&	Bottom diffusers	\\
 1			&	FC/PC		&	Bare		&	122				&	Crate to monitor PMT(s)	\\
 0.21		&	FC/PC		&	Bare		&	122				&	Crate internal patch 1	\\
-0.18		&	FC/PC		&	Bare		&	122				&	Crate internal patch 2 \\ \midrule
-\multicolumn{3}{l}{$^\dagger$Staged approach:}			&					&			\\
-36			&	FC/PC		&	Bare		&	24				&	Barrel (levels 1+2) \\
-62			&	FC/PC		&	Bare		&	36				&	Barrel (levels 3+4+5)	\\
-80			&	FC/PC		&	Bare		&	24				&	Barrel (levels 6+7)	\\
+0.18		&	FC/PC		&	Bare		&	122				&	Crate internal patch 2 \\ 
 \bottomrule
 \end{tabular}
 \caption{List of all required fibres for the LED system with necessary lengths, connector configurations, quantities and uses.}\label{tab:fibreSummaryLED}
@@ -1678,6 +1804,26 @@ The value used for $Vol_{HK}$ will be the same throughout all calculations and i
     \item $R_{LI-Fibre}$ = $\frac{96\;\text{days}}{90\;\text{days}}\cdot \frac{\left(0.1\;\text{m}/104.74\;\text{cm}^3\right)}{\left(12251.08\;\text{m}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $2.14 \times 10^4$
     \item $R_{Fibre-end}$ = $\frac{96\;\text{days}}{90\;\text{days}}\cdot \frac{\left(1\;\text{fibre end}/94.8\;\text{cm}^3\right)}{\left(522\;\text{fibre ends}/2.58\times10^{11}\;\text{cm}^3\right)}$ = $5.56 \times 10^6$
 \end{itemize}
+
+\clearpage
+\newpage
+
+\section{Barrel Locations and Routing}\label{app:barrelDiagrams}
+\cref{fig:barrelDiagram1,fig:barrelDiagram2} show the locations of all ID and OD injectors in the barrel region, along with the intended fibre routing for them. The fibre routing down the barrel for the OD collimators and bottom ID and OD injectors are also shown. This also shows the locations and fibre/cable routing for the Korean injectors in the barrel region, and the photogrammetry units.
+
+\begin{figure}
+    \centering
+    \includegraphics[angle=90,width=0.9\textwidth]{BarrelLILocationsRouting1_300426}
+    \caption{}
+    \label{fig:barrelDiagram1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[angle=90,width=0.9\textwidth]{BarrelLILocationsRouting2_300426}
+    \caption{}
+    \label{fig:barrelDiagram2}
+\end{figure}
 
 \clearpage
 \newpage
